@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00f88090-6a96-46dd-9c8d-fcd7eaffb842" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8733/PiFormance/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ef5ea6b6-60f9-4a22-a29d-84fd31978488" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="385edb5a-d4c1-4264-8ae5-583b491f7999" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="37e8dd99-4c67-4f88-96ab-472a6dd0660d" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="PiFormance.Services.CpuRelated.xsd" MetadataType="Schema" ID="6fcb4acd-4c64-477c-ab21-e6284d40a273" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
