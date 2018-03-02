@@ -1,5 +1,7 @@
 ﻿namespace PiFormance.Client.Connection
 {
+	using System;
+	using System.Linq;
 	using System.ServiceModel;
 	using System.Threading.Tasks;
 	using Cpu;
@@ -10,9 +12,21 @@
 
 		protected override async void SetupServiceClient()
 		{
-			Client = new CpuServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://localhost:8733/PiFormance/"));
-			Connect();
-			await AcknowledgeAsync();
+			var addresses = new ConnectionChecker().GetEligableAddresses().ToList();
+
+			foreach (var ipAddress in addresses)
+			{
+				try
+				{
+					Client = new CpuServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
+					Connect();
+					await AcknowledgeAsync();
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+			}
 		}
 
 		protected override void RegisterCallbackHandlers()

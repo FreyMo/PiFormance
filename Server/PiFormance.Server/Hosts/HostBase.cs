@@ -1,5 +1,6 @@
 namespace PiFormance.Server.Hosts
 {
+	using System;
 	using System.ServiceModel;
 	using Core.Common.ArgumentMust;
 	using Core.Common.Dispose;
@@ -21,12 +22,18 @@ namespace PiFormance.Server.Hosts
 
 			_serviceHost = new ServiceHost(service);
 			_serviceHost.Open();
+			_serviceHost.Faulted += FaultedEventHandler;
+		}
+
+		private void FaultedEventHandler(object sender, EventArgs e)
+		{
+			Console.WriteLine("Faulted");
 		}
 
 		public TServiceInterface Service { get; }
 
 		public TCallback Callback => Service.As<TService>().Callback;
-
+		
 		protected override void DisposeManagedResources()
 		{
 			_serviceHost.Close();
