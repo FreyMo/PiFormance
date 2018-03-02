@@ -19,15 +19,15 @@
 		}
 
 		[DataMember]
-		public int Id { get; }
+		public int Id { get; private set; }
 
 		[DataMember]
-		public Clock Clock { get; }
+		public Clock Clock { get; private set; }
 
 		[DataMember]
-		public Temperature Temperature { get; }
+		public Temperature Temperature { get; private set; }
 
 		[DataMember]
-		public Load Load { get; }
+		public Load Load { get; private set; }
 	}
 }

@@ -6,7 +6,6 @@
 	{
 		public void CpuChanged(Cpu cpu)
 		{
-			throw new System.NotImplementedException();
 		}
 	}
 }

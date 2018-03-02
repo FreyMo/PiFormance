@@ -16,9 +16,9 @@
 		}
 
 		[DataMember]
-		public int Id { get; }
+		public int Id { get; private set; }
 
 		[DataMember]
-		public IEnumerable<Core> Cores { get; }
+		public IEnumerable<Core> Cores { get; private set; }
 	}
 }
