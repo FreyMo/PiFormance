@@ -4,7 +4,7 @@
 
 	public class CpuAccessorService : ICpuServiceCallback
 	{
-		public void CpuChanged(Cpu cpu)
+		public void CpuChanged(CpuSample cpuSample)
 		{
 		}
 

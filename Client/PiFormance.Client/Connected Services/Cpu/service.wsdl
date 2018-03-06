@@ -20,6 +20,7 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Notification" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.TemperatureQuantity" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.MemoryQuantity" />
     </xsd:schema>
   </wsdl:types>

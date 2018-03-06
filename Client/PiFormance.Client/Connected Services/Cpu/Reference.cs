@@ -17,8 +17,8 @@ namespace PiFormance.Client.Cpu {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Cpu", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
-    public partial class Cpu : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="CpuSample", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
+    public partial class CpuSample : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PiFormance.Client.Cpu.Frequency ClockSpeedField;
         
@@ -75,7 +75,7 @@ namespace PiFormance.Client.Cpu {
         
         private PiFormance.Client.Cpu.Load LoadField;
         
-        private PiFormance.Client.Cpu.Temperature TemperatureField;
+        private PiFormance.Client.Cpu.ThermalReading TemperatureField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
@@ -104,7 +104,7 @@ namespace PiFormance.Client.Cpu {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PiFormance.Client.Cpu.Temperature Temperature {
+        public PiFormance.Client.Cpu.ThermalReading Temperature {
             get {
                 return this.TemperatureField;
             }
@@ -132,6 +132,9 @@ namespace PiFormance.Client.Cpu {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfRatioP6CKV5DK))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Ratio))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Load))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfTemperaturemklq4rKt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Temperature))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.ThermalReading))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfMemory_STgboZd0))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Memory))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfFrequency9McGUATy))]
@@ -186,6 +189,28 @@ namespace PiFormance.Client.Cpu {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhysicalQuantityOfTemperaturemklq4rKt", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Temperature))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.ThermalReading))]
+    public partial class PhysicalQuantityOfTemperaturemklq4rKt : PiFormance.Client.Cpu.Bindable {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Temperature", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.TemperatureQuantit" +
+        "y")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.ThermalReading))]
+    public partial class Temperature : PiFormance.Client.Cpu.PhysicalQuantityOfTemperaturemklq4rKt {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ThermalReading", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
+    public partial class ThermalReading : PiFormance.Client.Cpu.Temperature {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PhysicalQuantityOfMemory_STgboZd0", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Memory))]
     public partial class PhysicalQuantityOfMemory_STgboZd0 : PiFormance.Client.Cpu.Bindable {
@@ -202,21 +227,6 @@ namespace PiFormance.Client.Cpu {
     [System.Runtime.Serialization.DataContractAttribute(Name="PhysicalQuantityOfFrequency9McGUATy", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Frequency))]
     public partial class PhysicalQuantityOfFrequency9McGUATy : PiFormance.Client.Cpu.Bindable {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Temperature", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
-    public partial class Temperature : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -316,6 +326,37 @@ namespace PiFormance.Client.Cpu {
     public partial class Percent : PiFormance.Client.Cpu.UnitOfRatioP6CKV5DK {
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitOfTemperaturemklq4rKt", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.BaseUnitOfTemperaturemklq4rKt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Celsius))]
+    public partial class UnitOfTemperaturemklq4rKt : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BaseUnitOfTemperaturemklq4rKt", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Celsius))]
+    public partial class BaseUnitOfTemperaturemklq4rKt : PiFormance.Client.Cpu.UnitOfTemperaturemklq4rKt {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Celsius", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.TemperatureQuantit" +
+        "y")]
+    public partial class Celsius : PiFormance.Client.Cpu.BaseUnitOfTemperaturemklq4rKt {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Cpu.ICpuService", CallbackContract=typeof(PiFormance.Client.Cpu.ICpuServiceCallback))]
     public interface ICpuService {
@@ -328,7 +369,7 @@ namespace PiFormance.Client.Cpu {
     public interface ICpuServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ICpuService/CpuChanged")]
-        void CpuChanged(PiFormance.Client.Cpu.Cpu cpu);
+        void CpuChanged(PiFormance.Client.Cpu.CpuSample cpuSample);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ICpuService/RamUsageChanged")]
         void RamUsageChanged(PiFormance.Client.Cpu.RamUsage ramUsage);
@@ -431,10 +472,10 @@ namespace PiFormance.Client.Cpu {
             this.results = results;
         }
         
-        public PiFormance.Client.Cpu.Cpu cpu {
+        public PiFormance.Client.Cpu.CpuSample cpuSample {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((PiFormance.Client.Cpu.Cpu)(this.results[0]));
+                return ((PiFormance.Client.Cpu.CpuSample)(this.results[0]));
             }
         }
     }
@@ -511,9 +552,9 @@ namespace PiFormance.Client.Cpu {
                 this.proxy = proxy;
             }
             
-            public void CpuChanged(PiFormance.Client.Cpu.Cpu cpu) {
+            public void CpuChanged(PiFormance.Client.Cpu.CpuSample cpuSample) {
                 this.proxy.OnCpuChangedReceived(new object[] {
-                            cpu});
+                            cpuSample});
             }
             
             public void RamUsageChanged(PiFormance.Client.Cpu.RamUsage ramUsage) {

@@ -6,7 +6,7 @@
 	public interface ICpuCallback
 	{
 		[OperationContract(IsOneWay = true)]
-		void CpuChanged(Cpu cpu);
+		void CpuChanged(CpuSample cpuSample);
 
 		[OperationContract(IsOneWay = true)]
 		void RamUsageChanged(RamUsage ramUsage);

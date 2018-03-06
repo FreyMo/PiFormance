@@ -36,7 +36,7 @@
 			{
 				foreach (var callback in _callbacks)
 				{
-					callback.CpuChanged(y.cpu);
+					callback.CpuChanged(y.cpuSample);
 				}
 			};
 		}

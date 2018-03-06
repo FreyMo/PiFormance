@@ -6,9 +6,9 @@
 	using global::Core.Common.Quantities.FrequencyQuantity;
 
 	[DataContract]
-	public class Cpu
+	public class CpuSample
 	{
-		public Cpu(Frequency clockSpeed, IEnumerable<Core> cores)
+		public CpuSample(Frequency clockSpeed, IEnumerable<Core> cores)
 		{
 			ArgumentMust.NotBeNull(() => clockSpeed);
 			ArgumentMust.NotBeNullOrEmpty(() => cores);

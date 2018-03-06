@@ -1,30 +1,31 @@
-﻿namespace PiFormance.Server.Accessors
+﻿namespace PiFormance.Server.HardwareAccess
 {
 	using System.Timers;
 	using Core.Common.ArgumentMust;
 	using Core.Common.Dispose;
 	using Core.Common.Extensions;
-	using Core.Common.Quantities.FrequencyQuantity;
 	using Core.Common.Quantities.FrequencyQuantity.Extensions;
-	using Core.Common.Quantities.MemoryQuantity.Extensions;
 	using Core.Common.Quantities.RatioQuantity;
-	using Core.Common.Quantities.RatioQuantity.Extensions;
+	using Core.Common.Quantities.TemperatureQuantity;
 	using Hosts;
 	using Services.Cpu;
 	using Services.CpuRelated;
 
-	public class CpuAccessor : DisposableBase
+	public class SystemProvider : DisposableBase
 	{
 		private readonly ICpuCallback _cpuCallback;
-		private readonly SystemAccess _systemAccess;
+		private readonly ICpuAccess _cpuAccess;
+		private readonly IMemoryAccess _memoryAccess;
 
-		public CpuAccessor(ICpuCallback cpuCallback, SystemAccess systemAccess)
+		public SystemProvider(ICpuCallback cpuCallback, ICpuAccess cpuAccess, IMemoryAccess memoryAccess)
 		{
 			ArgumentMust.NotBeNull(() => cpuCallback);
-			ArgumentMust.NotBeNull(() => systemAccess);
+			ArgumentMust.NotBeNull(() => cpuAccess);
+			ArgumentMust.NotBeNull(() => memoryAccess);
 
 			_cpuCallback = cpuCallback;
-			_systemAccess = systemAccess;
+			_cpuAccess = cpuAccess;
+			_memoryAccess = memoryAccess;
 
 			SetupTimer();
 		}
@@ -41,16 +42,16 @@
 
 		private void HandleTimer()
 		{
-			var cpu = new Cpu(5.GigaHertz(), new[] {new Core(3, new Temperature(), new Load(50, Percent.Instance))});
+			var cpu = new CpuSample(5.GigaHertz(), new[] {new Core(3, new ThermalReading(50, Celsius.Instance), new Load(50, Percent.Instance))});
 
-			_cpuCallback.CpuChanged(cpu);
-			_cpuCallback.RamUsageChanged(new RamUsage(5.GibiBytes(), 200.MebiBytes()));
+			_cpuCallback.CpuChanged(_cpuAccess.GetCpuSample());
+			_cpuCallback.RamUsageChanged(_memoryAccess.GetRamUsage());
 		}
 
 		protected override void DisposeManagedResources()
 		{
 			_cpuCallback.As<CpuCallbackProxy>().Dispose();
-			_systemAccess.Dispose();
+			_cpuAccess.Dispose();
 		}
 	}
 }

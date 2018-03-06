@@ -17,11 +17,11 @@
 			_host = host;
 		}
 
-		public void CpuChanged(Cpu cpu)
+		public void CpuChanged(CpuSample cpuSample)
 		{
 			if (_host.Callback != null)
 			{
-				_host.Callback.CpuChanged(cpu);
+				_host.Callback.CpuChanged(cpuSample);
 				Console.WriteLine("CALLBACK SENT!");
 			}
 			else

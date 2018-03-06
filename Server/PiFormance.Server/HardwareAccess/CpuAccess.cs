@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Server.Accessors
+﻿namespace PiFormance.Server.HardwareAccess
 {
 	using System;
 	using System.Collections.Generic;
@@ -8,40 +8,34 @@
 	using Core.Common.Dispose;
 	using Core.Common.Quantities.FrequencyQuantity;
 	using Core.Common.Quantities.FrequencyQuantity.Extensions;
-	using Core.Common.Quantities.MemoryQuantity.Extensions;
 	using Core.Common.Quantities.RatioQuantity;
-	using Microsoft.VisualBasic.Devices;
+	using Core.Common.Quantities.TemperatureQuantity;
 	using Services.CpuRelated;
 
-	public class SystemAccess : DisposableBase
+	public class CpuAccess : DisposableBase, ICpuAccess
 	{
-		private readonly ComputerInfo _computerInfo = new ComputerInfo();
 		private readonly IList<PerformanceCounter> _cpuLoadCounters;
 		private readonly ManagementObject _managementObject = new ManagementObject("Win32_Processor.DeviceID='CPU0'");
 
-		public SystemAccess()
+		public CpuAccess()
 		{
 			_cpuLoadCounters = GetCpuLoadPerformanceCounters().ToList();
 
 			Console.WriteLine(GetCpuSpeed().In<GigaHertz>());
 		}
-
-		public RamUsage GetRamUsage()
+		
+		public CpuSample GetCpuSample()
 		{
-			return new RamUsage(
-				((double)_computerInfo.TotalPhysicalMemory).Bytes(),
-				((double)_computerInfo.AvailablePhysicalMemory).Bytes());
-		}
-
-		public Cpu GetCpu()
-		{
-			return new Cpu(
+			return new CpuSample(
 				GetCpuSpeed(),
 				_cpuLoadCounters.Select(
-					counter => new Core(int.Parse(counter.InstanceName), new Temperature(), new Load(counter.NextValue(), Percent.Instance))));
+					counter => new Core(
+						int.Parse(counter.InstanceName),
+						new ThermalReading(50, Celsius.Instance),
+						new Load(counter.NextValue(), Percent.Instance))));
 		}
 
-		public Frequency GetCpuSpeed()
+		private Frequency GetCpuSpeed()
 		{
 			return ((int)(uint)_managementObject["CurrentClockSpeed"]).MegaHertz();
 		}

@@ -42,13 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CpuRelated\Core.cs" />
-    <Compile Include="CpuRelated\Cpu.cs" />
+    <Compile Include="CpuRelated\CpuSample.cs" />
     <Compile Include="CpuRelated\Load.cs" />
     <Compile Include="CpuRelated\RamUsage.cs" />
+    <Compile Include="CpuRelated\ThermalReading.cs" />
     <Compile Include="Cpu\CpuService.cs" />
     <Compile Include="Cpu\ICpuCallback.cs" />
     <Compile Include="Cpu\ICpuService.cs" />
-    <Compile Include="CpuRelated\Temperature.cs" />
     <Compile Include="IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBase.cs" />

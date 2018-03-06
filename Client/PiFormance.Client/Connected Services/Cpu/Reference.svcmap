@@ -33,6 +33,7 @@
     <MetadataFile FileName="Core.Common.Notification.xsd" MetadataType="Schema" ID="edfbfa46-1552-43c0-b031-7b9788ba6e5f" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="d732b84e-fa73-4b18-8701-465f951bc704" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
     <MetadataFile FileName="Core.Common.Quantities.RatioQuantity.xsd" MetadataType="Schema" ID="26e05578-e09a-44ee-847e-d7862e6a7284" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Common.Quantities.TemperatureQuantity.xsd" MetadataType="Schema" ID="35fa4fa2-8a56-43c0-aa08-580232927e69" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
     <MetadataFile FileName="Core.Common.Quantities.MemoryQuantity.xsd" MetadataType="Schema" ID="a92092d9-9a20-48e2-a007-5f7133cd8bbd" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
   </Metadata>
   <Extensions>

@@ -42,8 +42,11 @@
     <Reference Include="System.ServiceModel.Activation" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accessors\CpuAccessor.cs" />
-    <Compile Include="Accessors\SystemAccess.cs" />
+    <Compile Include="HardwareAccess\SystemProvider.cs" />
+    <Compile Include="HardwareAccess\ICpuAccess.cs" />
+    <Compile Include="HardwareAccess\IMemoryAccess.cs" />
+    <Compile Include="HardwareAccess\MemoryAccess.cs" />
+    <Compile Include="HardwareAccess\CpuAccess.cs" />
     <Compile Include="Hosts\CpuCallbackProxy.cs" />
     <Compile Include="Hosts\CpuHost.cs" />
     <Compile Include="Hosts\HostBase.cs" />

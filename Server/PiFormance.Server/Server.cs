@@ -1,17 +1,17 @@
 ﻿namespace PiFormance.Server
 {
-	using Accessors;
 	using Core.Common.Dispose;
+	using HardwareAccess;
 	using Hosts;
 	using Services.Cpu;
 
 	public class Server : DisposableBase
 	{
-		private readonly CpuAccessor _cpuAccessor = new CpuAccessor(new CpuCallbackProxy(new CpuHost(new CpuService())), new SystemAccess());
+		private readonly SystemProvider _systemProvider = new SystemProvider(new CpuCallbackProxy(new CpuHost(new CpuService())), new CpuAccess(), new MemoryAccess());
 
 		protected override void DisposeManagedResources()
 		{
-			_cpuAccessor.Dispose();
+			_systemProvider.Dispose();
 		}
 	}
 }
