@@ -6,12 +6,9 @@
 	using System.Linq;
 	using System.Management;
 	using Core.Common.Dispose;
-	using Core.Common.Extensions;
 	using Core.Common.Quantities.FrequencyQuantity;
 	using Core.Common.Quantities.FrequencyQuantity.Extensions;
-	using Core.Common.Quantities.RatioQuantity;
 	using Core.Common.Quantities.RatioQuantity.Extensions;
-	using Core.Common.Quantities.TemperatureQuantity;
 	using Core.Common.Quantities.TemperatureQuantity.Extensions;
 	using Services.CpuRelated;
 
@@ -26,10 +23,11 @@
 
 			Console.WriteLine(GetCpuSpeed().In<GigaHertz>());
 		}
-		
+
 		public CpuSample GetCpuSample()
 		{
-			var cores = _cpuLoadCounters.Select(counter => new Core(int.Parse(counter.InstanceName), 50.DegreesCelsius(), ((double)counter.NextValue()).Percent()));
+			var cores = _cpuLoadCounters.Select(
+				counter => new Core(int.Parse(counter.InstanceName), 50.DegreesCelsius(), ((double)counter.NextValue()).Percent()));
 
 			return new CpuSample(GetCpuSpeed(), cores);
 		}
