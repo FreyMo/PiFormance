@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.FrequencyQuantity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.MemoryQuantity" />
   <xs:complexType name="Cpu">
     <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.FrequencyQuantity" minOccurs="0" name="ClockSpeed" nillable="true" type="q1:Frequency" />
       <xs:element minOccurs="0" name="Cores" nillable="true" type="tns:ArrayOfCore" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cpu" nillable="true" type="tns:Cpu" />
@@ -15,23 +18,30 @@
   <xs:element name="ArrayOfCore" nillable="true" type="tns:ArrayOfCore" />
   <xs:complexType name="Core">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Clock" nillable="true" type="tns:Clock" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Load" nillable="true" type="tns:Load" />
       <xs:element minOccurs="0" name="Temperature" nillable="true" type="tns:Temperature" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Core" nillable="true" type="tns:Core" />
-  <xs:complexType name="Clock">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="Clock" nillable="true" type="tns:Clock" />
   <xs:complexType name="Load">
-    <xs:sequence />
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity" base="q2:Ratio">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Load" nillable="true" type="tns:Load" />
   <xs:complexType name="Temperature">
     <xs:sequence />
   </xs:complexType>
   <xs:element name="Temperature" nillable="true" type="tns:Temperature" />
+  <xs:complexType name="RamUsage">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.MemoryQuantity" minOccurs="0" name="AvailableMemory" nillable="true" type="q3:Memory" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.MemoryQuantity" minOccurs="0" name="TotalMemory" nillable="true" type="q4:Memory" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity" minOccurs="0" name="Usage" nillable="true" type="q5:Ratio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RamUsage" nillable="true" type="tns:RamUsage" />
 </xs:schema>

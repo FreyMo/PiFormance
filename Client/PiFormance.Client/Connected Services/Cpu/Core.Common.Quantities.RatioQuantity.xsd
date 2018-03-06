@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" />
+  <xs:complexType name="Ratio">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" base="q1:PhysicalQuantityOfRatioP6CKV5DK">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Ratio" nillable="true" type="tns:Ratio" />
+  <xs:complexType name="Percent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" base="q2:UnitOfRatioP6CKV5DK">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Percent" nillable="true" type="tns:Percent" />
+  <xs:complexType name="Whole">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" base="q3:BaseUnitOfRatioP6CKV5DK">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Whole" nillable="true" type="tns:Whole" />
+</xs:schema>

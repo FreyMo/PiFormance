@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Common.Notification" />
+  <xs:complexType name="PhysicalQuantityOfFrequency9McGUATy">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Frequency" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.FrequencyQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Common.Notification" base="q1:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfFrequency9McGUATy" nillable="true" type="tns:PhysicalQuantityOfFrequency9McGUATy" />
+  <xs:complexType name="PhysicalQuantityOfRatioP6CKV5DK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Ratio" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Common.Notification" base="q2:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfRatioP6CKV5DK" nillable="true" type="tns:PhysicalQuantityOfRatioP6CKV5DK" />
+  <xs:complexType name="UnitOfRatioP6CKV5DK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="UnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Ratio" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UnitOfRatioP6CKV5DK" nillable="true" type="tns:UnitOfRatioP6CKV5DK" />
+  <xs:complexType name="BaseUnitOfRatioP6CKV5DK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="BaseUnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Ratio" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UnitOfRatioP6CKV5DK">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseUnitOfRatioP6CKV5DK" nillable="true" type="tns:BaseUnitOfRatioP6CKV5DK" />
+  <xs:complexType name="PhysicalQuantityOfMemory_STgboZd0">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Memory" Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.MemoryQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Common.Notification" base="q3:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfMemory_STgboZd0" nillable="true" type="tns:PhysicalQuantityOfMemory_STgboZd0" />
+</xs:schema>

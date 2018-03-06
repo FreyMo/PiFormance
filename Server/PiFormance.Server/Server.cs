@@ -7,15 +7,11 @@
 
 	public class Server : DisposableBase
 	{
-		private readonly CpuAccessor _cpuAccessor = new CpuAccessor(new CpuCallbackProxy(new CpuHost(new CpuService())));
+		private readonly CpuAccessor _cpuAccessor = new CpuAccessor(new CpuCallbackProxy(new CpuHost(new CpuService())), new SystemAccess());
 
 		protected override void DisposeManagedResources()
 		{
 			_cpuAccessor.Dispose();
-		}
-
-		protected override void DisposeUnmanagedResources()
-		{
 		}
 	}
 }

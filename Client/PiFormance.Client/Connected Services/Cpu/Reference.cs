@@ -20,9 +20,22 @@ namespace PiFormance.Client.Cpu {
     [System.Runtime.Serialization.DataContractAttribute(Name="Cpu", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
     public partial class Cpu : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private PiFormance.Client.Cpu.Frequency ClockSpeedField;
+        
         private System.Collections.ObjectModel.ObservableCollection<PiFormance.Client.Cpu.Core> CoresField;
         
-        private int IdField;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PiFormance.Client.Cpu.Frequency ClockSpeed {
+            get {
+                return this.ClockSpeedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClockSpeedField, value) != true)) {
+                    this.ClockSpeedField = value;
+                    this.RaisePropertyChanged("ClockSpeed");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<PiFormance.Client.Cpu.Core> Cores {
@@ -33,19 +46,6 @@ namespace PiFormance.Client.Cpu {
                 if ((object.ReferenceEquals(this.CoresField, value) != true)) {
                     this.CoresField = value;
                     this.RaisePropertyChanged("Cores");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -62,29 +62,20 @@ namespace PiFormance.Client.Cpu {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Frequency", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.FrequencyQuantity")]
+    public partial class Frequency : PiFormance.Client.Cpu.PhysicalQuantityOfFrequency9McGUATy {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Core", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
     public partial class Core : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private PiFormance.Client.Cpu.Clock ClockField;
         
         private int IdField;
         
         private PiFormance.Client.Cpu.Load LoadField;
         
         private PiFormance.Client.Cpu.Temperature TemperatureField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public PiFormance.Client.Cpu.Clock Clock {
-            get {
-                return this.ClockField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ClockField, value) != true)) {
-                    this.ClockField = value;
-                    this.RaisePropertyChanged("Clock");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
@@ -137,8 +128,30 @@ namespace PiFormance.Client.Cpu {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Clock", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
-    public partial class Clock : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bindable", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Notification")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfRatioP6CKV5DK))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Ratio))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Load))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfMemory_STgboZd0))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Memory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.PhysicalQuantityOfFrequency9McGUATy))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Frequency))]
+    public partial class Bindable : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Collections.Generic.Dictionary<string, object> _propertyFieldDictionaryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.Dictionary<string, object> _propertyFieldDictionary {
+            get {
+                return this._propertyFieldDictionaryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._propertyFieldDictionaryField, value) != true)) {
+                    this._propertyFieldDictionaryField = value;
+                    this.RaisePropertyChanged("_propertyFieldDictionary");
+                }
+            }
+        }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -152,17 +165,43 @@ namespace PiFormance.Client.Cpu {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhysicalQuantityOfRatioP6CKV5DK", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Ratio))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Load))]
+    public partial class PhysicalQuantityOfRatioP6CKV5DK : PiFormance.Client.Cpu.Bindable {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Ratio", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Load))]
+    public partial class Ratio : PiFormance.Client.Cpu.PhysicalQuantityOfRatioP6CKV5DK {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Load", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
-    public partial class Load : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+    public partial class Load : PiFormance.Client.Cpu.Ratio {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhysicalQuantityOfMemory_STgboZd0", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Memory))]
+    public partial class PhysicalQuantityOfMemory_STgboZd0 : PiFormance.Client.Cpu.Bindable {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Memory", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.MemoryQuantity")]
+    public partial class Memory : PiFormance.Client.Cpu.PhysicalQuantityOfMemory_STgboZd0 {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhysicalQuantityOfFrequency9McGUATy", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Frequency))]
+    public partial class PhysicalQuantityOfFrequency9McGUATy : PiFormance.Client.Cpu.Bindable {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -180,6 +219,103 @@ namespace PiFormance.Client.Cpu {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RamUsage", Namespace="http://schemas.datacontract.org/2004/07/PiFormance.Services.CpuRelated")]
+    public partial class RamUsage : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private PiFormance.Client.Cpu.Memory AvailableMemoryField;
+        
+        private PiFormance.Client.Cpu.Memory TotalMemoryField;
+        
+        private PiFormance.Client.Cpu.Ratio UsageField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PiFormance.Client.Cpu.Memory AvailableMemory {
+            get {
+                return this.AvailableMemoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AvailableMemoryField, value) != true)) {
+                    this.AvailableMemoryField = value;
+                    this.RaisePropertyChanged("AvailableMemory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PiFormance.Client.Cpu.Memory TotalMemory {
+            get {
+                return this.TotalMemoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TotalMemoryField, value) != true)) {
+                    this.TotalMemoryField = value;
+                    this.RaisePropertyChanged("TotalMemory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PiFormance.Client.Cpu.Ratio Usage {
+            get {
+                return this.UsageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsageField, value) != true)) {
+                    this.UsageField = value;
+                    this.RaisePropertyChanged("Usage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitOfRatioP6CKV5DK", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.BaseUnitOfRatioP6CKV5DK))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Whole))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Percent))]
+    public partial class UnitOfRatioP6CKV5DK : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BaseUnitOfRatioP6CKV5DK", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(PiFormance.Client.Cpu.Whole))]
+    public partial class BaseUnitOfRatioP6CKV5DK : PiFormance.Client.Cpu.UnitOfRatioP6CKV5DK {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Whole", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity")]
+    public partial class Whole : PiFormance.Client.Cpu.BaseUnitOfRatioP6CKV5DK {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Percent", Namespace="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.RatioQuantity")]
+    public partial class Percent : PiFormance.Client.Cpu.UnitOfRatioP6CKV5DK {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Cpu.ICpuService", CallbackContract=typeof(PiFormance.Client.Cpu.ICpuServiceCallback))]
     public interface ICpuService {
@@ -193,6 +329,9 @@ namespace PiFormance.Client.Cpu {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ICpuService/CpuChanged")]
         void CpuChanged(PiFormance.Client.Cpu.Cpu cpu);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ICpuService/RamUsageChanged")]
+        void RamUsageChanged(PiFormance.Client.Cpu.RamUsage ramUsage);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -300,6 +439,23 @@ namespace PiFormance.Client.Cpu {
         }
     }
     
+    public class RamUsageChangedReceivedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RamUsageChangedReceivedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public PiFormance.Client.Cpu.RamUsage ramUsage {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((PiFormance.Client.Cpu.RamUsage)(this.results[0]));
+            }
+        }
+    }
+    
     public partial class CpuServiceClient : CpuServiceClientBase {
         
         public CpuServiceClient(EndpointConfiguration endpointConfiguration) : 
@@ -331,10 +487,19 @@ namespace PiFormance.Client.Cpu {
         
         public event System.EventHandler<CpuChangedReceivedEventArgs> CpuChangedReceived;
         
+        public event System.EventHandler<RamUsageChangedReceivedEventArgs> RamUsageChangedReceived;
+        
         private void OnCpuChangedReceived(object state) {
             if ((this.CpuChangedReceived != null)) {
                 object[] results = ((object[])(state));
                 this.CpuChangedReceived(this, new CpuChangedReceivedEventArgs(results, null, false, null));
+            }
+        }
+        
+        private void OnRamUsageChangedReceived(object state) {
+            if ((this.RamUsageChangedReceived != null)) {
+                object[] results = ((object[])(state));
+                this.RamUsageChangedReceived(this, new RamUsageChangedReceivedEventArgs(results, null, false, null));
             }
         }
         
@@ -349,6 +514,11 @@ namespace PiFormance.Client.Cpu {
             public void CpuChanged(PiFormance.Client.Cpu.Cpu cpu) {
                 this.proxy.OnCpuChangedReceived(new object[] {
                             cpu});
+            }
+            
+            public void RamUsageChanged(PiFormance.Client.Cpu.RamUsage ramUsage) {
+                this.proxy.OnRamUsageChangedReceived(new object[] {
+                            ramUsage});
             }
         }
     }

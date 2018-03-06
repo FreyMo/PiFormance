@@ -3,20 +3,21 @@
 	using System.Collections.Generic;
 	using System.Runtime.Serialization;
 	using global::Core.Common.ArgumentMust;
+	using global::Core.Common.Quantities.FrequencyQuantity;
 
 	[DataContract]
 	public class Cpu
 	{
-		public Cpu(int id, IEnumerable<Core> cores)
+		public Cpu(Frequency clockSpeed, IEnumerable<Core> cores)
 		{
+			ArgumentMust.NotBeNull(() => clockSpeed);
 			ArgumentMust.NotBeNullOrEmpty(() => cores);
 
-			Id = id;
 			Cores = cores;
 		}
-
+		
 		[DataMember]
-		public int Id { get; private set; }
+		public Frequency ClockSpeed { get; private set; }
 
 		[DataMember]
 		public IEnumerable<Core> Cores { get; private set; }

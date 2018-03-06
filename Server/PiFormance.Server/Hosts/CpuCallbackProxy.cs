@@ -30,13 +30,22 @@
 			}
 		}
 
+		public void RamUsageChanged(RamUsage ramUsage)
+		{
+			if (_host.Callback != null)
+			{
+				_host.Callback.RamUsageChanged(ramUsage);
+				Console.WriteLine("CALLBACK SENT!");
+			}
+			else
+			{
+				Console.WriteLine("Callback sent to no one.");
+			}
+		}
+
 		protected override void DisposeManagedResources()
 		{
 			_host.Dispose();
-		}
-
-		protected override void DisposeUnmanagedResources()
-		{
 		}
 	}
 }

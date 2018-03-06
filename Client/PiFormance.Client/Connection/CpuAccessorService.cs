@@ -7,5 +7,9 @@
 		public void CpuChanged(Cpu cpu)
 		{
 		}
+
+		public void RamUsageChanged(RamUsage ramUsage)
+		{
+		}
 	}
 }

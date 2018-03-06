@@ -18,7 +18,8 @@
 			{
 				try
 				{
-					Client = new CpuServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
+					// Client = new CpuServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
+					Client = new CpuServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://192.168.0.241:8733/PiFormance/"));
 					Connect();
 					await AcknowledgeAsync();
 				}

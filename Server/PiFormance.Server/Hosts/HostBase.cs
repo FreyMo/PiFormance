@@ -38,9 +38,5 @@ namespace PiFormance.Server.Hosts
 		{
 			_serviceHost.Close();
 		}
-
-		protected override void DisposeUnmanagedResources()
-		{
-		}
 	}
 }

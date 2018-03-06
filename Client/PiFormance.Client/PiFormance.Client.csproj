@@ -116,6 +116,24 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Connected Services\Cpu\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Cpu\Core.Common.Notification.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Cpu\Core.Common.Quantities.Definitions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Cpu\Core.Common.Quantities.FrequencyQuantity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Cpu\Core.Common.Quantities.MemoryQuantity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Cpu\Core.Common.Quantities.RatioQuantity.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Cpu\PiFormance.Services.CpuRelated.xsd">
       <SubType>Designer</SubType>
     </None>

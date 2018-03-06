@@ -41,10 +41,10 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CpuRelated\Clock.cs" />
     <Compile Include="CpuRelated\Core.cs" />
     <Compile Include="CpuRelated\Cpu.cs" />
     <Compile Include="CpuRelated\Load.cs" />
+    <Compile Include="CpuRelated\RamUsage.cs" />
     <Compile Include="Cpu\CpuService.cs" />
     <Compile Include="Cpu\ICpuCallback.cs" />
     <Compile Include="Cpu\ICpuService.cs" />

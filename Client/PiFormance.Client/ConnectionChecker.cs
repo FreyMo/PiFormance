@@ -19,6 +19,12 @@
 									  .Where(address => address.AddressFamily == AddressFamily.InterNetwork)
 									  .ToList();
 
+			var Hosts = Windows.Networking.Connectivity.NetworkInformation.GetHostNames().ToList();
+			foreach (var Host in Hosts)
+			{
+				string IP = Host.DisplayName;
+			}
+
 			if (addresses.Count > 1)
 			{
 				return addresses.Except(new[] { GetLocalIpAddress() });
