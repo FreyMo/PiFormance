@@ -9,10 +9,6 @@
 	[DataContract]
 	public class Load : Ratio
 	{
-		public Load() : base(0, Percent.Instance)
-		{
-		}
-
 		public Load(double value, Unit<Ratio> unit) : base(value, unit)
 		{
 		}

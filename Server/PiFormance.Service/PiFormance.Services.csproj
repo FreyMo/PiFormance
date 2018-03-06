@@ -45,7 +45,6 @@
     <Compile Include="CpuRelated\CpuSample.cs" />
     <Compile Include="CpuRelated\Load.cs" />
     <Compile Include="CpuRelated\RamUsage.cs" />
-    <Compile Include="CpuRelated\ThermalReading.cs" />
     <Compile Include="Cpu\CpuService.cs" />
     <Compile Include="Cpu\ICpuCallback.cs" />
     <Compile Include="Cpu\ICpuService.cs" />

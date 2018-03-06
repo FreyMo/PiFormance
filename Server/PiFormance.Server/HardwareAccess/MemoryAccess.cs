@@ -1,5 +1,6 @@
 ﻿namespace PiFormance.Server.HardwareAccess
 {
+	using Core.Common.Quantities.MemoryQuantity;
 	using Core.Common.Quantities.MemoryQuantity.Extensions;
 	using Microsoft.VisualBasic.Devices;
 	using Services.CpuRelated;
@@ -11,8 +12,8 @@
 		public RamUsage GetRamUsage()
 		{
 			return new RamUsage(
-				((double)_computerInfo.TotalPhysicalMemory).Bytes(),
-				((double)_computerInfo.AvailablePhysicalMemory).Bytes());
+				((double)_computerInfo.TotalPhysicalMemory).Bytes().In<GibiByte>(),
+				((double)_computerInfo.AvailablePhysicalMemory).Bytes().In<GibiByte>());
 		}
 	}
 }

@@ -4,17 +4,13 @@
 	using Core.Common.ArgumentMust;
 	using Core.Common.Dispose;
 	using Core.Common.Extensions;
-	using Core.Common.Quantities.FrequencyQuantity.Extensions;
-	using Core.Common.Quantities.RatioQuantity;
-	using Core.Common.Quantities.TemperatureQuantity;
 	using Hosts;
 	using Services.Cpu;
-	using Services.CpuRelated;
 
 	public class SystemProvider : DisposableBase
 	{
-		private readonly ICpuCallback _cpuCallback;
 		private readonly ICpuAccess _cpuAccess;
+		private readonly ICpuCallback _cpuCallback;
 		private readonly IMemoryAccess _memoryAccess;
 
 		public SystemProvider(ICpuCallback cpuCallback, ICpuAccess cpuAccess, IMemoryAccess memoryAccess)
@@ -42,8 +38,6 @@
 
 		private void HandleTimer()
 		{
-			var cpu = new CpuSample(5.GigaHertz(), new[] {new Core(3, new ThermalReading(50, Celsius.Instance), new Load(50, Percent.Instance))});
-
 			_cpuCallback.CpuChanged(_cpuAccess.GetCpuSample());
 			_cpuCallback.RamUsageChanged(_memoryAccess.GetRamUsage());
 		}

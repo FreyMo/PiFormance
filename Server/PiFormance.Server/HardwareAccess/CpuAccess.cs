@@ -6,10 +6,13 @@
 	using System.Linq;
 	using System.Management;
 	using Core.Common.Dispose;
+	using Core.Common.Extensions;
 	using Core.Common.Quantities.FrequencyQuantity;
 	using Core.Common.Quantities.FrequencyQuantity.Extensions;
 	using Core.Common.Quantities.RatioQuantity;
+	using Core.Common.Quantities.RatioQuantity.Extensions;
 	using Core.Common.Quantities.TemperatureQuantity;
+	using Core.Common.Quantities.TemperatureQuantity.Extensions;
 	using Services.CpuRelated;
 
 	public class CpuAccess : DisposableBase, ICpuAccess
@@ -26,13 +29,9 @@
 		
 		public CpuSample GetCpuSample()
 		{
-			return new CpuSample(
-				GetCpuSpeed(),
-				_cpuLoadCounters.Select(
-					counter => new Core(
-						int.Parse(counter.InstanceName),
-						new ThermalReading(50, Celsius.Instance),
-						new Load(counter.NextValue(), Percent.Instance))));
+			var cores = _cpuLoadCounters.Select(counter => new Core(int.Parse(counter.InstanceName), 50.DegreesCelsius(), ((double)counter.NextValue()).Percent()));
+
+			return new CpuSample(GetCpuSpeed(), cores);
 		}
 
 		private Frequency GetCpuSpeed()

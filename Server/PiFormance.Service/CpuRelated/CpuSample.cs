@@ -13,6 +13,7 @@
 			ArgumentMust.NotBeNull(() => clockSpeed);
 			ArgumentMust.NotBeNullOrEmpty(() => cores);
 
+			ClockSpeed = clockSpeed;
 			Cores = cores;
 		}
 		
