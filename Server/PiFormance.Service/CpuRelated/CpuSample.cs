@@ -2,6 +2,8 @@
 {
 	using System.Collections.Generic;
 	using System.Runtime.Serialization;
+	using global::Core.Standard.ArgumentMust;
+	using global::Core.Standard.Quantities.FrequencyQuantity;
 
 	[DataContract]
 	public class CpuSample

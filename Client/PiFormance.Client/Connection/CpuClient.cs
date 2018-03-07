@@ -8,11 +8,6 @@
 
 	public class CpuClient : ClientBase<ICpuService, ICpuServiceCallback>, ICpuClient
 	{
-		public CpuClient(string ss)
-		{
-			ArgumentMust.NotBe
-		}
-
 		private CpuServiceClient ServiceClient => Client as CpuServiceClient;
 
 		protected override async void SetupServiceClient()

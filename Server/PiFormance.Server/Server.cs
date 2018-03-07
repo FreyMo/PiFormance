@@ -1,6 +1,6 @@
 ﻿namespace PiFormance.Server
 {
-	using Core.Common.Dispose;
+	using Core.Standard.Dispose;
 	using HardwareAccess;
 	using Hosts;
 	using Services.Cpu;

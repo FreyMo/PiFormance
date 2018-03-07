@@ -1,8 +1,8 @@
 ﻿namespace PiFormance.Server.Hosts
 {
 	using System;
-	using Core.Common.ArgumentMust;
-	using Core.Common.Dispose;
+	using Core.Standard.ArgumentMust;
+	using Core.Standard.Dispose;
 	using Services.Cpu;
 	using Services.CpuRelated;
 

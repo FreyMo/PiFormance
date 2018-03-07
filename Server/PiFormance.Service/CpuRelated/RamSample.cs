@@ -1,9 +1,9 @@
 ﻿namespace PiFormance.Services.CpuRelated
 {
 	using System.Runtime.Serialization;
-	using global::Core.Common.ArgumentMust;
-	using global::Core.Common.Quantities.MemoryQuantity;
-	using global::Core.Common.Quantities.RatioQuantity;
+	using global::Core.Standard.ArgumentMust;
+	using global::Core.Standard.Quantities.MemoryQuantity;
+	using global::Core.Standard.Quantities.RatioQuantity;
 
 	[DataContract]
 	public class RamSample

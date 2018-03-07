@@ -1,9 +1,9 @@
 ﻿namespace PiFormance.Server.HardwareAccess
 {
 	using System.Timers;
-	using Core.Common.ArgumentMust;
-	using Core.Common.Dispose;
-	using Core.Common.Extensions;
+	using Core.Standard.ArgumentMust;
+	using Core.Standard.Dispose;
+	using Core.Standard.Extensions;
 	using Hosts;
 	using Services.Cpu;
 

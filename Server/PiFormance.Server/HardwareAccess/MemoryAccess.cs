@@ -1,7 +1,7 @@
 ﻿namespace PiFormance.Server.HardwareAccess
 {
-	using Core.Common.Quantities.MemoryQuantity;
-	using Core.Common.Quantities.MemoryQuantity.Extensions;
+	using Core.Standard.Quantities.MemoryQuantity;
+	using Core.Standard.Quantities.MemoryQuantity.Extensions;
 	using Microsoft.VisualBasic.Devices;
 	using Services.CpuRelated;
 

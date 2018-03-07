@@ -5,6 +5,11 @@
 	using System.Diagnostics;
 	using System.Linq;
 	using System.Management;
+	using Core.Standard.Dispose;
+	using Core.Standard.Quantities.FrequencyQuantity;
+	using Core.Standard.Quantities.FrequencyQuantity.Extensions;
+	using Core.Standard.Quantities.RatioQuantity.Extensions;
+	using Core.Standard.Quantities.TemperatureQuantity.Extensions;
 	using Services.CpuRelated;
 
 	public class CpuAccess : DisposableBase, ICpuAccess

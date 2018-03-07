@@ -2,9 +2,9 @@ namespace PiFormance.Server.Hosts
 {
 	using System;
 	using System.ServiceModel;
-	using Core.Common.ArgumentMust;
-	using Core.Common.Dispose;
-	using Core.Common.Extensions;
+	using Core.Standard.ArgumentMust;
+	using Core.Standard.Dispose;
+	using Core.Standard.Extensions;
 	using Services;
 
 	public abstract class HostBase<TService, TServiceInterface, TCallback> : DisposableBase
