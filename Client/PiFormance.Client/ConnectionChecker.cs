@@ -19,10 +19,10 @@
 									  .Where(address => address.AddressFamily == AddressFamily.InterNetwork)
 									  .ToList();
 
-			var Hosts = Windows.Networking.Connectivity.NetworkInformation.GetHostNames().ToList();
-			foreach (var Host in Hosts)
+			var hosts = Windows.Networking.Connectivity.NetworkInformation.GetHostNames().ToList();
+			foreach (var host in hosts)
 			{
-				string IP = Host.DisplayName;
+				string IP = host.DisplayName;
 			}
 
 			if (addresses.Count > 1)

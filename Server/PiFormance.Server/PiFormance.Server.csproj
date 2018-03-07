@@ -39,7 +39,6 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceModel.Activation" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HardwareAccess\SystemProvider.cs" />
@@ -60,10 +59,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core\Core.Common.csproj">
-      <Project>{dfc42c3a-5cf6-4cd0-be1b-4531262ed3f1}</Project>
-      <Name>Core.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PiFormance.Service\PiFormance.Services.csproj">
       <Project>{6e41e5d7-0b43-42ca-8756-32eabb73b9b1}</Project>
       <Name>PiFormance.Services</Name>

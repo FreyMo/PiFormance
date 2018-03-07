@@ -9,6 +9,6 @@
 		void CpuChanged(CpuSample cpuSample);
 
 		[OperationContract(IsOneWay = true)]
-		void RamUsageChanged(RamUsage ramUsage);
+		void RamUsageChanged(RamSample ramSample);
 	}
 }

@@ -6,9 +6,9 @@
 	using global::Core.Common.Quantities.RatioQuantity;
 
 	[DataContract]
-	public class RamUsage
+	public class RamSample
 	{
-		public RamUsage(Memory totalMemory, Memory availableMemory)
+		public RamSample(Memory totalMemory, Memory availableMemory)
 		{
 			ArgumentMust.NotBeNull(() => totalMemory);
 			ArgumentMust.NotBeNull(() => availableMemory);

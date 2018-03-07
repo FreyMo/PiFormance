@@ -9,12 +9,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Temperature" nillable="true" type="tns:Temperature" />
-  <xs:complexType name="Celsius">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Common.Quantities.Definitions" base="q2:BaseUnitOfTemperaturemklq4rKt">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Celsius" nillable="true" type="tns:Celsius" />
 </xs:schema>

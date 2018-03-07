@@ -1,6 +1,6 @@
 ﻿namespace PiFormance.Client.Connection
 {
-	using Cpu;
+	using Connected_Services.Cpu;
 
 	public class CpuAccessorService : ICpuServiceCallback
 	{
@@ -8,7 +8,7 @@
 		{
 		}
 
-		public void RamUsageChanged(RamUsage ramUsage)
+		public void RamUsageChanged(RamSample ramSample)
 		{
 		}
 	}

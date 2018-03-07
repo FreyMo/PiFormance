@@ -182,6 +182,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Standard\Core.Standard.csproj">
+      <Project>{231fd42f-726b-460a-b4af-9d2e2b48d75e}</Project>
+      <Name>Core.Standard</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PiFormance.Controls\PiFormance.Controls.csproj">
       <Project>{58253103-2e00-49db-b12a-e5d37c3deb6d}</Project>
       <Name>PiFormance.Controls</Name>

@@ -30,11 +30,11 @@
 			}
 		}
 
-		public void RamUsageChanged(RamUsage ramUsage)
+		public void RamUsageChanged(RamSample ramSample)
 		{
 			if (_host.Callback != null)
 			{
-				_host.Callback.RamUsageChanged(ramUsage);
+				_host.Callback.RamUsageChanged(ramSample);
 				Console.WriteLine("CALLBACK SENT!");
 			}
 			else

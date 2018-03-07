@@ -4,10 +4,15 @@
 	using System.Linq;
 	using System.ServiceModel;
 	using System.Threading.Tasks;
-	using Cpu;
+	using Connected_Services.Cpu;
 
 	public class CpuClient : ClientBase<ICpuService, ICpuServiceCallback>, ICpuClient
 	{
+		public CpuClient(string ss)
+		{
+			ArgumentMust.NotBe
+		}
+
 		private CpuServiceClient ServiceClient => Client as CpuServiceClient;
 
 		protected override async void SetupServiceClient()

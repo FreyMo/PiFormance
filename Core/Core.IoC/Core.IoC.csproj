@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.IoC.Definitions\Core.IoC.Definitions.csproj" />
+    <ProjectReference Include="..\Core.Standard\Core.Standard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LightInject">
+      <HintPath>..\..\..\Core\IoC\IoC\bin\Debug\LightInject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\Core\IoC\IoC\bin\Debug\Ninject.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

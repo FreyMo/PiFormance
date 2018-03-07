@@ -1,6 +1,6 @@
 ﻿namespace PiFormance.Client.Connection
 {
-	using Cpu;
+	using Connected_Services.Cpu;
 
 	public interface ICpuClient : ICpuService, IClient<ICpuService, ICpuServiceCallback>
 	{

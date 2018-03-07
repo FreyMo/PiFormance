@@ -9,9 +9,9 @@
 	{
 		private readonly ComputerInfo _computerInfo = new ComputerInfo();
 
-		public RamUsage GetRamUsage()
+		public RamSample GetRamUsage()
 		{
-			return new RamUsage(
+			return new RamSample(
 				((double)_computerInfo.TotalPhysicalMemory).Bytes().In<GibiByte>(),
 				((double)_computerInfo.AvailablePhysicalMemory).Bytes().In<GibiByte>());
 		}
