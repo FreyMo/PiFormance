@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" />
+  <xs:complexType name="Temperature">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q1:PhysicalQuantityOfTemperature_PMjZ0s_SN">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Temperature" nillable="true" type="tns:Temperature" />
+</xs:schema>

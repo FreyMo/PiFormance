@@ -3,7 +3,7 @@
 	using Core.Standard.Quantities.MemoryQuantity;
 	using Core.Standard.Quantities.MemoryQuantity.Extensions;
 	using Microsoft.VisualBasic.Devices;
-	using Services.CpuRelated;
+	using ServiceContracts.Memory;
 
 	public class MemoryAccess : IMemoryAccess
 	{

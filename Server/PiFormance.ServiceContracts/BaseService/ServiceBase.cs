@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Services
+﻿namespace PiFormance.ServiceContracts.BaseService
 {
 	using System;
 	using System.ServiceModel;

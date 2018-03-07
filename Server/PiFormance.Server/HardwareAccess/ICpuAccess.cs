@@ -1,7 +1,7 @@
 namespace PiFormance.Server.HardwareAccess
 {
 	using System;
-	using Services.CpuRelated;
+	using ServiceContracts.Cpu;
 
 	public interface ICpuAccess : IDisposable
 	{

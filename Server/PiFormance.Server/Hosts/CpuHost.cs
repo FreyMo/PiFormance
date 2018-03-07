@@ -1,10 +1,10 @@
 ﻿namespace PiFormance.Server.Hosts
 {
-	using Services.Cpu;
+	using ServiceContracts.SystemService;
 
-	public class CpuHost : HostBase<CpuService, ICpuService, ICpuCallback>
+	public class CpuHost : HostBase<SystemService, ISystemService, ISystemCallback>
 	{
-		public CpuHost(ICpuService cpuService) : base(cpuService)
+		public CpuHost(ISystemService systemService) : base(systemService)
 		{
 		}
 	}

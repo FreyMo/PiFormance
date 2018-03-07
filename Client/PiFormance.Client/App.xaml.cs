@@ -10,8 +10,8 @@
 
 	sealed partial class App : Application
 	{
-		private readonly CpuAccessorService _callbacker;
-		private readonly CpuClient _client;
+		private readonly SystemAccessorService _callbacker;
+		private readonly SystemClient _client;
 
 		public App()
 		{
@@ -20,8 +20,8 @@
 
 			try
 			{
-				_callbacker = new CpuAccessorService();
-				_client = new CpuClient();
+				_callbacker = new SystemAccessorService();
+				_client = new SystemClient();
 			}
 			catch (Exception e)
 			{

@@ -1,14 +1,14 @@
-﻿namespace PiFormance.Services.CpuRelated
+﻿namespace PiFormance.ServiceContracts.Cpu
 {
 	using System.Runtime.Serialization;
-	using global::Core.Standard.ArgumentMust;
-	using global::Core.Standard.Quantities.RatioQuantity;
-	using global::Core.Standard.Quantities.TemperatureQuantity;
+	using Core.Standard.ArgumentMust;
+	using Core.Standard.Quantities.RatioQuantity;
+	using Core.Standard.Quantities.TemperatureQuantity;
 
 	[DataContract]
-	public class Core
+	public class LogicalCore
 	{
-		public Core(int id, Temperature temperature, Ratio load)
+		public LogicalCore(int id, Temperature temperature, Ratio load)
 		{
 			ArgumentMust.NotBeNull(() => temperature);
 			ArgumentMust.NotBeNull(() => load);

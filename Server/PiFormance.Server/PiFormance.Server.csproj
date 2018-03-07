@@ -46,7 +46,7 @@
     <Compile Include="HardwareAccess\IMemoryAccess.cs" />
     <Compile Include="HardwareAccess\MemoryAccess.cs" />
     <Compile Include="HardwareAccess\CpuAccess.cs" />
-    <Compile Include="Hosts\CpuCallbackProxy.cs" />
+    <Compile Include="Hosts\SystemCallbackProxy.cs" />
     <Compile Include="Hosts\CpuHost.cs" />
     <Compile Include="Hosts\HostBase.cs" />
     <Compile Include="Program.cs" />
@@ -63,9 +63,9 @@
       <Project>{231FD42F-726B-460A-B4AF-9D2E2B48D75E}</Project>
       <Name>Core.Standard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PiFormance.Service\PiFormance.Services.csproj">
-      <Project>{6e41e5d7-0b43-42ca-8756-32eabb73b9b1}</Project>
-      <Name>PiFormance.Services</Name>
+    <ProjectReference Include="..\..\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
+      <Project>{03aadebf-5611-4751-8856-2e17728a4c00}</Project>
+      <Name>PiFormance.ServiceContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

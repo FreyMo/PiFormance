@@ -1,6 +1,6 @@
 ﻿namespace PiFormance.Server.HardwareAccess
 {
-	using Services.CpuRelated;
+	using ServiceContracts.Memory;
 
 	public interface IMemoryAccess
 	{

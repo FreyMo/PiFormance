@@ -3,49 +3,50 @@
 	using System;
 	using Core.Standard.ArgumentMust;
 	using Core.Standard.Dispose;
-	using Services.Cpu;
-	using Services.CpuRelated;
+	using ServiceContracts.Cpu;
+	using ServiceContracts.Memory;
+	using ServiceContracts.SystemService;
 
-	public class CpuCallbackProxy : DisposableBase, ICpuCallback
+	public class SystemCallbackProxy : DisposableBase, ISystemCallback
 	{
 		private readonly CpuHost _host;
 
-		public CpuCallbackProxy(CpuHost host)
+		public SystemCallbackProxy(CpuHost host)
 		{
 			ArgumentMust.NotBeNull(() => host);
 
 			_host = host;
 		}
 
-		public void CpuChanged(CpuSample cpuSample)
-		{
-			if (_host.Callback != null)
-			{
-				_host.Callback.CpuChanged(cpuSample);
-				Console.WriteLine("CALLBACK SENT!");
-			}
-			else
-			{
-				Console.WriteLine("Callback sent to no one.");
-			}
-		}
-
-		public void RamUsageChanged(RamSample ramSample)
-		{
-			if (_host.Callback != null)
-			{
-				_host.Callback.RamUsageChanged(ramSample);
-				Console.WriteLine("CALLBACK SENT!");
-			}
-			else
-			{
-				Console.WriteLine("Callback sent to no one.");
-			}
-		}
-
 		protected override void DisposeManagedResources()
 		{
 			_host.Dispose();
+		}
+
+		public void CpuSampleAcquired(CpuSample cpuSample)
+		{
+			if (_host.Callback != null)
+			{
+				_host.Callback.CpuSampleAcquired(cpuSample);
+				Console.WriteLine("CALLBACK SENT!");
+			}
+			else
+			{
+				Console.WriteLine("Callback sent to no one.");
+			}
+		}
+
+		public void RamSampleAcquired(RamSample ramSample)
+		{
+			if (_host.Callback != null)
+			{
+				_host.Callback.RamSampleAcquired(ramSample);
+				Console.WriteLine("CALLBACK SENT!");
+			}
+			else
+			{
+				Console.WriteLine("Callback sent to no one.");
+			}
 		}
 	}
 }

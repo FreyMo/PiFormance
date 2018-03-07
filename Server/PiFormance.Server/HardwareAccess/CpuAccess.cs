@@ -10,7 +10,7 @@
 	using Core.Standard.Quantities.FrequencyQuantity.Extensions;
 	using Core.Standard.Quantities.RatioQuantity.Extensions;
 	using Core.Standard.Quantities.TemperatureQuantity.Extensions;
-	using Services.CpuRelated;
+	using ServiceContracts.Cpu;
 
 	public class CpuAccess : DisposableBase, ICpuAccess
 	{
@@ -27,7 +27,7 @@
 		public CpuSample GetCpuSample()
 		{
 			var cores = _cpuLoadCounters.Select(
-				counter => new Core(int.Parse(counter.InstanceName), 50.DegreesCelsius(), ((double)counter.NextValue()).Percent()));
+				counter => new LogicalCore(int.Parse(counter.InstanceName), 50.DegreesCelsius(), ((double)counter.NextValue()).Percent()));
 
 			return new CpuSample(GetCpuSpeed(), cores);
 		}

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" />
+  <xs:complexType name="PhysicalQuantityOfFrequencydR4EH2ad">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Frequency" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q1:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfFrequencydR4EH2ad" nillable="true" type="tns:PhysicalQuantityOfFrequencydR4EH2ad" />
+  <xs:complexType name="PhysicalQuantityOfRatioefAL2Ixu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Ratio" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q2:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfRatioefAL2Ixu" nillable="true" type="tns:PhysicalQuantityOfRatioefAL2Ixu" />
+  <xs:complexType name="PhysicalQuantityOfTemperature_PMjZ0s_SN">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Temperature" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q3:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfTemperature_PMjZ0s_SN" nillable="true" type="tns:PhysicalQuantityOfTemperature_PMjZ0s_SN" />
+  <xs:complexType name="PhysicalQuantityOfMemoryVAxCuxUw">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Memory" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q4:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfMemoryVAxCuxUw" nillable="true" type="tns:PhysicalQuantityOfMemoryVAxCuxUw" />
+</xs:schema>
