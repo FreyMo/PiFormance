@@ -189,7 +189,7 @@
       <Project>{231fd42f-726b-460a-b4af-9d2e2b48d75e}</Project>
       <Name>Core.Standard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
+    <ProjectReference Include="..\..\Server\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
       <Project>{03aadebf-5611-4751-8856-2e17728a4c00}</Project>
       <Name>PiFormance.ServiceContracts</Name>
     </ProjectReference>
