@@ -1,5 +1,6 @@
 ﻿namespace PiFormance.Server.Services
 {
+	using System;
 	using System.ServiceModel;
 	using Core.Standard.ArgumentMust;
 	using HardwareAccess;
@@ -24,11 +25,15 @@
 
 		public CpuSample GetCpuSample()
 		{
+			Console.WriteLine("GetCpuSample() was called.");
+
 			return _cpuAccess.GetCpuSample();
 		}
 
 		public RamSample GetRamSample()
 		{
+			Console.WriteLine("GetCpuSample() was called.");
+
 			return _memoryAccess.GetRamSample();
 		}
 	}

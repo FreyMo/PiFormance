@@ -95,7 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\SystemService\Reference.cs">
+    <Compile Include="Connected Services\Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -115,38 +115,38 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Connected Services\SystemService\Arrays.xsd">
+    <None Include="Connected Services\Services\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\Core.Standard.Notification.xsd">
+    <None Include="Connected Services\Services\Core.Standard.Notification.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\Core.Standard.Quantities.Definitions.xsd">
+    <None Include="Connected Services\Services\Core.Standard.Quantities.Definitions.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\Core.Standard.Quantities.FrequencyQuantity.xsd">
+    <None Include="Connected Services\Services\Core.Standard.Quantities.FrequencyQuantity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\Core.Standard.Quantities.MemoryQuantity.xsd">
+    <None Include="Connected Services\Services\Core.Standard.Quantities.MemoryQuantity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\Core.Standard.Quantities.RatioQuantity.xsd">
+    <None Include="Connected Services\Services\Core.Standard.Quantities.RatioQuantity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\Core.Standard.Quantities.TemperatureQuantity.xsd">
+    <None Include="Connected Services\Services\Core.Standard.Quantities.TemperatureQuantity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\PiFormance.ServiceContracts.Cpu.xsd">
+    <None Include="Connected Services\Services\PiFormance.ServiceContracts.Cpu.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\PiFormance.ServiceContracts.Memory.xsd">
+    <None Include="Connected Services\Services\PiFormance.ServiceContracts.Memory.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\service.wsdl" />
-    <None Include="Connected Services\SystemService\service.xsd">
+    <None Include="Connected Services\Services\service.wsdl" />
+    <None Include="Connected Services\Services\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SystemService\service1.xsd">
+    <None Include="Connected Services\Services\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="PiFormance.Client_TemporaryKey.pfx" />
@@ -155,9 +155,9 @@
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SystemService\configuration91.svcinfo" />
-    <None Include="Connected Services\SystemService\configuration.svcinfo" />
-    <None Include="Connected Services\SystemService\Reference.svcmap">
+    <None Include="Connected Services\Services\configuration91.svcinfo" />
+    <None Include="Connected Services\Services\configuration.svcinfo" />
+    <None Include="Connected Services\Services\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -186,11 +186,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.Standard\Core.Standard.csproj">
+    <ProjectReference Include="..\..\Common\Core\Core.Standard\Core.Standard.csproj">
       <Project>{231fd42f-726b-460a-b4af-9d2e2b48d75e}</Project>
       <Name>Core.Standard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Server\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
+    <ProjectReference Include="..\..\Common\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
       <Project>{03aadebf-5611-4751-8856-2e17728a4c00}</Project>
       <Name>PiFormance.ServiceContracts</Name>
     </ProjectReference>
@@ -203,7 +203,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\SystemService\" />
+    <WCFMetadataStorage Include="Connected Services\Services\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -97,11 +97,11 @@
     <None Include="PiFormance.Server_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.Standard\Core.Standard.csproj">
+    <ProjectReference Include="..\..\Common\Core\Core.Standard\Core.Standard.csproj">
       <Project>{231FD42F-726B-460A-B4AF-9D2E2B48D75E}</Project>
       <Name>Core.Standard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
+    <ProjectReference Include="..\..\Common\PiFormance.ServiceContracts\PiFormance.ServiceContracts.csproj">
       <Project>{03aadebf-5611-4751-8856-2e17728a4c00}</Project>
       <Name>PiFormance.ServiceContracts</Name>
     </ProjectReference>

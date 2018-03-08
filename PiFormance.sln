@@ -17,11 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiFormance.ServiceContracts
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{AB493E90-BB3B-4BC7-B507-866A95C3F174}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Standard", "Core\Core.Standard\Core.Standard.csproj", "{231FD42F-726B-460A-B4AF-9D2E2B48D75E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Standard", "Common\Core\Core.Standard\Core.Standard.csproj", "{231FD42F-726B-460A-B4AF-9D2E2B48D75E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IoC", "Core\Core.IoC\Core.IoC.csproj", "{D6BDA3FE-FA8F-4D38-898C-512B8193291A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IoC", "Common\Core\Core.IoC\Core.IoC.csproj", "{D6BDA3FE-FA8F-4D38-898C-512B8193291A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IoC.Definitions", "Core\Core.IoC.Definitions\Core.IoC.Definitions.csproj", "{6B6C019A-69F7-4F9C-B3F7-C3AA384A140C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IoC.Definitions", "Common\Core\Core.IoC.Definitions\Core.IoC.Definitions.csproj", "{6B6C019A-69F7-4F9C-B3F7-C3AA384A140C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1CF8B8E4-A08A-4CA6-927B-065BA6200A64}"
 EndProject

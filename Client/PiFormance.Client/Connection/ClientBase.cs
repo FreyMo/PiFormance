@@ -7,7 +7,7 @@
 	using Windows.System.Threading;
 	using Windows.UI.Core;
 
-	public abstract class ClientBase<TService> : IClient<TService>
+	public abstract class BaseClient<TService> : IClient<TService>
 		where TService : class
 	{
 		public event EventHandler<ConnectionChangedEventArgs> ConnectionChanged;
@@ -31,7 +31,7 @@
 			}
 		}
 
-		protected ClientBase()
+		protected BaseClient()
 		{
 			SetupServiceClientBase();
 			Connect();

@@ -25,9 +25,6 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ISystemService_Acknowledge_InputMessage">
-    <wsdl:part name="parameters" element="tns:Acknowledge" />
-  </wsdl:message>
   <wsdl:message name="ISystemService_GetCpuSample_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCpuSample" />
   </wsdl:message>
@@ -40,16 +37,7 @@
   <wsdl:message name="ISystemService_GetRamSample_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRamSampleResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService_CpuSampleAcquired_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:CpuSampleAcquired" />
-  </wsdl:message>
-  <wsdl:message name="ISystemService_RamSampleAcquired_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:RamSampleAcquired" />
-  </wsdl:message>
   <wsdl:portType name="ISystemService">
-    <wsdl:operation name="Acknowledge">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseOf_ISystemCallback/Acknowledge" message="tns:ISystemService_Acknowledge_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetCpuSample">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/GetCpuSample" message="tns:ISystemService_GetCpuSample_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/GetCpuSampleResponse" message="tns:ISystemService_GetCpuSample_OutputMessage" />
@@ -58,23 +46,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/GetRamSample" message="tns:ISystemService_GetRamSample_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/GetRamSampleResponse" message="tns:ISystemService_GetRamSample_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CpuSampleAcquired">
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/CpuSampleAcquired" message="tns:ISystemService_CpuSampleAcquired_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RamSampleAcquired">
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/RamSampleAcquired" message="tns:ISystemService_RamSampleAcquired_OutputCallbackMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISystemService" type="tns:ISystemService">
     <wsp:PolicyReference URI="#NetTcpBinding_ISystemService_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="Acknowledge">
-      <soap12:operation soapAction="http://tempuri.org/IServiceBaseOf_ISystemCallback/Acknowledge" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="GetCpuSample">
       <soap12:operation soapAction="http://tempuri.org/ISystemService/GetCpuSample" style="document" />
       <wsdl:input>
@@ -89,18 +65,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CpuSampleAcquired">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/CpuSampleAcquired" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RamSampleAcquired">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/RamSampleAcquired" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
