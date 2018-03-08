@@ -151,6 +151,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="PiFormance.Client_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\PiFormance.ServiceContracts.Cpu.CpuSample.datasource" />
+    <None Include="Properties\DataSources\PiFormance.ServiceContracts.Memory.RamSample.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

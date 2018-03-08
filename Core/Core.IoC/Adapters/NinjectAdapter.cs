@@ -1,11 +1,11 @@
-﻿namespace Core.IoC.Proxies
+﻿namespace Core.IoC.Adapters
 {
 	using System;
 	using Definitions.Container;
 	using Ninject;
 	using Standard.ArgumentMust;
 
-	public class NinjectProxy : IoCContainerBase, IIoCContainer
+	public class NinjectAdapter : IoCContainerBase, IIoCContainer
 	{
 		private readonly IKernel _kernel = new StandardKernel();
 

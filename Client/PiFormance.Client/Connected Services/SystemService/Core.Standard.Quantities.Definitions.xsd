@@ -49,6 +49,58 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PhysicalQuantityOfTemperature_PMjZ0s_SN" nillable="true" type="tns:PhysicalQuantityOfTemperature_PMjZ0s_SN" />
+  <xs:complexType name="UnitOfRatioefAL2Ixu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="UnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Ratio" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UnitOfRatioefAL2Ixu" nillable="true" type="tns:UnitOfRatioefAL2Ixu" />
+  <xs:complexType name="BaseUnitOfTemperature_PMjZ0s_SN">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="BaseUnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Temperature" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UnitOfTemperature_PMjZ0s_SN">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseUnitOfTemperature_PMjZ0s_SN" nillable="true" type="tns:BaseUnitOfTemperature_PMjZ0s_SN" />
+  <xs:complexType name="UnitOfTemperature_PMjZ0s_SN">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="UnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Temperature" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UnitOfTemperature_PMjZ0s_SN" nillable="true" type="tns:UnitOfTemperature_PMjZ0s_SN" />
+  <xs:complexType name="UnitOfFrequencydR4EH2ad">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="UnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Frequency" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UnitOfFrequencydR4EH2ad" nillable="true" type="tns:UnitOfFrequencydR4EH2ad" />
   <xs:complexType name="PhysicalQuantityOfMemoryVAxCuxUw">
     <xs:annotation>
       <xs:appinfo>
@@ -65,4 +117,16 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PhysicalQuantityOfMemoryVAxCuxUw" nillable="true" type="tns:PhysicalQuantityOfMemoryVAxCuxUw" />
+  <xs:complexType name="UnitOfMemoryVAxCuxUw">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="UnitOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Memory" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UnitOfMemoryVAxCuxUw" nillable="true" type="tns:UnitOfMemoryVAxCuxUw" />
 </xs:schema>

@@ -6,6 +6,8 @@
 	using Core.Standard.Quantities.TemperatureQuantity;
 
 	[DataContract]
+	[KnownType(typeof(Percent))]
+	[KnownType(typeof(Celsius))]
 	public class LogicalCore
 	{
 		public LogicalCore(int id, Temperature temperature, Ratio load)

@@ -39,7 +39,7 @@
 		private void HandleTimer()
 		{
 			_systemCallback.CpuSampleAcquired(_cpuAccess.GetCpuSample());
-			_systemCallback.RamSampleAcquired(_memoryAccess.GetRamUsage());
+			_systemCallback.RamSampleAcquired(_memoryAccess.GetRamSample());
 		}
 
 		protected override void DisposeManagedResources()

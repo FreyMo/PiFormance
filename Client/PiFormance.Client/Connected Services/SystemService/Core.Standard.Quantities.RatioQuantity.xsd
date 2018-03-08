@@ -9,4 +9,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Ratio" nillable="true" type="tns:Ratio" />
+  <xs:complexType name="Percent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q2:UnitOfRatioefAL2Ixu">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Percent" nillable="true" type="tns:Percent" />
 </xs:schema>

@@ -6,6 +6,9 @@
 	using Core.Standard.Quantities.FrequencyQuantity;
 
 	[DataContract]
+	[KnownType(typeof(KiloHertz))]
+	[KnownType(typeof(MegaHertz))]
+	[KnownType(typeof(GigaHertz))]
 	public class CpuSample
 	{
 		public CpuSample(Frequency clockSpeed, IEnumerable<LogicalCore> cores)

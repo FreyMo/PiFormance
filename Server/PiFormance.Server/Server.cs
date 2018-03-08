@@ -6,10 +6,19 @@
 	using HardwareAccess;
 	using Hosts;
 	using ServiceContracts.SystemService;
+	using Services;
 
 	public class Server : DisposableBase
 	{
-		private readonly SystemProvider _systemProvider = new SystemProvider(new SystemCallbackProxy(new CpuHost(new SystemService())), new CpuAccess(), new MemoryAccess());
+		private readonly SystemProvider _systemProvider;
+
+		public Server()
+		{
+			var memoryAccess = new MemoryAccess();
+			var cpuAccess = new CpuAccess();
+
+			_systemProvider = new SystemProvider(new SystemCallbackProxy(new CpuHost(new SystemService(cpuAccess, memoryAccess))), cpuAccess, memoryAccess);
+		}
 
 		protected override void DisposeManagedResources()
 		{
@@ -20,7 +29,6 @@
 		{
 			if (isConsoleVisible)
 			{
-
 				Console.ReadKey();
 			}
 			else

@@ -1,13 +1,13 @@
-﻿namespace Core.IoC.Proxies
+﻿namespace Core.IoC.Adapters
 {
 	using System;
 	using Definitions.Container;
 	using LightInject;
 	using Standard.ArgumentMust;
 
-	public class LightInjectProxy : IoCContainerBase, IIoCContainer
+	public class LightInjectAdapter : IoCContainerBase, IIoCContainer
 	{
-		private readonly LightInject.IServiceContainer _container = new ServiceContainer(new ContainerOptions {EnablePropertyInjection = false});
+		private readonly IServiceContainer _container = new ServiceContainer(new ContainerOptions {EnablePropertyInjection = false});
 
 		public T Resolve<T>()
 		{

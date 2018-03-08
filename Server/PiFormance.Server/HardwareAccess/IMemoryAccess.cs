@@ -4,6 +4,6 @@
 
 	public interface IMemoryAccess
 	{
-		RamSample GetRamUsage();
+		RamSample GetRamSample();
 	}
 }

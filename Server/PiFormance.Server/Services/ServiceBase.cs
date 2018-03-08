@@ -1,7 +1,8 @@
-﻿namespace PiFormance.ServiceContracts.BaseService
+﻿namespace PiFormance.Server.Services
 {
 	using System;
 	using System.ServiceModel;
+	using ServiceContracts.BaseService;
 
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
 	public abstract class ServiceBase<TCallback> : IServiceBase<TCallback>

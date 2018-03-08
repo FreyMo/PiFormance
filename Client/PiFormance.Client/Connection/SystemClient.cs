@@ -5,6 +5,8 @@
 	using System.ServiceModel;
 	using System.Threading.Tasks;
 	using SystemService;
+	using ServiceContracts.Cpu;
+	using ServiceContracts.Memory;
 	using ServiceContracts.SystemService;
 	using ISystemService = SystemService.ISystemService;
 
@@ -20,10 +22,11 @@
 			{
 				try
 				{
-					// Client = new SystemServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
-					Client = new SystemServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://192.168.0.241:8733/PiFormance/"));
+					Client = new SystemServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
 					Connect();
-					await AcknowledgeAsync(new Acknowledge());
+					await AcknowledgeAsync();
+
+					var cpuSample = await GetCpuSampleAsync();
 				}
 				catch (Exception)
 				{
@@ -38,7 +41,7 @@
 			{
 				foreach (var callback in _callbacks)
 				{
-					callback.CpuSampleAcquired(y.request.cpuSample);
+					callback.CpuSampleAcquired(y.cpuSample);
 				}
 			};
 
@@ -46,14 +49,24 @@
 			{
 				foreach (var callback in _callbacks)
 				{
-					callback.RamSampleAcquired(y.request.ramSample);
+					callback.RamSampleAcquired(y.ramSample);
 				}
 			};
 		}
 		
-		public async Task AcknowledgeAsync(Acknowledge request)
+		public async Task AcknowledgeAsync()
 		{
-			await SecureAsyncCall(() => ServiceClient.AcknowledgeAsync(request));
+			await SecureAsyncCall(() => ServiceClient.AcknowledgeAsync());
+		}
+
+		public async Task<CpuSample> GetCpuSampleAsync()
+		{
+			return await SecureAsyncCall(() => ServiceClient.GetCpuSampleAsync());
+		}
+
+		public async Task<RamSample> GetRamSampleAsync()
+		{
+			return await SecureAsyncCall(() => ServiceClient.GetRamSampleAsync());
 		}
 	}
 }

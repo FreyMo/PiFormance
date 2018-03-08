@@ -9,4 +9,28 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Frequency" nillable="true" type="tns:Frequency" />
+  <xs:complexType name="KiloHertz">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q2:UnitOfFrequencydR4EH2ad">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KiloHertz" nillable="true" type="tns:KiloHertz" />
+  <xs:complexType name="MegaHertz">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q3:UnitOfFrequencydR4EH2ad">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MegaHertz" nillable="true" type="tns:MegaHertz" />
+  <xs:complexType name="GigaHertz">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q4:UnitOfFrequencydR4EH2ad">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GigaHertz" nillable="true" type="tns:GigaHertz" />
 </xs:schema>

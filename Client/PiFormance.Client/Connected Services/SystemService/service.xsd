@@ -7,17 +7,41 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCpuSample">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCpuSampleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Cpu" minOccurs="0" name="GetCpuSampleResult" nillable="true" type="q1:CpuSample" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRamSample">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRamSampleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Memory" minOccurs="0" name="GetRamSampleResult" nillable="true" type="q2:RamSample" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CpuSampleAcquired">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Cpu" minOccurs="0" name="cpuSample" nillable="true" type="q1:CpuSample" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Cpu" minOccurs="0" name="cpuSample" nillable="true" type="q3:CpuSample" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RamSampleAcquired">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Memory" minOccurs="0" name="ramSample" nillable="true" type="q2:RamSample" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Memory" minOccurs="0" name="ramSample" nillable="true" type="q4:RamSample" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

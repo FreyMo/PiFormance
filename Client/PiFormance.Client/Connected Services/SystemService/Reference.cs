@@ -19,58 +19,23 @@ namespace PiFormance.Client.SystemService {
     public interface ISystemService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceBaseOf_ISystemCallback/Acknowledge")]
-        System.Threading.Tasks.Task AcknowledgeAsync(PiFormance.Client.SystemService.Acknowledge request);
+        System.Threading.Tasks.Task AcknowledgeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/GetCpuSample", ReplyAction="http://tempuri.org/ISystemService/GetCpuSampleResponse")]
+        System.Threading.Tasks.Task<PiFormance.ServiceContracts.Cpu.CpuSample> GetCpuSampleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/GetRamSample", ReplyAction="http://tempuri.org/ISystemService/GetRamSampleResponse")]
+        System.Threading.Tasks.Task<PiFormance.ServiceContracts.Memory.RamSample> GetRamSampleAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ISystemServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISystemService/CpuSampleAcquired")]
-        void CpuSampleAcquired(PiFormance.Client.SystemService.CpuSampleAcquired request);
+        void CpuSampleAcquired(PiFormance.ServiceContracts.Cpu.CpuSample cpuSample);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISystemService/RamSampleAcquired")]
-        void RamSampleAcquired(PiFormance.Client.SystemService.RamSampleAcquired request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Acknowledge", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Acknowledge {
-        
-        public Acknowledge() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CpuSampleAcquired", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class CpuSampleAcquired {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public PiFormance.ServiceContracts.Cpu.CpuSample cpuSample;
-        
-        public CpuSampleAcquired() {
-        }
-        
-        public CpuSampleAcquired(PiFormance.ServiceContracts.Cpu.CpuSample cpuSample) {
-            this.cpuSample = cpuSample;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RamSampleAcquired", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class RamSampleAcquired {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public PiFormance.ServiceContracts.Memory.RamSample ramSample;
-        
-        public RamSampleAcquired() {
-        }
-        
-        public RamSampleAcquired(PiFormance.ServiceContracts.Memory.RamSample ramSample) {
-            this.ramSample = ramSample;
-        }
+        void RamSampleAcquired(PiFormance.ServiceContracts.Memory.RamSample ramSample);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -116,8 +81,16 @@ namespace PiFormance.Client.SystemService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public System.Threading.Tasks.Task AcknowledgeAsync(PiFormance.Client.SystemService.Acknowledge request) {
-            return base.Channel.AcknowledgeAsync(request);
+        public System.Threading.Tasks.Task AcknowledgeAsync() {
+            return base.Channel.AcknowledgeAsync();
+        }
+        
+        public System.Threading.Tasks.Task<PiFormance.ServiceContracts.Cpu.CpuSample> GetCpuSampleAsync() {
+            return base.Channel.GetCpuSampleAsync();
+        }
+        
+        public System.Threading.Tasks.Task<PiFormance.ServiceContracts.Memory.RamSample> GetRamSampleAsync() {
+            return base.Channel.GetRamSampleAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {
@@ -170,10 +143,10 @@ namespace PiFormance.Client.SystemService {
             this.results = results;
         }
         
-        public PiFormance.Client.SystemService.CpuSampleAcquired request {
+        public PiFormance.ServiceContracts.Cpu.CpuSample cpuSample {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((PiFormance.Client.SystemService.CpuSampleAcquired)(this.results[0]));
+                return ((PiFormance.ServiceContracts.Cpu.CpuSample)(this.results[0]));
             }
         }
     }
@@ -187,10 +160,10 @@ namespace PiFormance.Client.SystemService {
             this.results = results;
         }
         
-        public PiFormance.Client.SystemService.RamSampleAcquired request {
+        public PiFormance.ServiceContracts.Memory.RamSample ramSample {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((PiFormance.Client.SystemService.RamSampleAcquired)(this.results[0]));
+                return ((PiFormance.ServiceContracts.Memory.RamSample)(this.results[0]));
             }
         }
     }
@@ -250,14 +223,14 @@ namespace PiFormance.Client.SystemService {
                 this.proxy = proxy;
             }
             
-            public void CpuSampleAcquired(PiFormance.Client.SystemService.CpuSampleAcquired request) {
+            public void CpuSampleAcquired(PiFormance.ServiceContracts.Cpu.CpuSample cpuSample) {
                 this.proxy.OnCpuSampleAcquiredReceived(new object[] {
-                            request});
+                            cpuSample});
             }
             
-            public void RamSampleAcquired(PiFormance.Client.SystemService.RamSampleAcquired request) {
+            public void RamSampleAcquired(PiFormance.ServiceContracts.Memory.RamSample ramSample) {
                 this.proxy.OnRamSampleAcquiredReceived(new object[] {
-                            request});
+                            ramSample});
             }
         }
     }

@@ -9,4 +9,28 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Memory" nillable="true" type="tns:Memory" />
+  <xs:complexType name="KibiByte">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q2:UnitOfMemoryVAxCuxUw">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KibiByte" nillable="true" type="tns:KibiByte" />
+  <xs:complexType name="MebiByte">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q3:UnitOfMemoryVAxCuxUw">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MebiByte" nillable="true" type="tns:MebiByte" />
+  <xs:complexType name="GibiByte">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q4:UnitOfMemoryVAxCuxUw">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GibiByte" nillable="true" type="tns:GibiByte" />
 </xs:schema>
