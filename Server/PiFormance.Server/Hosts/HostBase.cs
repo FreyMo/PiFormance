@@ -4,25 +4,34 @@ namespace PiFormance.Server.Hosts
 	using System.ServiceModel;
 	using Core.Standard.ArgumentMust;
 	using Core.Standard.Dispose;
-	using Core.Standard.Extensions;
 	using ServiceContracts.BaseService;
 
-	public abstract class HostBase<TService, TServiceInterface, TCallback> : DisposableBase
-		where TService : class, IServiceBase<TCallback>, TServiceInterface
-		where TServiceInterface : class
-		where TCallback : class
+	public abstract class HostBase<TService> : DisposableBase
+		where TService : class, IServiceBase
 	{
 		private readonly ServiceHost _serviceHost;
 
-		protected HostBase(TServiceInterface service)
+		protected HostBase(TService service)
 		{
 			ArgumentMust.NotBeNull(() => service);
-
-			Service = service;
-
+			
 			_serviceHost = new ServiceHost(service);
-			_serviceHost.Open();
+
 			_serviceHost.Faulted += FaultedEventHandler;
+			_serviceHost.Closing += ClosingEventHandler;
+			_serviceHost.Closed += ClosedEventHandler;
+
+			_serviceHost.Open();
+		}
+
+		private void ClosedEventHandler(object sender, EventArgs e)
+		{
+			Console.WriteLine("Closed");
+		}
+
+		private void ClosingEventHandler(object sender, EventArgs e)
+		{
+			Console.WriteLine("Closing");
 		}
 
 		private void FaultedEventHandler(object sender, EventArgs e)
@@ -30,10 +39,6 @@ namespace PiFormance.Server.Hosts
 			Console.WriteLine("Faulted");
 		}
 
-		public TServiceInterface Service { get; }
-
-		public TCallback Callback => Service.As<TService>().Callback;
-		
 		protected override void DisposeManagedResources()
 		{
 			_serviceHost.Close();

@@ -5,24 +5,23 @@
 	using Core.Standard.Dispose;
 	using HardwareAccess;
 	using Hosts;
-	using ServiceContracts.SystemService;
 	using Services;
 
 	public class Server : DisposableBase
 	{
-		private readonly SystemProvider _systemProvider;
+		private readonly SystemHost _systemHost;
 
 		public Server()
 		{
 			var memoryAccess = new MemoryAccess();
 			var cpuAccess = new CpuAccess();
 
-			_systemProvider = new SystemProvider(new SystemCallbackProxy(new CpuHost(new SystemService(cpuAccess, memoryAccess))), cpuAccess, memoryAccess);
+			_systemHost = new SystemHost(new SystemService(cpuAccess, memoryAccess));
 		}
 
 		protected override void DisposeManagedResources()
 		{
-			_systemProvider.Dispose();
+			_systemHost.Dispose();
 		}
 
 		public void Run(bool isConsoleVisible)

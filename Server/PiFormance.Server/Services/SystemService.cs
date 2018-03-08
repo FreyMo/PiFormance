@@ -8,7 +8,7 @@
 	using ServiceContracts.SystemService;
 
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-	public class SystemService : ServiceBase<ISystemCallback>, ISystemService
+	public class SystemService : ServiceBase, ISystemService
 	{
 		private readonly ICpuAccess _cpuAccess;
 		private readonly IMemoryAccess _memoryAccess;

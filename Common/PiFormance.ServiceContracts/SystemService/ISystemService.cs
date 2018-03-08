@@ -5,8 +5,8 @@
 	using Cpu;
 	using Memory;
 
-	[ServiceContract(CallbackContract = typeof(ISystemCallback))]
-	public interface ISystemService : IServiceBase<ISystemCallback>
+	[ServiceContract]
+	public interface ISystemService : IServiceBase
 	{
 		[OperationContract(IsOneWay = false)]
 		CpuSample GetCpuSample();

@@ -1,16 +1,14 @@
 ﻿namespace PiFormance.Client.Connection
 {
 	using System;
-	using System.Collections.Generic;
 	using System.ServiceModel;
 	using System.Threading.Tasks;
 	using Windows.ApplicationModel.Core;
 	using Windows.System.Threading;
 	using Windows.UI.Core;
 
-	public abstract class ClientBase<TService, TServiceCallback> : IClient<TService, TServiceCallback>
+	public abstract class ClientBase<TService> : IClient<TService>
 		where TService : class
-		where TServiceCallback : class
 	{
 		public event EventHandler<ConnectionChangedEventArgs> ConnectionChanged;
 
@@ -18,8 +16,6 @@
 		
 		private bool _isConnected;
 		
-		protected readonly IList<TServiceCallback> _callbacks = new List<TServiceCallback>();
-
 		protected ClientBase<TService> Client;
 		
 		public bool IsConnected
@@ -32,22 +28,6 @@
 					_isConnected = value;
 					OnConnectionChanged();
 				}
-			}
-		}
-
-		public void AttachCallback(TServiceCallback serviceCallback)
-		{
-			if (!_callbacks.Contains(serviceCallback))
-			{
-				_callbacks.Add(serviceCallback);
-			}
-		}
-
-		public void DetachCallback(TServiceCallback serviceCallback)
-		{
-			while (_callbacks.Contains(serviceCallback))
-			{
-				_callbacks.Remove(serviceCallback);
 			}
 		}
 

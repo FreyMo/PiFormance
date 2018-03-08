@@ -4,14 +4,20 @@
 	using System.Linq;
 	using System.ServiceModel;
 	using System.Threading.Tasks;
+	using System.Timers;
 	using SystemService;
 	using ServiceContracts.Cpu;
 	using ServiceContracts.Memory;
 	using ServiceContracts.SystemService;
 	using ISystemService = SystemService.ISystemService;
 
-	public class SystemClient : ClientBase<ISystemService, ISystemCallback>, ISystemService
+	public class SystemClient : ClientBase<ISystemService>, ISystemService
 	{
+		public SystemClient()
+		{
+			SetupTimer();
+		}
+
 		private SystemServiceClient ServiceClient => Client as SystemServiceClient;
 
 		protected override async void SetupServiceClient()
@@ -25,14 +31,28 @@
 					Client = new SystemServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
 					Connect();
 					await AcknowledgeAsync();
-
-					var cpuSample = await GetCpuSampleAsync();
 				}
 				catch (Exception)
 				{
 					throw;
 				}
 			}
+		}
+
+		private void SetupTimer()
+		{
+			var timer = new Timer(1000)
+			{
+				AutoReset = true
+			};
+			timer.Elapsed += (sender, args) => HandleTimer();
+			timer.Start();
+		}
+
+		private async void HandleTimer()
+		{
+			var cpuSample = await GetCpuSampleAsync();
+			var ramSample = await GetRamSampleAsync();
 		}
 
 		protected override void RegisterCallbackHandlers()

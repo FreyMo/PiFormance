@@ -10,7 +10,6 @@
 
 	sealed partial class App : Application
 	{
-		private readonly SystemAccessorService _callbacker;
 		private readonly SystemClient _client;
 
 		public App()
@@ -20,7 +19,6 @@
 
 			try
 			{
-				_callbacker = new SystemAccessorService();
 				_client = new SystemClient();
 			}
 			catch (Exception e)

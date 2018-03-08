@@ -2,7 +2,7 @@
 {
 	using ServiceContracts.SystemService;
 
-	public interface ISystemClient : ISystemService, IClient<ISystemService, ISystemCallback>
+	public interface ISystemClient : ISystemService, IClient<ISystemService>
 	{
 	}
 }

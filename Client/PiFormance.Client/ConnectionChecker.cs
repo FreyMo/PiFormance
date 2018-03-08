@@ -14,7 +14,7 @@
 
 		private IPAddress GetLocalIpAddress()
 		{
-			return Dns.GetHostAddresses(Dns.GetHostName()).First(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+			return Dns.GetHostAddresses(Dns.GetHostName()).Single(ip => ip.AddressFamily == AddressFamily.InterNetwork);
 		}
 	}
 }

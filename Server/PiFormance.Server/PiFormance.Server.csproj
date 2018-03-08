@@ -78,13 +78,11 @@
   <ItemGroup>
     <Compile Include="ConsoleNativeMethods.cs" />
     <Compile Include="ConsolePresenter.cs" />
-    <Compile Include="HardwareAccess\SystemProvider.cs" />
     <Compile Include="HardwareAccess\ICpuAccess.cs" />
     <Compile Include="HardwareAccess\IMemoryAccess.cs" />
     <Compile Include="HardwareAccess\MemoryAccess.cs" />
     <Compile Include="HardwareAccess\CpuAccess.cs" />
-    <Compile Include="Hosts\SystemCallbackProxy.cs" />
-    <Compile Include="Hosts\CpuHost.cs" />
+    <Compile Include="Hosts\SystemHost.cs" />
     <Compile Include="Hosts\HostBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
