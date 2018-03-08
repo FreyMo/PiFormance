@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PiFormance.Server</RootNamespace>
     <AssemblyName>PiFormance.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -76,8 +76,8 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleNativeMethods.cs" />
-    <Compile Include="ConsolePresenter.cs" />
+    <Compile Include="Console\ConsoleNativeMethods.cs" />
+    <Compile Include="Console\ConsolePresenter.cs" />
     <Compile Include="HardwareAccess\ICpuAccess.cs" />
     <Compile Include="HardwareAccess\IMemoryAccess.cs" />
     <Compile Include="HardwareAccess\MemoryAccess.cs" />

@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Server
+﻿namespace PiFormance.Server.Console
 {
 	using System;
 	using System.IO;
@@ -25,9 +25,13 @@
 			var safeFileHandle = new Microsoft.Win32.SafeHandles.SafeFileHandle(stdHandle, true);
 			var fileStream = new FileStream(safeFileHandle, FileAccess.Write);
 			var encoding = System.Text.Encoding.GetEncoding(UnicodeCodePage);
-			var standardOutput = new StreamWriter(fileStream, encoding) { AutoFlush = true };
+			var standardOutput = new StreamWriter(fileStream, encoding)
+			{
+				AutoFlush = true
+			};
 
 			Console.SetOut(standardOutput);
+			Console.Title = "PiFormance.Server";
 		}
 	}
 }

@@ -24,18 +24,11 @@
 			_systemHost.Dispose();
 		}
 
-		public void Run(bool isConsoleVisible)
+		public void Run()
 		{
-			if (isConsoleVisible)
+			while (true)
 			{
-				Console.ReadKey();
-			}
-			else
-			{
-				while (true)
-				{
-					Thread.Sleep(100);
-				}
+				Thread.Sleep(100);
 			}
 		}
 	}

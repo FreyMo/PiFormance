@@ -6,25 +6,13 @@
 	using Windows.UI.Xaml;
 	using Windows.UI.Xaml.Controls;
 	using Windows.UI.Xaml.Navigation;
-	using Connection;
 
 	sealed partial class App : Application
 	{
-		private readonly SystemClient _client;
-
 		public App()
 		{
 			InitializeComponent();
 			Suspending += OnSuspending;
-
-			try
-			{
-				_client = new SystemClient();
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-			}
 		}
 
 		protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -60,6 +48,7 @@
 						// parameter
 						rootFrame.Navigate(typeof(MainPage), e.Arguments);
 					}
+
 					// Ensure the current window is active
 					Window.Current.Activate();
 				}

@@ -1,5 +1,7 @@
 ﻿namespace PiFormance.Server
 {
+	using Console;
+
 	internal class Program
 	{
 		private static readonly bool _showConsole = true;
@@ -13,7 +15,7 @@
 
 			using (var server = new Server())
 			{
-				server.Run(_showConsole);
+				server.Run();
 			}
 		}
 	}
