@@ -26,11 +26,13 @@
 				           Style="{StaticResource SmallTextStyle}"
 				           VerticalAlignment="Center"/>
 
-				<TextBlock Grid.Row="1"
-						   MinWidth="35"
-				           Text="{Binding Path=Load}"
-				           Style="{StaticResource SmallTextStyle}"
-				           VerticalAlignment="Center"/>
+					<TextBlock Grid.Row="1"
+					           MinWidth="35"
+					           Text="{Binding Path=Load.Value, Mode=OneWay}"
+					           Style="{StaticResource SmallTextStyle}"
+					           VerticalAlignment="Center">
+						<Run Text="%" />
+					</TextBlock>
 			</Grid>
 
 			<controls:ValueBar Grid.Row="0"

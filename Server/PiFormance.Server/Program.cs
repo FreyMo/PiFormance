@@ -4,7 +4,7 @@
 
 	internal class Program
 	{
-		private static readonly bool _showConsole = true;
+		private static readonly bool _showConsole = false;
 
 		private static void Main(string[] args)
 		{

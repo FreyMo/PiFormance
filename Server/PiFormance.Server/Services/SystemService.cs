@@ -25,15 +25,11 @@
 
 		public CpuSample GetCpuSample()
 		{
-			Console.WriteLine("GetCpuSample() was called.");
-
 			return _cpuAccess.GetCpuSample();
 		}
 
 		public RamSample GetRamSample()
 		{
-			Console.WriteLine("GetCpuSample() was called.");
-
 			return _memoryAccess.GetRamSample();
 		}
 	}
