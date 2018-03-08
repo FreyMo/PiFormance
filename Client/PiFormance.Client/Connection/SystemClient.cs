@@ -23,7 +23,7 @@
 					// Client = new SystemServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
 					Client = new SystemServiceClient(new NetTcpBinding(SecurityMode.None), new EndpointAddress("net.tcp://192.168.0.241:8733/PiFormance/"));
 					Connect();
-					await AcknowledgeAsync();
+					await AcknowledgeAsync(new Acknowledge());
 				}
 				catch (Exception)
 				{
@@ -51,14 +51,9 @@
 			};
 		}
 		
-		public async Task AcknowledgeAsync()
-		{
-			await SecureAsyncCall(() => ServiceClient.AcknowledgeAsync());
-		}
-
 		public async Task AcknowledgeAsync(Acknowledge request)
 		{
-			await SecureAsyncCall(() => ServiceClient.AcknowledgeAsync());
+			await SecureAsyncCall(() => ServiceClient.AcknowledgeAsync(request));
 		}
 	}
 }

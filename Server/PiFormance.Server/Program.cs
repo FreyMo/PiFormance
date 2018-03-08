@@ -4,11 +4,19 @@
 
 	internal class Program
 	{
+		private static bool _showConsole = true;
+
 		private static void Main(string[] args)
 		{
-			using (new Server())
+			if (_showConsole)
 			{
-				Console.ReadKey();
+				new ConsolePresenter(new ConsoleNativeMethods()).ShowConsole();
+				Console.WriteLine("Console is being shown");
+			}
+
+			using (var server = new Server())
+			{
+				server.Run(_showConsole);
 			}
 		}
 	}

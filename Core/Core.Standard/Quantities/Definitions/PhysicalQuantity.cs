@@ -1,12 +1,10 @@
 ﻿namespace Core.Standard.Quantities.Definitions
 {
 	using System;
-	using System.Runtime.Serialization;
 	using ArgumentMust;
 	using Notification;
 
 	[Serializable]
-	[DataContract]
 	public abstract class PhysicalQuantity<TPhysicalQuantity> : Bindable, IPhysicalQuantity<TPhysicalQuantity>
 		where TPhysicalQuantity : PhysicalQuantity<TPhysicalQuantity>, new()
 	{

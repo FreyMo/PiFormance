@@ -1,5 +1,7 @@
 ﻿namespace PiFormance.Server
 {
+	using System;
+	using System.Threading;
 	using Core.Standard.Dispose;
 	using HardwareAccess;
 	using Hosts;
@@ -12,6 +14,22 @@
 		protected override void DisposeManagedResources()
 		{
 			_systemProvider.Dispose();
+		}
+
+		public void Run(bool isConsoleVisible)
+		{
+			if (isConsoleVisible)
+			{
+
+				Console.ReadKey();
+			}
+			else
+			{
+				while (true)
+				{
+					Thread.Sleep(100);
+				}
+			}
 		}
 	}
 }

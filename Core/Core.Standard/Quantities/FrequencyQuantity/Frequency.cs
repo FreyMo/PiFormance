@@ -1,11 +1,9 @@
 ﻿namespace Core.Standard.Quantities.FrequencyQuantity
 {
 	using System;
-	using System.Runtime.Serialization;
 	using Definitions;
 
 	[Serializable]
-	[DataContract]
 	public class Frequency : PhysicalQuantity<Frequency>
 	{
 		public Frequency() : this(default(double))
