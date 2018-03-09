@@ -28,7 +28,7 @@
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="2*"/>
 		</Grid.ColumnDefinitions>
 
 		<TextBlock Text="CPU"
@@ -55,6 +55,7 @@
 			           Text="Intel Core i7-3770K"
 			           Style="{StaticResource NormalTextStyle}"
 			           FontStyle="Italic"
+					   FontWeight="SemiBold"
 			           TextAlignment="Center"/>
 
 			<TextBlock Grid.Row="1"
