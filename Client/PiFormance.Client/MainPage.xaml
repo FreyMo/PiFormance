@@ -28,6 +28,7 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
+					<RowDefinition />
 				</Grid.RowDefinitions>
 
 				<Ellipse Fill="White" />
@@ -62,6 +63,7 @@
 					           Foreground="White"/>
 				</Grid>
 
+				<client:RamControl Grid.Row="3"/>
 			</Grid>
 
 			<Grid Grid.Column="1"
