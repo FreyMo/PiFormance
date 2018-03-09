@@ -2,7 +2,6 @@
 {
 	using System.ServiceModel;
 	using System.Threading.Tasks;
-	using System.Timers;
 	using ServiceContracts.Cpu;
 	using ServiceContracts.Memory;
 	using Services;

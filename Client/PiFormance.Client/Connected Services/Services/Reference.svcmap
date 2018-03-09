@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b3b02ca2-85d1-481a-908f-d2034df02928" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed0ad449-9ae0-42d4-8486-70f356f51bcc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -10,7 +10,7 @@
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
     <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
     </CollectionMappings>
     <GenerateSerializableTypes>false</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
@@ -24,18 +24,18 @@
     <MetadataSource Address="net.tcp://localhost:8733/PiFormance/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="756d392c-c7e6-4f75-8df8-8297c8b27ec8" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c4c5cdce-bfcd-4bdf-9ddd-afe7b174c85f" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="8793d0b8-b2ea-425d-b81b-6831bc558d3a" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="PiFormance.ServiceContracts.Cpu.xsd" MetadataType="Schema" ID="9c05ae65-1f47-45a3-9219-a75d82f7a912" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Core.Standard.Quantities.FrequencyQuantity.xsd" MetadataType="Schema" ID="9a23626b-bd95-410b-8c23-52e0e7df4818" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Core.Standard.Quantities.Definitions.xsd" MetadataType="Schema" ID="d026bdca-9ae1-486b-99ae-6924d856986c" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Core.Standard.Notification.xsd" MetadataType="Schema" ID="9104e87f-51fa-4541-83dc-ca7453e432e3" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="dca9be4f-e3bc-4e0a-94e2-35401fd39806" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Core.Standard.Quantities.RatioQuantity.xsd" MetadataType="Schema" ID="23151633-2f75-45be-8200-1de85cd9f2b1" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Core.Standard.Quantities.TemperatureQuantity.xsd" MetadataType="Schema" ID="82380ae8-a5d8-4292-89c5-6c0104dfc617" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="PiFormance.ServiceContracts.Memory.xsd" MetadataType="Schema" ID="a2f1aea9-c631-4b76-9d93-d078b8e12d73" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
-    <MetadataFile FileName="Core.Standard.Quantities.MemoryQuantity.xsd" MetadataType="Schema" ID="6e5098a8-32eb-4c54-be05-8bd80cca2c07" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="70733682-f043-4452-a273-0409d2cbe8bc" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="76ef013e-1847-46e0-80f5-d1c62ccde8e2" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e0ebe2c8-325f-47d2-bbe3-9f9839c61886" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="PiFormance.ServiceContracts.Cpu.xsd" MetadataType="Schema" ID="a92288fe-a346-4f57-b7ad-64ec12a730cb" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Standard.Quantities.FrequencyQuantity.xsd" MetadataType="Schema" ID="0af01e0a-c2cb-4e66-bf04-298d5a911b06" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Standard.Quantities.Definitions.xsd" MetadataType="Schema" ID="2eaabece-698e-4ce6-ad70-5421e93d54af" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Standard.Notification.xsd" MetadataType="Schema" ID="eb50820d-bf01-4e3f-96a5-6f36a3c76731" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="f6bed333-39e7-4a4f-97cd-04182e7acf9c" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Standard.Quantities.RatioQuantity.xsd" MetadataType="Schema" ID="2e1462d5-08d5-443a-af0b-2c96c5f9d392" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Standard.Quantities.TemperatureQuantity.xsd" MetadataType="Schema" ID="bc50e3c2-1d42-45ac-a1c3-805a48b880f2" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="PiFormance.ServiceContracts.Memory.xsd" MetadataType="Schema" ID="cb9087b7-b0d4-45ec-bc2a-236d2b4b4f7b" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="Core.Standard.Quantities.MemoryQuantity.xsd" MetadataType="Schema" ID="c4cfcdc7-66b2-456d-b18d-c218a27ed45e" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

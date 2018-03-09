@@ -4,10 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:client="using:PiFormance.Client"
+    mc:Ignorable="d" d:DataContext="{d:DesignInstance client:MainPageViewModel, IsDesignTimeCreatable=True}"
+	UseLayoutRounding="True" >
+	
+	<Page.DataContext>
+		<client:MainPageViewModel />
+	</Page.DataContext>
 
 	<Page.Resources>
-		<ResourceDictionary Source="LogicalCoreTemplate.xaml" />
+		<ResourceDictionary Source="CoreTemplate.xaml" />
 	</Page.Resources>
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -58,7 +64,8 @@
 
 			</Grid>
 
-			<Grid Grid.Column="1">
+			<Grid Grid.Column="1"
+			      UseLayoutRounding="True">
 				<ItemsControl VerticalContentAlignment="Stretch"
 				              HorizontalContentAlignment="Stretch"
 				              ItemsSource="{Binding Path=Cores, Mode=OneWay}"

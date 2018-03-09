@@ -4,7 +4,6 @@
 	using System.Collections.ObjectModel;
 	using System.Linq;
 	using System.Threading;
-	using System.Timers;
 	using Connection;
 	using Core.Standard.Extensions;
 	using Core.Standard.Quantities.RatioQuantity;
@@ -26,6 +25,8 @@
 				Console.WriteLine(e.Message);
 			}
 
+			HandleTimer();
+
 			SetupTimer();
 		}
 
@@ -46,6 +47,8 @@
 			var cpuSample = await _client.GetCpuSampleAsync();
 			var ramSample = await _client.GetRamSampleAsync();
 
+			var cores = cpuSample.Cores.ToList();
+
 			_uiContext.Post(
 				_ =>
 				{
@@ -60,6 +63,7 @@
 					{
 						foreach (var newCore in cpuSample.Cores.Select((v, i) => new { core = v, index = i }))
 						{
+							var val = newCore.core.Load.In<Percent>().Value;
 							Cores.ElementAt(newCore.index).Load.Value = newCore.core.Load.In<Percent>().Value;
 						}
 					}

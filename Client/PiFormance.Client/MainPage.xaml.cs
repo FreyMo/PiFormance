@@ -7,7 +7,6 @@
 		public MainPage()
 		{
 			InitializeComponent();
-			DataContext = new MainPageViewModel();
 		}
 	}
 }
