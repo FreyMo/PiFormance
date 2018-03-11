@@ -1,8 +1,11 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:PiFormance.Controls">
-	
+    xmlns:local="using:PiFormance.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:media="using:Microsoft.Xaml.Interactions.Media">
+
 	<Style TargetType="local:ValueBar">
 		<Setter Property="Template">
 			<Setter.Value>
@@ -50,9 +53,46 @@
 									   HorizontalAlignment="Stretch"
 									   Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BarColor, Mode=OneWay}"
 							           x:Name="ValueBarRectangle">
-								<Rectangle.RenderTransform>
+
+								<!--<Rectangle.RenderTransform>
 									<ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Scale}" />
+								</Rectangle.RenderTransform>-->
+
+								<Rectangle.RenderTransform>
+									<ScaleTransform ScaleX="0.2" />
 								</Rectangle.RenderTransform>
+
+								<Rectangle.Resources>
+									<Storyboard x:Key="ValueBarAnimation">
+										<DoubleAnimation To="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Scale, Mode=OneWay}"
+										                 Duration="0:0:1"
+										                 Storyboard.TargetProperty="(Rectangle.RenderTransform).(ScaleTransform.ScaleX)"
+										                 Storyboard.TargetName="ValueBarRectangle" />
+										<!--<ColorAnimation To="Green" 
+										                Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)"
+										                Storyboard.TargetName="ValueBarRectangle"
+										                FillBehavior="Stop" 
+										                Duration="0:0:1"/>-->
+									</Storyboard>
+								</Rectangle.Resources>
+
+								<interactivity:Interaction.Behaviors>
+									<core:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}"
+									                          ComparisonCondition="NotEqual"
+									                          Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}">
+										<media:ControlStoryboardAction ControlStoryboardOption="Play" Storyboard="{StaticResource ValueBarAnimation}" />
+									</core:DataTriggerBehavior>
+								</interactivity:Interaction.Behaviors>
+
+								<!--<Rectangle.Triggers>
+										<EventTrigger RoutedEvent="Loaded" >
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation Storyboard.TargetProperty="(Rectangle.RenderTransform).(ScaleTransform.ScaleX)"									To="0.1" Duration="0:0:1" RepeatBehavior="Forever" />
+											</Storyboard>
+										</BeginStoryboard>
+									</EventTrigger>
+								</Rectangle.Triggers>-->
 							</Rectangle>
 						</Grid>
 					</Grid>
