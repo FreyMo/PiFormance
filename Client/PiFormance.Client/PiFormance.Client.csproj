@@ -95,31 +95,50 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bootstrapping\BootStrapper.cs" />
+    <Compile Include="Bootstrapping\Modules\CpuModule.cs" />
     <Compile Include="Connected Services\Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connection\ConnectionChecker.cs" />
-    <Compile Include="CoreTemplate.xaml.cs">
+    <Compile Include="Services\Cpu\CpuSampleProviderService.cs" />
+    <Compile Include="Services\Messengers\CpuSampleMessenger.cs" />
+    <Compile Include="Services\Messengers\Messages\RamSampleAcquired.cs" />
+    <Compile Include="Services\Messengers\Messages\CpuSampleAcquired.cs" />
+    <Compile Include="Services\Messengers\Messages\CpuSampleShouldBeAcquired.cs" />
+    <Compile Include="Services\Timing\CpuSampleTimerService.cs" />
+    <Compile Include="Services\Messengers\Messages\RamSampleShouldBeAcquired.cs" />
+    <Compile Include="Views\ViewModelLocator\ViewModelLocatorExtension.cs" />
+    <Compile Include="Views\Cpu\Page\CpuPageLocatorExtension.cs" />
+    <Compile Include="ViewModels\Base\ViewModel.cs" />
+    <Compile Include="ViewModels\CoresViewModel.cs" />
+    <Compile Include="ViewModels\CpuViewModel.cs" />
+    <Compile Include="ViewModels\Base\IViewModel.cs" />
+    <Compile Include="ViewModels\RamViewModel.cs" />
+    <Compile Include="Views\Cpu\CoreTemplate.xaml.cs">
       <DependentUpon>CoreTemplate.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="CpuControl.xaml.cs">
+    <Compile Include="Views\Cpu\CpuControl.xaml.cs">
       <DependentUpon>CpuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPageViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Connection\ConnectionChangedEventArgs.cs" />
     <Compile Include="Connection\SystemClient.cs" />
     <Compile Include="Connection\ClientBase.cs" />
     <Compile Include="Connection\ISystemClient.cs" />
     <Compile Include="Connection\IClient.cs" />
-    <Compile Include="RamControl.xaml.cs">
+    <Compile Include="Views\Cpu\Page\CpuPage.cs">
+      <DependentUpon>CpuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cpu\RamControl.xaml.cs">
       <DependentUpon>RamControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cpu\SystemView.xaml.cs">
+      <DependentUpon>SystemView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -186,20 +205,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CoreTemplate.xaml">
+    <Page Include="Views\Cpu\CoreTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="CpuControl.xaml">
+    <Page Include="Views\Cpu\CpuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\Cpu\Page\CpuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RamControl.xaml">
+    <Page Include="Views\Cpu\RamControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Cpu\SystemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +233,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Core\Core.IoC.Definitions\Core.IoC.Definitions.csproj">
+      <Project>{6b6c019a-69f7-4f9c-b3f7-c3aa384a140c}</Project>
+      <Name>Core.IoC.Definitions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Core\Core.IoC\Core.IoC.csproj">
+      <Project>{D6BDA3FE-FA8F-4D38-898C-512B8193291A}</Project>
+      <Name>Core.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Core\Core.Standard\Core.Standard.csproj">
       <Project>{231fd42f-726b-460a-b4af-9d2e2b48d75e}</Project>
       <Name>Core.Standard</Name>
@@ -228,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Gpu\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

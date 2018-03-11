@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Client
+﻿namespace PiFormance.Client.Connection
 {
 	using System.Linq;
 	using System.Net;

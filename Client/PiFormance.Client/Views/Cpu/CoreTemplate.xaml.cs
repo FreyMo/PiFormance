@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Client
+﻿namespace PiFormance.Client.Views.Cpu
 {
 	using Windows.UI.Xaml;
 

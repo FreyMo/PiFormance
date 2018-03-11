@@ -2,32 +2,42 @@
 {
 	using System;
 	using Container;
+	using Standard.ArgumentMust;
 
 	public class ServiceLocator : IServiceLocator
 	{
 		private readonly IIoCContainer _container;
 
-		private ServiceLocator(IIoCContainer container)
+		public ServiceLocator(IIoCContainer container)
 		{
+			ArgumentMust.NotBeNull(() => container);
+
 			_container = container;
 		}
 
-		public static ServiceLocator Instance { get; private set; }
+		public static IServiceLocator Instance { get; private set; }
 
 		public T Resolve<T>()
 		{
-			return Instance._container.Resolve<T>();
+			return _container.Resolve<T>();
 		}
 
 		public object ResolveType(Type type)
 		{
 			var genericMethod = typeof(ServiceLocator).GetMethod("Resolve").MakeGenericMethod(type);
-			return genericMethod.Invoke(Instance, new object[] { });
+			return genericMethod.Invoke(this, new object[] { });
 		}
 
-		private static void CreateInstance(IIoCContainer container)
+		public void SetStaticInstance()
 		{
-			Instance = new ServiceLocator(container);
+			if (Instance == null)
+			{
+				Instance = this;
+			}
+			else
+			{
+				throw new InvalidOperationException();
+			}
 		}
 	}
 }

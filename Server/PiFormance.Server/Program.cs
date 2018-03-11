@@ -8,6 +8,8 @@
 
 		private static void Main(string[] args)
 		{
+			new AutostartProvider().RunOnWindowsStartup();
+
 			if (_showConsole)
 			{
 				new ConsolePresenter(new ConsoleNativeMethods()).ShowConsole();
