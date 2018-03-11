@@ -19,6 +19,9 @@
 			Container.RegisterSingleton<CpuSampleProviderService>();
 			Container.RegisterSingleton<CpuSampleMessenger>();
 			Container.RegisterSingleton<CpuSampleTimerService>();
+
+			// TODO: RELOCATE
+			Container.Resolve<CpuSampleTimerService>();
 		}
 
 		public CpuModule(IIoCContainer container) : base(container)

@@ -8,16 +8,19 @@
 	using Core.Standard.Messenger.Messenger;
 	using Core.Standard.Quantities.RatioQuantity;
 	using ServiceContracts.Cpu;
+	using Services.Cpu;
 	using Services.Messengers;
 	using Services.Messengers.Messages;
 
 	public class CoresViewModel : ViewModel, ISubscriberTo<CpuSampleAcquired>
 	{
-		public CoresViewModel(CpuSampleMessenger messenger)
+		public CoresViewModel(CpuSampleMessenger messenger, CpuSampleProviderService sampleProviderService)
 		{
 			ArgumentMust.NotBeNull(() => messenger);
 
 			messenger.SubscribeTo(this);
+
+			sampleProviderService.OnMessageReceived(new CpuSampleShouldBeAcquired());
 		}
 
 		public ObservableCollection<LogicalCore> Cores { get; } = new ObservableCollection<LogicalCore>();

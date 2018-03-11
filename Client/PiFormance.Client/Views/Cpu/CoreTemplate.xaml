@@ -22,7 +22,9 @@
 	<converters:StringFormatConverter x:Key="StringFormatConverter" />
 
 	<DataTemplate x:Key="LogicalCoreDataTemplate">
-		<Grid MinHeight="35" UseLayoutRounding="True">
+		<Grid MinHeight="35"
+			  MinWidth="350"
+			  UseLayoutRounding="True">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition />

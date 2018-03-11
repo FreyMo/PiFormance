@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:PiFormance.Controls"
+    xmlns:converters="using:PiFormance.Controls.Converters"
     mc:Ignorable="d">
 
 	<UserControl.Resources>
@@ -15,6 +16,8 @@
 		<Style TargetType="TextBlock" x:Key="NormalTextStyle">
 			<Setter Property="FontSize" Value="13" />
 		</Style>
+
+		<converters:StringFormatConverter x:Key="StringFormatConverter" />
 	</UserControl.Resources>
 
 	<Grid>
@@ -54,7 +57,7 @@
 
 			<TextBlock Grid.Row="0"
 			           Grid.Column="1"
-			           Text="7.7 GB"
+			           Text="{Binding Path=AvailableMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.0\} GiB'}"
 					   TextAlignment="Right"
 			           Style="{StaticResource NormalTextStyle}"/>
 
@@ -65,7 +68,7 @@
 
 			<TextBlock Grid.Row="1"
 			           Grid.Column="1"
-			           Text="15.7 GB"
+					   Text="{Binding Path=TotalMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.0\} GiB'}"
 					   TextAlignment="Right"
 			           Style="{StaticResource NormalTextStyle}"/>
 
@@ -77,7 +80,7 @@
 
 			<TextBlock Grid.Row="2"
 			           Grid.Column="1"
-			           Text="47.2  %"
+					   Text="{Binding Path=Usage.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0,4:0.0\} %'}"
 					   TextAlignment="Right"
 			           Style="{StaticResource NormalTextStyle}"/>
 		</Grid>
@@ -89,8 +92,9 @@
 		                   VerticalAlignment="Top"
 		                   MinHeight="35"
 						   Minimum="0"
-		                   Value="7"
-		                   Maximum="10"/>
+						   Value="{Binding Path=Usage.Value, Mode=OneWay}"
+		                   Maximum="100"
+						   Margin="0,0,-5,0"/>
 
 	</Grid>
 </UserControl>

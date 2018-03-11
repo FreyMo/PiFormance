@@ -1,7 +1,5 @@
 ﻿namespace PiFormance.Client.Services.Timing
 {
-	using System;
-	using Connection;
 	using Core.Standard.ArgumentMust;
 	using Messengers;
 	using Messengers.Messages;
@@ -25,11 +23,11 @@
 			{
 				AutoReset = true
 			};
-			timer.Elapsed += (sender, args) => HandleTimer();
+			timer.Elapsed += (sender, args) => NotifyAboutUpcomingUpdate();
 			timer.Start();
 		}
 
-		private void HandleTimer()
+		private void NotifyAboutUpcomingUpdate()
 		{
 			_cpuSampleMessenger.Post(new CpuSampleShouldBeAcquired());
 			_cpuSampleMessenger.Post(new RamSampleShouldBeAcquired());

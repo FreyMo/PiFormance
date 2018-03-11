@@ -25,12 +25,16 @@
 
 		public async void OnMessageReceived(CpuSampleShouldBeAcquired message)
 		{
+			ArgumentMust.NotBeNull(() => message);
+
 			var sample = await _client.GetCpuSampleAsync();
 			_cpuSampleMessenger.Post(new CpuSampleAcquired(sample));
 		}
 
 		public async void OnMessageReceived(RamSampleShouldBeAcquired message)
 		{
+			ArgumentMust.NotBeNull(() => message);
+
 			var sample = await _client.GetRamSampleAsync();
 			_cpuSampleMessenger.Post(new RamSampleAcquired(sample));
 		}

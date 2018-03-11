@@ -5,23 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:PiFormance.Client.ViewModels"
-    xmlns:views="using:PiFormance.Client.Views"
     xmlns:page="using:PiFormance.Client.Views.Cpu.Page"
     xmlns:cpu="using:PiFormance.Client.Views.Cpu"
     mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance viewModels:MainPageViewModel, IsDesignTimeCreatable=True}"
 	UseLayoutRounding="True" 
-	DataContext="{page:CpuPageLocator}">
+	DataContext="{page:CpuPageLocator}"
+	MinHeight="20">
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<Grid Background="#FF333333">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="3*" />
-			</Grid.ColumnDefinitions>
-
-			<cpu:SystemView Grid.Column="1"
-			                  UseLayoutRounding="True" />
-		</Grid>
+		<Border Background="#FF333333">
+			<cpu:SystemView />
+		</Border>
 	</Grid>
 </Page>
