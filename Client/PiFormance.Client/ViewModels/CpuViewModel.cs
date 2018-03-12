@@ -21,8 +21,15 @@
 		{
 			ArgumentMust.NotBeNull(() => message);
 
+			CpuName = message.CpuSample.Name;
 			TotalLoad.Value = message.CpuSample.TotalUsage.Load.In<Percent>().Value;
 			ClockSpeed.Value = message.CpuSample.ClockSpeed.In<GigaHertz>().Value;
+		}
+
+		public string CpuName
+		{
+			get => Get<string>();
+			private set => Set(value);
 		}
 
 		public Ratio TotalLoad { get; } = new Ratio(0, Percent.Instance);

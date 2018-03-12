@@ -6,6 +6,10 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:media="using:Microsoft.Xaml.Interactions.Media">
 
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="Colors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
 	<Style TargetType="local:ValueBar">
 		<Setter Property="Template">
 			<Setter.Value>
@@ -51,28 +55,37 @@
 							<Rectangle Grid.Row="1"
 									   VerticalAlignment="Stretch"
 									   HorizontalAlignment="Stretch"
-									   Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BarColor, Mode=OneWay}"
-							           x:Name="ValueBarRectangle">
-
-								<!--<Rectangle.RenderTransform>
-									<ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Scale}" />
-								</Rectangle.RenderTransform>-->
-
+							           x:Name="ValueBarRectangle"
+							           Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BarColor, Mode=OneWay}">
 								<Rectangle.RenderTransform>
-									<ScaleTransform ScaleX="0.2" />
+									<ScaleTransform ScaleX="0"/>
 								</Rectangle.RenderTransform>
 
 								<Rectangle.Resources>
 									<Storyboard x:Key="ValueBarAnimation">
 										<DoubleAnimation To="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Scale, Mode=OneWay}"
-										                 Duration="0:0:1"
+										                 Duration="0:0:0.95"
 										                 Storyboard.TargetProperty="(Rectangle.RenderTransform).(ScaleTransform.ScaleX)"
-										                 Storyboard.TargetName="ValueBarRectangle" />
-										<!--<ColorAnimation To="Green" 
+										                 Storyboard.TargetName="ValueBarRectangle">
+											<DoubleAnimation.EasingFunction>
+												<QuadraticEase EasingMode="EaseInOut"  />
+											</DoubleAnimation.EasingFunction>
+										</DoubleAnimation>
+									</Storyboard>
+
+									<Storyboard x:Key="ValueBarColorAnimation">
+										<ColorAnimation To="#EEFF7777" 
+										        EnableDependentAnimation="True"
+										        Duration="0:0:0.95"
+										        Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)"
+										        Storyboard.TargetName="ValueBarRectangle"/>
+									</Storyboard>
+
+									<Storyboard x:Key="ValueBarColorBackAnimation">
+										<ColorAnimation To="{StaticResource WhiteColor}"
+										                Duration="0:0:0.95"
 										                Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)"
-										                Storyboard.TargetName="ValueBarRectangle"
-										                FillBehavior="Stop" 
-										                Duration="0:0:1"/>-->
+										                Storyboard.TargetName="ValueBarRectangle"/>
 									</Storyboard>
 								</Rectangle.Resources>
 
@@ -80,26 +93,36 @@
 									<core:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}"
 									                          ComparisonCondition="NotEqual"
 									                          Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}">
-										<media:ControlStoryboardAction ControlStoryboardOption="Play" Storyboard="{StaticResource ValueBarAnimation}" />
+										<core:DataTriggerBehavior.Actions>
+											<media:ControlStoryboardAction Storyboard="{StaticResource ValueBarAnimation}" />
+										</core:DataTriggerBehavior.Actions>
+									</core:DataTriggerBehavior>
+
+									<core:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}"
+									                          ComparisonCondition="Equal"
+									                          Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Maximum}">
+										<core:DataTriggerBehavior.Actions>
+											<media:ControlStoryboardAction Storyboard="{StaticResource ValueBarColorAnimation}" />
+										</core:DataTriggerBehavior.Actions>
+									</core:DataTriggerBehavior>
+
+									<core:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}"
+									                          ComparisonCondition="NotEqual"
+									                          Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Maximum}">
+										<core:DataTriggerBehavior.Actions>
+											<media:ControlStoryboardAction Storyboard="{StaticResource ValueBarColorBackAnimation}" />
+										</core:DataTriggerBehavior.Actions>
 									</core:DataTriggerBehavior>
 								</interactivity:Interaction.Behaviors>
-
-								<!--<Rectangle.Triggers>
-										<EventTrigger RoutedEvent="Loaded" >
-										<BeginStoryboard>
-											<Storyboard>
-												<DoubleAnimation Storyboard.TargetProperty="(Rectangle.RenderTransform).(ScaleTransform.ScaleX)"									To="0.1" Duration="0:0:1" RepeatBehavior="Forever" />
-											</Storyboard>
-										</BeginStoryboard>
-									</EventTrigger>
-								</Rectangle.Triggers>-->
 							</Rectangle>
 						</Grid>
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<Setter Property="Background" Value="#FF333333"/>
+		<Setter Property="Background" Value="{StaticResource DarkBrush}"/>
 	</Style>
 </ResourceDictionary>
+ 
+
  

@@ -9,4 +9,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Celsius" nillable="true" type="tns:Celsius" />
+  <xs:complexType name="Temperature">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" base="q2:PhysicalQuantityOfTemperature_PMjZ0s_SN">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Temperature" nillable="true" type="tns:Temperature" />
+  <xs:complexType name="ArrayOfTemperature">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Temperature" nillable="true" type="tns:Temperature" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemperature" nillable="true" type="tns:ArrayOfTemperature" />
 </xs:schema>

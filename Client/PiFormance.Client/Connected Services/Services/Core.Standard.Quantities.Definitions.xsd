@@ -73,6 +73,22 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="UnitOfTemperature_PMjZ0s_SN" nillable="true" type="tns:UnitOfTemperature_PMjZ0s_SN" />
+  <xs:complexType name="PhysicalQuantityOfTemperature_PMjZ0s_SN">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PhysicalQuantityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.Definitions" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Temperature" Namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q3:Bindable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhysicalQuantityOfTemperature_PMjZ0s_SN" nillable="true" type="tns:PhysicalQuantityOfTemperature_PMjZ0s_SN" />
   <xs:complexType name="UnitOfFrequencydR4EH2ad">
     <xs:annotation>
       <xs:appinfo>
@@ -95,7 +111,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q3:Bindable">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Standard.Notification" base="q4:Bindable">
         <xs:sequence />
       </xs:extension>
     </xs:complexContent>

@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Cpu" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Cpu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" />
   <xs:complexType name="CpuSample">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" minOccurs="0" name="ClockSpeed" nillable="true" type="q1:Frequency" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" minOccurs="0" name="BusSpeed" nillable="true" type="q1:Frequency" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" minOccurs="0" name="ClockSpeed" nillable="true" type="q2:Frequency" />
       <xs:element minOccurs="0" name="Cores" nillable="true" type="tns:ArrayOfLogicalCore" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" minOccurs="0" name="PackageTemperature" nillable="true" type="q3:Temperature" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" minOccurs="0" name="Temperatures" nillable="true" type="q4:ArrayOfTemperature" />
       <xs:element minOccurs="0" name="TotalUsage" nillable="true" type="tns:TotalUsage" />
     </xs:sequence>
   </xs:complexType>
@@ -28,7 +33,7 @@
   <xs:element name="LogicalCore" nillable="true" type="tns:LogicalCore" />
   <xs:complexType name="CpuPart">
     <xs:sequence>
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" minOccurs="0" name="Load" nillable="true" type="q2:Ratio" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" minOccurs="0" name="Load" nillable="true" type="q5:Ratio" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CpuPart" nillable="true" type="tns:CpuPart" />

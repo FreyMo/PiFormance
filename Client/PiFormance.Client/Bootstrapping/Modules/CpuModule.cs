@@ -1,5 +1,6 @@
 ﻿namespace PiFormance.Client.Bootstrapping.Modules
 {
+	using Connection;
 	using Core.IoC.Definitions.Container;
 	using Core.IoC.Definitions.Module;
 	using Services.Cpu;
@@ -17,10 +18,12 @@
 			Container.RegisterSingleton<RamViewModel>();
 
 			Container.RegisterSingleton<CpuSampleProviderService>();
+			Container.RegisterSingleton<RamSampleProviderService>();
 			Container.RegisterSingleton<CpuSampleMessenger>();
 			Container.RegisterSingleton<CpuSampleTimerService>();
 
 			// TODO: RELOCATE
+			Container.RegisterSingleton<SystemClient>();
 			Container.Resolve<CpuSampleTimerService>();
 		}
 

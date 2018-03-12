@@ -6,16 +6,20 @@
 	using Core.Standard.Quantities.FrequencyQuantity;
 	using Core.Standard.Quantities.MemoryQuantity;
 	using Core.Standard.Quantities.RatioQuantity;
+	using Services.Cpu;
 	using Services.Messengers;
 	using Services.Messengers.Messages;
 
 	public class RamViewModel : ViewModel, ISubscriberTo<RamSampleAcquired>
 	{
-		public RamViewModel(CpuSampleMessenger messenger)
+		public RamViewModel(CpuSampleMessenger messenger, RamSampleProviderService ramSampleProviderService)
 		{
+			ArgumentMust.NotBeNull(() => messenger);
 			ArgumentMust.NotBeNull(() => messenger);
 
 			messenger.SubscribeTo(this);
+
+			ramSampleProviderService.OnMessageReceived(new RamSampleShouldBeAcquired());
 		}
 		
 		public Memory AvailableMemory { get; } = new Memory(0, GibiByte.Instance);

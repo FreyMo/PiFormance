@@ -4,16 +4,21 @@
 
 	internal class Program
 	{
-		private static readonly bool _showConsole = false;
-
 		private static void Main(string[] args)
 		{
-			new AutostartProvider().RunOnWindowsStartup();
+			//using (var updateManager = new UpdateManager(@"C:\SquirrelReleases"))
+			//{
+			//	var text = updateManager.CurrentlyInstalledVersion();
+			//	var releaseEntry = await updateManager.UpdateApp();
+			//	var newVersion = releaseEntry?.Version.ToString();
+			//}
 
-			if (_showConsole)
+			if (false)
 			{
 				new ConsolePresenter(new ConsoleNativeMethods()).ShowConsole();
 			}
+
+			AutostartProvider.RunOnWindowsStartup();
 
 			using (var server = new Server())
 			{

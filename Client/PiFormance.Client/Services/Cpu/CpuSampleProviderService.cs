@@ -6,37 +6,19 @@
 	using Messengers;
 	using Messengers.Messages;
 
-	public class CpuSampleProviderService : ISubscriberTo<CpuSampleShouldBeAcquired>, ISubscriberTo<RamSampleShouldBeAcquired>
+	public class CpuSampleProviderService : SampleProviderService, ISubscriberTo<CpuSampleShouldBeAcquired>
 	{
-		private readonly SystemClient _client;
-		private readonly CpuSampleMessenger _cpuSampleMessenger;
-
-		public CpuSampleProviderService(CpuSampleMessenger cpuSampleMessenger)
+		public CpuSampleProviderService(CpuSampleMessenger messenger, SystemClient systemClient) : base(messenger, systemClient)
 		{
-			ArgumentMust.NotBeNull(() => cpuSampleMessenger);
-
-			// TODO: RELOCATE
-			_client = new SystemClient();
-
-			_cpuSampleMessenger = cpuSampleMessenger;
-			_cpuSampleMessenger.SubscribeTo<CpuSampleShouldBeAcquired>(this);
-			_cpuSampleMessenger.SubscribeTo<RamSampleShouldBeAcquired>(this);
+			Messenger.SubscribeTo(this);
 		}
 
 		public async void OnMessageReceived(CpuSampleShouldBeAcquired message)
 		{
 			ArgumentMust.NotBeNull(() => message);
 
-			var sample = await _client.GetCpuSampleAsync();
-			_cpuSampleMessenger.Post(new CpuSampleAcquired(sample));
-		}
-
-		public async void OnMessageReceived(RamSampleShouldBeAcquired message)
-		{
-			ArgumentMust.NotBeNull(() => message);
-
-			var sample = await _client.GetRamSampleAsync();
-			_cpuSampleMessenger.Post(new RamSampleAcquired(sample));
+			var sample = await Client.GetCpuSampleAsync();
+			Messenger.Post(new CpuSampleAcquired(sample));
 		}
 	}
 }

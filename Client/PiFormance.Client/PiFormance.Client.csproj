@@ -104,6 +104,8 @@
     </Compile>
     <Compile Include="Connection\ConnectionChecker.cs" />
     <Compile Include="Services\Cpu\CpuSampleProviderService.cs" />
+    <Compile Include="Services\Cpu\SampleProviderService.cs" />
+    <Compile Include="Services\Cpu\RamSampleProviderService.cs" />
     <Compile Include="Services\Messengers\CpuSampleMessenger.cs" />
     <Compile Include="Services\Messengers\Messages\RamSampleAcquired.cs" />
     <Compile Include="Services\Messengers\Messages\CpuSampleAcquired.cs" />

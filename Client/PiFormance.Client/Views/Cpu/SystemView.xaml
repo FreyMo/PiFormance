@@ -36,9 +36,9 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 			<cpu:RamControl DataContext="{Binding Path=RamViewModel}"
-			                Margin="5,0,5,5"/>
+			                Margin="5,0,10,5"/>
 			<cpu:CpuControl DataContext="{Binding Path=CpuViewModel}"
-							Margin="0,0,5,5"
+							Margin="0,0,10,5"
 			                Grid.Column="1" />
 		</Grid>
 	</Grid>

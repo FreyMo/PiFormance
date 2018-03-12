@@ -10,12 +10,36 @@
     mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance viewModels:MainPageViewModel, IsDesignTimeCreatable=True}"
 	UseLayoutRounding="True" 
-	DataContext="{page:CpuPageLocator}"
-	MinHeight="20">
+	DataContext="{page:CpuPageLocator}">
+
+	<Page.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="ms-appx:///PiFormance.Controls/Themes/Colors.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Page.Resources>
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<Border Background="#FF333333">
-			<cpu:SystemView />
-		</Border>
+		<Pivot >
+			<PivotItem Margin="0">
+				<PivotItem.Header>
+					<TextBlock>CPU</TextBlock>
+				</PivotItem.Header>
+
+				<Grid Background="{StaticResource DarkBrush}">
+					<cpu:SystemView Margin="2,0,2,0"/>
+				</Grid>
+			</PivotItem>
+
+			<PivotItem Margin="0">
+				<PivotItem.Header>
+					<TextBlock>GPU</TextBlock>
+				</PivotItem.Header>
+				<Grid>
+					<Button>STUFF</Button>
+				</Grid>
+			</PivotItem>
+		</Pivot>
 	</Grid>
 </Page>

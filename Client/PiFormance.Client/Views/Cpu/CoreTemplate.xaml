@@ -22,7 +22,7 @@
 	<converters:StringFormatConverter x:Key="StringFormatConverter" />
 
 	<DataTemplate x:Key="LogicalCoreDataTemplate">
-		<Grid MinHeight="35"
+		<Grid MinHeight="30"
 			  MinWidth="350"
 			  UseLayoutRounding="True">
 			<Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
-			<Grid Background="#FF333333"
+			<Grid Background="{Binding Path=Background, ElementName=ValueBar}"
 			      MinWidth="52"
 			      Margin="0,0,5,0"
 			      VerticalAlignment="Center">
@@ -51,7 +51,8 @@
 				           VerticalAlignment="Center" />
 			</Grid>
 
-			<controls:ValueBar Grid.Row="0"
+			<controls:ValueBar x:Name="ValueBar"
+			                   Grid.Row="0"
 			                   Grid.Column="1"
 			                   Minimum="0"
 			                   Maximum="100"

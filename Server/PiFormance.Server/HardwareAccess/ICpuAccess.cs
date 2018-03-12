@@ -1,9 +1,8 @@
 namespace PiFormance.Server.HardwareAccess
 {
-	using System;
 	using ServiceContracts.Cpu;
 
-	public interface ICpuAccess : IDisposable
+	public interface ICpuAccess
 	{
 		CpuSample GetCpuSample();
 	}

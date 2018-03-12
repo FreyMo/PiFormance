@@ -1,32 +1,27 @@
 ﻿namespace PiFormance.Server.HardwareAccess
 {
-	using System;
 	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Linq;
-	using System.Management;
-	using Core.Standard.Dispose;
-	using Core.Standard.Quantities.FrequencyQuantity;
-	using Core.Standard.Quantities.FrequencyQuantity.Extensions;
+	using Computer;
+	using Core.Standard.ArgumentMust;
 	using Core.Standard.Quantities.RatioQuantity.Extensions;
 	using ServiceContracts.Cpu;
 
-	public class CpuAccess : DisposableBase, ICpuAccess
+	public class CpuAccess : ICpuAccess
 	{
-		private readonly PerformanceCounter _totalLoadCounter;
 		private readonly IList<PerformanceCounter> _coreLoadCounters;
-		private readonly ManagementObject _managementObject = new ManagementObject("Win32_Processor.DeviceID='CPU0'");
+		private readonly CpuHardware _cpu;
+		private readonly PerformanceCounter _totalLoadCounter;
 
-		public CpuAccess()
+		public CpuAccess(CpuHardware cpu)
 		{
+			ArgumentMust.NotBeNull(() => cpu);
+
+			_cpu = cpu;
+
 			_totalLoadCounter = GetTotalLoadCounter();
 			_coreLoadCounters = GetCoreLoadPerformanceCounters();
-		}
-
-		private PerformanceCounter GetTotalLoadCounter()
-		{
-			return GetAllCpuLoadPerformanceCounters().Where(counter => counter.InstanceName == "_Total")
-													 .Single(counter => counter.CounterName == "Prozessorzeit (%)");
 		}
 
 		public CpuSample GetCpuSample()
@@ -36,12 +31,20 @@
 			var cores = _coreLoadCounters.Select(
 				counter => new LogicalCore(int.Parse(counter.InstanceName), ((double)counter.NextValue()).Percent()));
 
-			return new CpuSample(GetCpuSpeed(), totalUsage, cores);
+			return new CpuSample(
+				_cpu.GetCpuName(),
+				_cpu.GetClockSpeed(),
+				_cpu.GetBusSpeed(),
+				totalUsage,
+				_cpu.GetPackageTemperature(),
+				cores,
+				_cpu.GetCoreTemperatures());
 		}
 
-		private Frequency GetCpuSpeed()
+		private PerformanceCounter GetTotalLoadCounter()
 		{
-			return ((int)(uint)_managementObject["CurrentClockSpeed"]).MegaHertz();
+			return GetAllCpuLoadPerformanceCounters().Where(counter => counter.InstanceName == "_Total")
+			                                         .Single(counter => counter.CounterName == "Prozessorzeit (%)");
 		}
 
 		private IList<PerformanceCounter> GetCoreLoadPerformanceCounters()
@@ -62,11 +65,6 @@
 
 			return processorCategory.GetInstanceNames()
 			                        .SelectMany(instanceName => processorCategory.GetCounters(instanceName));
-		}
-
-		protected override void DisposeManagedResources()
-		{
-			_managementObject.Dispose();
 		}
 	}
 }

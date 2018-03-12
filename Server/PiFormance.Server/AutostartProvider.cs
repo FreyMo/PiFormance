@@ -1,30 +1,24 @@
 ﻿namespace PiFormance.Server
 {
 	using System;
-	using System.Deployment.Application;
+	using Core.Standard.Extensions;
 	using Microsoft.Win32;
 
-	public class AutostartProvider
+	public static class AutostartProvider
 	{
-		private readonly string _startPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs) +
-		                           @"\Moritz\PiFormance\PiFormance.Server.appref-ms";
+		// TODO: NEEDS TO BE CHANGED TO DEPLOYMENT PATH
+		private static readonly string StartPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs) +
+		                                           @"\Moritz\PiFormance\PiFormance.Server.appref-ms";
 
-		private readonly RegistryKey _appKey = Registry.CurrentUser.OpenSubKey(
+		private static readonly RegistryKey AppKey = Registry.CurrentUser.OpenSubKey(
 			@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run",
 			true);
 
-		public void RunOnWindowsStartup()
+		public static void RunOnWindowsStartup()
 		{
-			try
+			if (AppKey.GetValue("PiFormance.Server").Cast<string>() != StartPath)
 			{
-				if (ApplicationDeployment.CurrentDeployment.IsFirstRun)
-				{
-					_appKey.SetValue("PiFormance.Server", _startPath);
-				}
-			}
-			catch (InvalidDeploymentException)
-			{
-				System.Console.WriteLine("Not deployed!");
+				AppKey.SetValue("PiFormance.Server", StartPath);
 			}
 		}
 	}

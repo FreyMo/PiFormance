@@ -23,7 +23,7 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
-			<RowDefinition />
+			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
@@ -57,7 +57,7 @@
 
 			<TextBlock Grid.Row="0"
 			           Grid.Column="1"
-			           Text="{Binding Path=AvailableMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.0\} GiB'}"
+			           Text="{Binding Path=AvailableMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.00\} GiB'}"
 					   TextAlignment="Right"
 			           Style="{StaticResource NormalTextStyle}"/>
 
@@ -68,7 +68,7 @@
 
 			<TextBlock Grid.Row="1"
 			           Grid.Column="1"
-					   Text="{Binding Path=TotalMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.0\} GiB'}"
+					   Text="{Binding Path=TotalMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.00\} GiB'}"
 					   TextAlignment="Right"
 			           Style="{StaticResource NormalTextStyle}"/>
 
@@ -85,7 +85,6 @@
 			           Style="{StaticResource NormalTextStyle}"/>
 		</Grid>
 
-
 		<controls:ValueBar Grid.Row="1"
 		                   Grid.Column="0"
 		                   Grid.ColumnSpan="3"
@@ -94,7 +93,6 @@
 						   Minimum="0"
 						   Value="{Binding Path=Usage.Value, Mode=OneWay}"
 		                   Maximum="100"
-						   Margin="0,0,-5,0"/>
-
+						   Margin="0,0,-10,0"/>
 	</Grid>
 </UserControl>
