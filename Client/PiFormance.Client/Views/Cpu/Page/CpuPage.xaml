@@ -12,13 +12,13 @@
 	UseLayoutRounding="True" 
 	DataContext="{page:CpuPageLocator}">
 
-	<Page.Resources>
+	<!--<Page.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="ms-appx:///PiFormance.Controls/Themes/Colors.xaml"/>
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
-	</Page.Resources>
+	</Page.Resources>-->
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<Pivot >
@@ -27,7 +27,8 @@
 					<TextBlock>CPU</TextBlock>
 				</PivotItem.Header>
 
-				<Grid Background="{StaticResource DarkBrush}">
+				<!--<Grid Background="{StaticResource DarkBrush}">-->
+				<Grid Background="#FF222222">
 					<cpu:SystemView Margin="2,0,2,0"/>
 				</Grid>
 			</PivotItem>

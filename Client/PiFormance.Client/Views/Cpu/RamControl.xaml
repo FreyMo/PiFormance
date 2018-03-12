@@ -88,7 +88,7 @@
 		<controls:ValueBar Grid.Row="1"
 		                   Grid.Column="0"
 		                   Grid.ColumnSpan="3"
-		                   VerticalAlignment="Top"
+		                   VerticalAlignment="Stretch"
 		                   MinHeight="35"
 						   Minimum="0"
 						   Value="{Binding Path=Usage.Value, Mode=OneWay}"

@@ -6,10 +6,6 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:media="using:Microsoft.Xaml.Interactions.Media">
 
-	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="Colors.xaml" />
-	</ResourceDictionary.MergedDictionaries>
-
 	<Style TargetType="local:ValueBar">
 		<Setter Property="Template">
 			<Setter.Value>
@@ -82,7 +78,8 @@
 									</Storyboard>
 
 									<Storyboard x:Key="ValueBarColorBackAnimation">
-										<ColorAnimation To="{StaticResource WhiteColor}"
+										<!--To="{StaticResource WhiteColor}"-->
+										<ColorAnimation To="White"
 										                Duration="0:0:0.95"
 										                Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)"
 										                Storyboard.TargetName="ValueBarRectangle"/>
@@ -120,7 +117,8 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<Setter Property="Background" Value="{StaticResource DarkBrush}"/>
+		<!--Value="{StaticResource DarkBrush}"-->
+		<Setter Property="Background" Value="#FF222222"/>
 	</Style>
 </ResourceDictionary>
  
