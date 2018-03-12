@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Server.HardwareAccess.Computer
+﻿namespace PiFormance.Server.HardwareAccess.Wrappers
 {
 	using System;
 	using System.Collections.Generic;
@@ -8,7 +8,7 @@
 	using Core.Standard.Quantities.TemperatureQuantity;
 	using OpenHardwareMonitor.Hardware;
 
-	public class CpuHardware
+	public class CpuSensorWrapper
 	{
 		private readonly ISensor _busClockSensor;
 		private readonly ISensor _clockSensor;
@@ -16,7 +16,7 @@
 		private readonly IHardware _cpu;
 		private readonly ISensor _packageSensor;
 
-		public CpuHardware(IHardware cpu)
+		public CpuSensorWrapper(IHardware cpu)
 		{
 			ArgumentMust.NotBeNull(() => cpu);
 			if (cpu.HardwareType != HardwareType.CPU)

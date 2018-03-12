@@ -23,6 +23,7 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Memory" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Gpu" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ISystemService_GetCpuSample_InputMessage">
@@ -37,6 +38,12 @@
   <wsdl:message name="ISystemService_GetRamSample_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRamSampleResponse" />
   </wsdl:message>
+  <wsdl:message name="ISystemService_GetGpuSample_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGpuSample" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService_GetGpuSample_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGpuSampleResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISystemService">
     <wsdl:operation name="GetCpuSample">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/GetCpuSample" message="tns:ISystemService_GetCpuSample_InputMessage" />
@@ -45,6 +52,10 @@
     <wsdl:operation name="GetRamSample">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/GetRamSample" message="tns:ISystemService_GetRamSample_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/GetRamSampleResponse" message="tns:ISystemService_GetRamSample_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGpuSample">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/GetGpuSample" message="tns:ISystemService_GetGpuSample_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/GetGpuSampleResponse" message="tns:ISystemService_GetGpuSample_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISystemService" type="tns:ISystemService">
@@ -62,6 +73,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetRamSample">
       <soap12:operation soapAction="http://tempuri.org/ISystemService/GetRamSample" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGpuSample">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/GetGpuSample" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

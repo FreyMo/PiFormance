@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Gpu" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PiFormance.ServiceContracts.Gpu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity" />
+  <xs:complexType name="GpuSample">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GpuClocks" nillable="true" type="tns:GpuClocks" />
+      <xs:element minOccurs="0" name="GpuLoads" nillable="true" type="tns:GpuLoads" />
+      <xs:element minOccurs="0" name="GpuMemories" nillable="true" type="tns:GpuMemories" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.TemperatureQuantity" minOccurs="0" name="GpuTemperature" nillable="true" type="q1:Temperature" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GpuSample" nillable="true" type="tns:GpuSample" />
+  <xs:complexType name="GpuClocks">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" minOccurs="0" name="CoreClock" nillable="true" type="q2:Frequency" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" minOccurs="0" name="MemoryClock" nillable="true" type="q3:Frequency" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.FrequencyQuantity" minOccurs="0" name="ShaderClock" nillable="true" type="q4:Frequency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GpuClocks" nillable="true" type="tns:GpuClocks" />
+  <xs:complexType name="GpuLoads">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" minOccurs="0" name="CoreLoad" nillable="true" type="q5:Ratio" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" minOccurs="0" name="MemoryControllerLoad" nillable="true" type="q6:Ratio" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" minOccurs="0" name="VideoEngineLoad" nillable="true" type="q7:Ratio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GpuLoads" nillable="true" type="tns:GpuLoads" />
+  <xs:complexType name="GpuMemories">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity" minOccurs="0" name="AvailableMemory" nillable="true" type="q8:Memory" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.RatioQuantity" minOccurs="0" name="MemoryUsage" nillable="true" type="q9:Ratio" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity" minOccurs="0" name="TotalMemory" nillable="true" type="q10:Memory" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Core.Standard.Quantities.MemoryQuantity" minOccurs="0" name="UsedMemory" nillable="true" type="q11:Memory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GpuMemories" nillable="true" type="tns:GpuMemories" />
+</xs:schema>

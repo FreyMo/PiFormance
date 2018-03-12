@@ -2,7 +2,7 @@
 {
 	public interface IPhysicalQuantityBase
 	{
-		double Value { get; }
+		double Value { get; set; }
 
 		string UnitSymbol { get; }
 	}

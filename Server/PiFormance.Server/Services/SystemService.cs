@@ -5,6 +5,7 @@
 	using Core.Standard.ArgumentMust;
 	using HardwareAccess;
 	using ServiceContracts.Cpu;
+	using ServiceContracts.Gpu;
 	using ServiceContracts.Memory;
 	using ServiceContracts.SystemService;
 
@@ -13,14 +14,17 @@
 	{
 		private readonly ICpuAccess _cpuAccess;
 		private readonly IMemoryAccess _memoryAccess;
+		private readonly IGpuAccess _gpuAccess;
 
-		public SystemService(ICpuAccess cpuAccess, IMemoryAccess memoryAccess)
+		public SystemService(ICpuAccess cpuAccess, IMemoryAccess memoryAccess, IGpuAccess gpuAccess)
 		{
 			ArgumentMust.NotBeNull(() => cpuAccess);
 			ArgumentMust.NotBeNull(() => memoryAccess);
+			ArgumentMust.NotBeNull(() => gpuAccess);
 
 			_cpuAccess = cpuAccess;
 			_memoryAccess = memoryAccess;
+			_gpuAccess = gpuAccess;
 		}
 
 		public CpuSample GetCpuSample()
@@ -31,6 +35,11 @@
 		public RamSample GetRamSample()
 		{
 			return _memoryAccess.GetRamSample();
+		}
+
+		public GpuSample GetGpuSample()
+		{
+			return _gpuAccess.GetGpuSample();
 		}
 	}
 }

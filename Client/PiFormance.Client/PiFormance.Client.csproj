@@ -171,6 +171,9 @@
     <None Include="Connected Services\Services\PiFormance.ServiceContracts.Cpu.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\Services\PiFormance.ServiceContracts.Gpu.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Services\PiFormance.ServiceContracts.Memory.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -183,6 +186,7 @@
     </None>
     <None Include="PiFormance.Client_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\PiFormance.ServiceContracts.Cpu.CpuSample.datasource" />
+    <None Include="Properties\DataSources\PiFormance.ServiceContracts.Gpu.GpuSample.datasource" />
     <None Include="Properties\DataSources\PiFormance.ServiceContracts.Memory.RamSample.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>

@@ -3,6 +3,7 @@
 	using System.ServiceModel;
 	using BaseService;
 	using Cpu;
+	using Gpu;
 	using Memory;
 
 	[ServiceContract]
@@ -13,5 +14,8 @@
 
 		[OperationContract(IsOneWay = false)]
 		RamSample GetRamSample();
+
+		[OperationContract(IsOneWay = false)]
+		GpuSample GetGpuSample();
 	}
 }

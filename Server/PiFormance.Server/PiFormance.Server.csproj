@@ -122,11 +122,15 @@
     <Compile Include="AutostartProvider.cs" />
     <Compile Include="Console\ConsoleNativeMethods.cs" />
     <Compile Include="Console\ConsolePresenter.cs" />
-    <Compile Include="HardwareAccess\Computer\IHardwareElement.cs" />
+    <Compile Include="HardwareAccess\Wrappers\GpuSensorWrapper.cs" />
+    <Compile Include="HardwareAccess\Wrappers\CpuSensorWrapper.cs" />
+    <Compile Include="HardwareAccess\GpuAccess.cs" />
     <Compile Include="HardwareAccess\ICpuAccess.cs" />
+    <Compile Include="HardwareAccess\IGpuAccess.cs" />
     <Compile Include="HardwareAccess\IMemoryAccess.cs" />
     <Compile Include="HardwareAccess\MemoryAccess.cs" />
     <Compile Include="HardwareAccess\CpuAccess.cs" />
+    <Compile Include="HardwareAccess\Wrappers\SensorExtensions.cs" />
     <Compile Include="Hosts\SystemHost.cs" />
     <Compile Include="Hosts\HostBase.cs" />
     <Compile Include="Program.cs" />

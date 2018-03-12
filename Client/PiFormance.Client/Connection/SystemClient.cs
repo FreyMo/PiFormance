@@ -3,6 +3,7 @@
 	using System.ServiceModel;
 	using System.Threading.Tasks;
 	using ServiceContracts.Cpu;
+	using ServiceContracts.Gpu;
 	using ServiceContracts.Memory;
 	using Services;
 
@@ -15,6 +16,11 @@
 			return await SecureAsyncCall(() => ServiceClient.GetCpuSampleAsync());
 		}
 
+		public async Task<GpuSample> GetGpuSampleAsync()
+		{
+			return await SecureAsyncCall(() => ServiceClient.GetGpuSampleAsync());
+		}
+		
 		public async Task<RamSample> GetRamSampleAsync()
 		{
 			return await SecureAsyncCall(() => ServiceClient.GetRamSampleAsync());

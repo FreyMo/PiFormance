@@ -23,6 +23,9 @@ namespace PiFormance.Client.Services {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/GetRamSample", ReplyAction="http://tempuri.org/ISystemService/GetRamSampleResponse")]
         System.Threading.Tasks.Task<PiFormance.ServiceContracts.Memory.RamSample> GetRamSampleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/GetGpuSample", ReplyAction="http://tempuri.org/ISystemService/GetGpuSampleResponse")]
+        System.Threading.Tasks.Task<PiFormance.ServiceContracts.Gpu.GpuSample> GetGpuSampleAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -74,6 +77,10 @@ namespace PiFormance.Client.Services {
         
         public System.Threading.Tasks.Task<PiFormance.ServiceContracts.Memory.RamSample> GetRamSampleAsync() {
             return base.Channel.GetRamSampleAsync();
+        }
+        
+        public System.Threading.Tasks.Task<PiFormance.ServiceContracts.Gpu.GpuSample> GetGpuSampleAsync() {
+            return base.Channel.GetGpuSampleAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

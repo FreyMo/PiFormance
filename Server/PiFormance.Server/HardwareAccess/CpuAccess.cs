@@ -3,18 +3,18 @@
 	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Linq;
-	using Computer;
 	using Core.Standard.ArgumentMust;
 	using Core.Standard.Quantities.RatioQuantity.Extensions;
 	using ServiceContracts.Cpu;
+	using Wrappers;
 
 	public class CpuAccess : ICpuAccess
 	{
 		private readonly IList<PerformanceCounter> _coreLoadCounters;
-		private readonly CpuHardware _cpu;
+		private readonly CpuSensorWrapper _cpu;
 		private readonly PerformanceCounter _totalLoadCounter;
 
-		public CpuAccess(CpuHardware cpu)
+		public CpuAccess(CpuSensorWrapper cpu)
 		{
 			ArgumentMust.NotBeNull(() => cpu);
 

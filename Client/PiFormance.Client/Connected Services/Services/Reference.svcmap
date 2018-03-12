@@ -36,6 +36,7 @@
     <MetadataFile FileName="Core.Standard.Quantities.TemperatureQuantity.xsd" MetadataType="Schema" ID="bc50e3c2-1d42-45ac-a1c3-805a48b880f2" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
     <MetadataFile FileName="PiFormance.ServiceContracts.Memory.xsd" MetadataType="Schema" ID="cb9087b7-b0d4-45ec-bc2a-236d2b4b4f7b" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
     <MetadataFile FileName="Core.Standard.Quantities.MemoryQuantity.xsd" MetadataType="Schema" ID="c4cfcdc7-66b2-456d-b18d-c218a27ed45e" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
+    <MetadataFile FileName="PiFormance.ServiceContracts.Gpu.xsd" MetadataType="Schema" ID="10a5559e-029f-4336-8fbc-846939661f9f" SourceId="1" SourceUrl="net.tcp://localhost:8733/PiFormance/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

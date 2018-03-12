@@ -4,7 +4,7 @@
 	using System.Threading;
 	using Core.Standard.Dispose;
 	using HardwareAccess;
-	using HardwareAccess.Computer;
+	using HardwareAccess.Wrappers;
 	using Hosts;
 	using OpenHardwareMonitor.Hardware;
 	using Services;
@@ -46,9 +46,11 @@
 			}
 
 			var memoryAccess = new MemoryAccess();
-			var cpuAccess = new CpuAccess(new CpuHardware(computer.Hardware.First(x => x.HardwareType == HardwareType.CPU)));
+			var cpuAccess = new CpuAccess(new CpuSensorWrapper(computer.Hardware.First(x => x.HardwareType == HardwareType.CPU)));
+			var gpuAccess = new GpuAccess(new GpuSensorWrapper(computer.Hardware.First(x => x.HardwareType == HardwareType.GpuAti ||
+			                                                                           x.HardwareType == HardwareType.GpuNvidia)));
 
-			_systemHost = new SystemHost(new SystemService(cpuAccess, memoryAccess));
+			_systemHost = new SystemHost(new SystemService(cpuAccess, memoryAccess, gpuAccess));
 		}
 
 		protected override void DisposeManagedResources()
