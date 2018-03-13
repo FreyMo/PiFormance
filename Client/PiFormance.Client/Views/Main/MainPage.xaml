@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="PiFormance.Client.Views.Main.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:PiFormance.Client.ViewModels"
+    xmlns:cpu="using:PiFormance.Client.Views.Cpu"
+    xmlns:main="using:PiFormance.Client.Views.Main"
+    mc:Ignorable="d"
+	d:DataContext="{d:DesignInstance viewModels:MainPageViewModel, IsDesignTimeCreatable=True}"
+	UseLayoutRounding="True" 
+	DataContext="{main:MainPageLocator}">
+
+	<Grid>
+		<Viewbox HorizontalAlignment="Center"
+		         VerticalAlignment="Center"
+		         Stretch="UniformToFill">
+			<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+			      Height="480"
+			      Width="800">
+				<Pivot >
+					<PivotItem Margin="0">
+						<PivotItem.Header>
+							<TextBlock>CPU</TextBlock>
+						</PivotItem.Header>
+
+						<Grid Background="#FF222222">
+							<cpu:SystemView Margin="2,0,2,0"/>
+						</Grid>
+					</PivotItem>
+
+					<PivotItem Margin="0">
+						<PivotItem.Header>
+							<TextBlock>GPU</TextBlock>
+						</PivotItem.Header>
+						<Grid>
+							<Button>STUFF</Button>
+						</Grid>
+					</PivotItem>
+				</Pivot>
+			</Grid>
+		</Viewbox>
+	</Grid>
+
+	
+	
+</Page>

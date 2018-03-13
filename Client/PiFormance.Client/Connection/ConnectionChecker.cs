@@ -8,7 +8,14 @@
 	{
 		public IPAddress GetServerAddress()
 		{
-			return Dns.GetHostAddresses("MORITZ-PC").Single(x => x.AddressFamily == AddressFamily.InterNetwork);
+			try
+			{
+				return Dns.GetHostAddresses("MARIUS-PC").Single(x => x.AddressFamily == AddressFamily.InterNetwork);
+			}
+			catch (SocketException)
+			{
+				return Dns.GetHostAddresses("MORITZ-PC").Single(x => x.AddressFamily == AddressFamily.InterNetwork);
+			}
 		}
 
 		private IPAddress GetLocalIpAddress()
