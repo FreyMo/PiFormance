@@ -5,19 +5,9 @@
     xmlns:converters="using:PiFormance.Controls.Converters"
     xmlns:controls="using:PiFormance.Controls">
 
-	<Style x:Key="SmallTextStyle" TargetType="TextBlock">
-		<Setter Property="FontSize" Value="11" />
-		<Setter Property="Foreground" Value="White" />
-		<Setter Property="FontFamily" Value="Lucida Console" />
-		<Setter Property="UseLayoutRounding" Value="True" />
-		<Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"></Setter>
-		<Setter Property="FontWeight" Value="Light" />
-	</Style>
-
-	<Style x:Key="SmallTextStyleSemiBold" TargetType="TextBlock" BasedOn="{StaticResource SmallTextStyle}">
-		<Setter Property="FontSize" Value="13" />
-		<Setter Property="FontWeight" Value="Bold" />
-	</Style>
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="../TextStyles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
 
 	<converters:StringFormatConverter x:Key="StringFormatConverter" />
 

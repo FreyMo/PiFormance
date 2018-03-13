@@ -22,6 +22,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
+    <PackageCertificateThumbprint>F18293504693CE37D0B47CAC83671F18C9A30E97</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -101,6 +102,7 @@
     </Compile>
     <Compile Include="Bootstrapping\BootStrapper.cs" />
     <Compile Include="Bootstrapping\Modules\CpuModule.cs" />
+    <Compile Include="Bootstrapping\Modules\GpuModule.cs" />
     <Compile Include="Connected Services\Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,14 +110,19 @@
     </Compile>
     <Compile Include="Connection\ConnectionChecker.cs" />
     <Compile Include="Services\Cpu\CpuSampleProviderService.cs" />
+    <Compile Include="Services\Cpu\GpuSampleProviderService.cs" />
     <Compile Include="Services\Cpu\SampleProviderService.cs" />
     <Compile Include="Services\Cpu\RamSampleProviderService.cs" />
-    <Compile Include="Services\Messengers\CpuSampleMessenger.cs" />
+    <Compile Include="Services\Messengers\SampleMessenger.cs" />
+    <Compile Include="Services\Messengers\Messages\GpuSampleAcquired.cs" />
     <Compile Include="Services\Messengers\Messages\RamSampleAcquired.cs" />
     <Compile Include="Services\Messengers\Messages\CpuSampleAcquired.cs" />
-    <Compile Include="Services\Messengers\Messages\CpuSampleShouldBeAcquired.cs" />
+    <Compile Include="Services\Messengers\Messages\SamplesShouldBeAcquired.cs" />
     <Compile Include="Services\Timing\CpuSampleTimerService.cs" />
-    <Compile Include="Services\Messengers\Messages\RamSampleShouldBeAcquired.cs" />
+    <Compile Include="ViewModels\Gpu\GpuClocksViewModel.cs" />
+    <Compile Include="ViewModels\Gpu\GpuLoadsViewModel.cs" />
+    <Compile Include="ViewModels\Gpu\GpuViewModel.cs" />
+    <Compile Include="ViewModels\Gpu\VRamViewModel.cs" />
     <Compile Include="Views\Gpu\GpuClocksControl.xaml.cs">
       <DependentUpon>GpuClocksControl.xaml</DependentUpon>
     </Compile>
@@ -271,6 +278,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\QuantityTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TextStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -308,6 +323,9 @@
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

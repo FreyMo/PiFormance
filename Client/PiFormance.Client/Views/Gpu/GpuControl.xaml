@@ -2,14 +2,102 @@
     x:Class="PiFormance.Client.Views.Gpu.GpuControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:PiFormance.Client.Views.Gpu"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:PiFormance.Controls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-		<TextBlock>GPU</TextBlock>
-    </Grid>
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../TextStyles.xaml" />
+				<ResourceDictionary Source="../QuantityTemplates.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock Text="GPU"
+		           VerticalAlignment="Center"
+		           Style="{StaticResource HeaderStyle}"/>
+
+		<Grid Grid.Row="0"
+		      Grid.Column="2"
+		      VerticalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition MinWidth="95"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Grid.Row="0"
+			           Grid.Column="0"
+			           Grid.ColumnSpan="2"
+			           Text="GTX XXXX"
+			           Style="{StaticResource NameTextStyle}"/>
+
+			<TextBlock Grid.Row="1"
+			           Grid.Column="0"
+			           Text="Core Clock:"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<TextBlock Grid.Row="1"
+			           Grid.Column="1"
+			           Text="{Binding Path=AvailableMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.00\} GiB'}"
+					   TextAlignment="Right"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<TextBlock Grid.Row="2"
+			           Grid.Column="0"
+			           Text="Core Temperature:"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<TextBlock Grid.Row="2"
+			           Grid.Column="1"
+					   Text="{Binding Path=TotalMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.00\} GiB'}"
+					   TextAlignment="Right"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<TextBlock Grid.Row="3"
+			           Grid.Column="0"
+			           Text="GPU Load:"
+			           VerticalAlignment="Stretch"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="3"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource LoadTemplate}"
+			                DataContext="{Binding Path=GpuLoad, Mode=OneWay}"/>
+		</Grid>
+
+		<controls:ValueBar Grid.Row="1"
+		                   Grid.Column="0"
+		                   Grid.ColumnSpan="3"
+		                   VerticalAlignment="Stretch"
+		                   MinHeight="40"
+						   Minimum="0"
+						   Value="{Binding Path=Usage.Value, Mode=OneWay}"
+		                   Maximum="100"
+						   Margin="0,0,-10,0"/>
+	</Grid>
 </UserControl>

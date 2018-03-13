@@ -92,9 +92,9 @@
   </wsdl:binding>
   <wsdl:service name="SystemService">
     <wsdl:port name="NetTcpBinding_ISystemService" binding="tns:NetTcpBinding_ISystemService">
-      <soap12:address location="net.tcp://localhost:8733/PiFormance/" />
+      <soap12:address location="net.tcp://localhost:8749/PiFormance/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8733/PiFormance/</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8749/PiFormance/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>

@@ -6,9 +6,9 @@
 	using Messengers;
 	using Messengers.Messages;
 
-	public class RamSampleProviderService : SampleProviderService, ISubscriberTo<SamplesShouldBeAcquired>
+	public class GpuSampleProviderService : SampleProviderService, ISubscriberTo<SamplesShouldBeAcquired>
 	{
-		public RamSampleProviderService(SampleMessenger messenger, SystemClient systemClient) : base(messenger, systemClient)
+		public GpuSampleProviderService(SampleMessenger messenger, SystemClient systemClient) : base(messenger, systemClient)
 		{
 			Messenger.SubscribeTo(this);
 		}
@@ -17,8 +17,8 @@
 		{
 			ArgumentMust.NotBeNull(() => message);
 
-			var sample = await Client.GetRamSampleAsync();
-			Messenger.Post(new RamSampleAcquired(sample));
+			var sample = await Client.GetGpuSampleAsync();
+			Messenger.Post(new GpuSampleAcquired(sample));
 		}
 	}
 }

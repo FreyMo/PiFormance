@@ -33,10 +33,10 @@
 			                              .ToList();
 
 			_packageSensor = _cpu.Sensors
-			                     .First(x => x.SensorType == SensorType.Temperature && x.Name.Contains("Package"));
+			                     .FirstOrDefault(x => x.SensorType == SensorType.Temperature && x.Name.Contains("Package"));
 
-			_clockSensor = _cpu.Sensors.First(x => x.SensorType == SensorType.Clock && x.Name.Contains("Core"));
-			_busClockSensor = _cpu.Sensors.First(x => x.SensorType == SensorType.Clock && x.Name.Contains("Bus"));
+			_clockSensor = _cpu.Sensors.FirstOrDefault(x => x.SensorType == SensorType.Clock && x.Name.Contains("Core"));
+			_busClockSensor = _cpu.Sensors.FirstOrDefault(x => x.SensorType == SensorType.Clock && x.Name.Contains("Bus"));
 		}
 
 		public string GetCpuName()
@@ -50,10 +50,7 @@
 
 			foreach (var sensor in _coreTemperatureSensors)
 			{
-				if (sensor.Value.HasValue)
-				{
-					yield return new Temperature(sensor.Value.Value);
-				}
+				yield return sensor.GetSensorData<Temperature, Celsius>();
 			}
 		}
 
@@ -61,36 +58,21 @@
 		{
 			_cpu.Update();
 
-			if (_packageSensor.Value.HasValue)
-			{
-				return new Temperature(_packageSensor.Value.Value);
-			}
-
-			return new Temperature();
+			return _packageSensor.GetSensorData<Temperature, Celsius>();
 		}
 
 		public Frequency GetClockSpeed()
 		{
 			_cpu.Update();
 
-			if (_clockSensor.Value.HasValue)
-			{
-				return new Frequency(_clockSensor.Value.Value, new MegaHertz());
-			}
-
-			return new Frequency();
+			return _clockSensor.GetSensorData<Frequency, MegaHertz>();
 		}
 
 		public Frequency GetBusSpeed()
 		{
 			_cpu.Update();
 
-			if (_busClockSensor.Value.HasValue)
-			{
-				return new Frequency(_busClockSensor.Value.Value, new MegaHertz());
-			}
-
-			return new Frequency();
+			return _busClockSensor.GetSensorData<Frequency, MegaHertz>();
 		}
 	}
 }

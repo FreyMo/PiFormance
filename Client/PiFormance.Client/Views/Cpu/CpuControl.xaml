@@ -11,15 +11,14 @@
     d:DesignWidth="400">
 
 	<UserControl.Resources>
-		<Style TargetType="TextBlock" x:Key="HeaderStyle">
-			<Setter Property="FontSize" Value="50" />
-		</Style>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../TextStyles.xaml" />
+				<ResourceDictionary Source="../QuantityTemplates.xaml" />
+			</ResourceDictionary.MergedDictionaries>
 
-		<Style TargetType="TextBlock" x:Key="NormalTextStyle">
-			<Setter Property="FontSize" Value="13" />
-		</Style>
-		
-		<converters:StringFormatConverter x:Key="StringFormatConverter" />
+			<converters:StringFormatConverter x:Key="StringFormatConverter" />
+		</ResourceDictionary>
 	</UserControl.Resources>
 
 	<Grid>
@@ -57,32 +56,30 @@
 			           Grid.Column="0"
 					   Grid.ColumnSpan="2"
 			           Text="{Binding Path=CpuName}"
-			           Style="{StaticResource NormalTextStyle}"
-			           FontStyle="Italic"
-					   FontWeight="SemiBold"
-			           TextAlignment="Center"/>
+			           Style="{StaticResource NameTextStyle}"/>
 
 			<TextBlock Grid.Row="1"
 			           Grid.Column="0"
 			           Text="Clockspeed:"
 			           Style="{StaticResource NormalTextStyle}"/>
 
-			<TextBlock Grid.Row="1"
-			           Grid.Column="1"
-			           Text="{Binding Path=ClockSpeed.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.000\} GHz'}"
-					   TextAlignment="Right"
-			           Style="{StaticResource NormalTextStyle}"/>
+			<ContentControl Grid.Row="1"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource ClockTemplate}"
+			                DataContext="{Binding Path=ClockSpeed, Mode=OneWay}"/>
+
 			<TextBlock Grid.Row="2"
 			           Grid.Column="0"
 			           Text="Load:"
 			           VerticalAlignment="Stretch"
 			           Style="{StaticResource NormalTextStyle}"/>
 
-			<TextBlock Grid.Row="2"
-			           Grid.Column="1"
-			           Text="{Binding Path=TotalLoad.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0,4:0.0\} %'}"
-					   TextAlignment="Right"
-			           Style="{StaticResource NormalTextStyle}"/>
+			<ContentControl Grid.Row="2"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource LoadTemplate}"
+			                DataContext="{Binding Path=TotalLoad, Mode=OneWay}"/>
 		</Grid>
 
 		<controls:ValueBar Grid.Row="1"

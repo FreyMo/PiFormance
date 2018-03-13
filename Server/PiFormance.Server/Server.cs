@@ -17,12 +17,8 @@
 		{
 			var computer = new Computer
 			{
-				HDDEnabled = true,
-				FanControllerEnabled = true,
 				CPUEnabled = true,
-				GPUEnabled = true,
-				MainboardEnabled = true,
-				RAMEnabled = true
+				GPUEnabled = true
 			};
 			computer.Open();
 

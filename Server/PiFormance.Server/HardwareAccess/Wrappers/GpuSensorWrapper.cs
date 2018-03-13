@@ -47,7 +47,7 @@
 
 		private void AssignTemperatureSensor()
 		{
-			_gpuTemperatureSensor = _gpu.Sensors.First(
+			_gpuTemperatureSensor = _gpu.Sensors.FirstOrDefault(
 				x => x.SensorType == SensorType.Temperature &&
 				     x.Name.Contains("Core"));
 		}
@@ -56,27 +56,27 @@
 		{
 			var clockSensors = _gpu.Sensors.Where(sensor => sensor.SensorType == SensorType.Clock).ToList();
 
-			_coreClockSensor = clockSensors.First(sensor => sensor.Name.Contains("Core"));
-			_memoryClockSensor = clockSensors.First(sensor => sensor.Name.Contains("Memory"));
-			_shaderClockSensor = clockSensors.First(sensor => sensor.Name.Contains("Shader"));
+			_coreClockSensor = clockSensors.FirstOrDefault(sensor => sensor.Name.Contains("Core"));
+			_memoryClockSensor = clockSensors.FirstOrDefault(sensor => sensor.Name.Contains("Memory"));
+			_shaderClockSensor = clockSensors.FirstOrDefault(sensor => sensor.Name.Contains("Shader"));
 		}
 
 		private void AssignLoadSensors()
 		{
 			var loadSensors = _gpu.Sensors.Where(sensor => sensor.SensorType == SensorType.Load).ToList();
 
-			_coreLoadSensor = loadSensors.First(sensor => sensor.Name.Contains("Core"));
-			_videoEngineLoadSensor = loadSensors.First(sensor => sensor.Name.Contains("Video"));
-			_memoryControllerLoadSensor = loadSensors.First(sensor => sensor.Name.Contains("Memory"));
+			_coreLoadSensor = loadSensors.FirstOrDefault(sensor => sensor.Name.Contains("Core"));
+			_videoEngineLoadSensor = loadSensors.FirstOrDefault(sensor => sensor.Name.Contains("Video"));
+			_memoryControllerLoadSensor = loadSensors.FirstOrDefault(sensor => sensor.Name.Contains("Memory"));
 		}
 
 		private void AssignMemorySensors()
 		{
 			var memorySensors = _gpu.Sensors.Where(sensor => sensor.SensorType == SensorType.SmallData).ToList();
 
-			_memoryAvailableSensor = memorySensors.First(sensor => sensor.Name.Contains("Free"));
-			_memoryUsedSensor = memorySensors.First(sensor => sensor.Name.Contains("Used"));
-			_memoryTotalSensor = memorySensors.First(sensor => sensor.Name.Contains("Total"));
+			_memoryAvailableSensor = memorySensors.FirstOrDefault(sensor => sensor.Name.Contains("Free"));
+			_memoryUsedSensor = memorySensors.FirstOrDefault(sensor => sensor.Name.Contains("Used"));
+			_memoryTotalSensor = memorySensors.FirstOrDefault(sensor => sensor.Name.Contains("Total"));
 		}
 
 		public string GetGpuName()

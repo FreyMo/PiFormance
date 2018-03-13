@@ -10,11 +10,13 @@
 
 	public class CpuViewModel : ViewModel, ISubscriberTo<CpuSampleAcquired>
 	{
-		public CpuViewModel(CpuSampleMessenger messenger)
+		public CpuViewModel(SampleMessenger messenger)
 		{
 			ArgumentMust.NotBeNull(() => messenger);
 
 			messenger.SubscribeTo(this);
+
+			messenger.Post(new SamplesShouldBeAcquired());
 		}
 
 		public void OnMessageReceived(CpuSampleAcquired message)

@@ -1,5 +1,7 @@
 ﻿namespace PiFormance.Server
 {
+	using System;
+	using System.Threading;
 	using Console;
 
 	internal class Program
@@ -13,16 +15,28 @@
 			//	var newVersion = releaseEntry?.Version.ToString();
 			//}
 
-			if (false)
+			if (true)
 			{
 				new ConsolePresenter(new ConsoleNativeMethods()).ShowConsole();
 			}
 
 			AutostartProvider.RunOnWindowsStartup();
 
-			using (var server = new Server())
+			try
 			{
-				server.Run();
+				using (var server = new Server())
+				{
+					server.Run();
+				}
+			}
+			catch (Exception e)
+			{
+				System.Console.WriteLine(e);
+
+				while (true)
+				{
+					Thread.Sleep(100);
+				}
 			}
 		}
 	}

@@ -6,14 +6,14 @@
 	using Messengers;
 	using Messengers.Messages;
 
-	public class CpuSampleProviderService : SampleProviderService, ISubscriberTo<CpuSampleShouldBeAcquired>
+	public class CpuSampleProviderService : SampleProviderService, ISubscriberTo<SamplesShouldBeAcquired>
 	{
-		public CpuSampleProviderService(CpuSampleMessenger messenger, SystemClient systemClient) : base(messenger, systemClient)
+		public CpuSampleProviderService(SampleMessenger messenger, SystemClient systemClient) : base(messenger, systemClient)
 		{
 			Messenger.SubscribeTo(this);
 		}
 
-		public async void OnMessageReceived(CpuSampleShouldBeAcquired message)
+		public async void OnMessageReceived(SamplesShouldBeAcquired message)
 		{
 			ArgumentMust.NotBeNull(() => message);
 

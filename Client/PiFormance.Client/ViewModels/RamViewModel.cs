@@ -12,14 +12,12 @@
 
 	public class RamViewModel : ViewModel, ISubscriberTo<RamSampleAcquired>
 	{
-		public RamViewModel(CpuSampleMessenger messenger, RamSampleProviderService ramSampleProviderService)
+		public RamViewModel(SampleMessenger messenger, RamSampleProviderService ramSampleProviderService)
 		{
 			ArgumentMust.NotBeNull(() => messenger);
 			ArgumentMust.NotBeNull(() => messenger);
 
 			messenger.SubscribeTo(this);
-
-			ramSampleProviderService.OnMessageReceived(new RamSampleShouldBeAcquired());
 		}
 		
 		public Memory AvailableMemory { get; } = new Memory(0, GibiByte.Instance);

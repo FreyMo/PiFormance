@@ -105,7 +105,7 @@ namespace PiFormance.Client.Services {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.NetTcpBinding_ISystemService)) {
-                return new System.ServiceModel.EndpointAddress(new System.Uri("net.tcp://localhost:8733/PiFormance/"), new System.ServiceModel.DnsEndpointIdentity("localhost"));
+                return new System.ServiceModel.EndpointAddress(new System.Uri("net.tcp://localhost:8749/PiFormance/"), new System.ServiceModel.DnsEndpointIdentity("localhost"));
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

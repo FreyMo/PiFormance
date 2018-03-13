@@ -19,7 +19,7 @@
 
 			Container.RegisterSingleton<CpuSampleProviderService>();
 			Container.RegisterSingleton<RamSampleProviderService>();
-			Container.RegisterSingleton<CpuSampleMessenger>();
+			Container.RegisterSingleton<SampleMessenger>();
 			Container.RegisterSingleton<CpuSampleTimerService>();
 
 			// TODO: RELOCATE

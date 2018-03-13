@@ -1,6 +1,5 @@
 ﻿namespace PiFormance.Server.HardwareAccess.Wrappers
 {
-	using Core.Standard.ArgumentMust;
 	using Core.Standard.Quantities.Definitions;
 	using OpenHardwareMonitor.Hardware;
 
@@ -10,13 +9,15 @@
 			where TQuantity : PhysicalQuantity<TQuantity>, new()
 			where TUnit : Unit<TQuantity>, new()
 		{
-			ArgumentMust.NotBeNull(() => sensor);
-			
-			var quantity = new TQuantity();
+			var quantity = new TQuantity().In<TUnit>();
+
+			if (sensor == null)
+			{
+				return quantity;
+			}
 
 			if (sensor.Value.HasValue)
 			{
-				quantity = quantity.In<TUnit>();
 				quantity.Value = sensor.Value.Value;
 			}
 

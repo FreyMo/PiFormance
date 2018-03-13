@@ -32,7 +32,7 @@
 
 			Client = new SystemServiceClient(
 				new NetTcpBinding(SecurityMode.None),
-				new EndpointAddress("net.tcp://" + ipAddress + ":8733/PiFormance/"));
+				new EndpointAddress("net.tcp://" + ipAddress + ":8749/PiFormance/"));
 			Connect();
 		}
 

@@ -1,6 +1,6 @@
 ﻿namespace PiFormance.Client.Services.Messengers.Messages
 {
-	public class CpuSampleShouldBeAcquired
+	public class SamplesShouldBeAcquired
 	{
 	}
 }

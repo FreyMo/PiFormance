@@ -3,9 +3,9 @@
 	using System.Threading;
 	using Core.Standard.Messenger.Messenger;
 
-	public class CpuSampleMessenger : Messenger
+	public class SampleMessenger : Messenger
 	{
-		public CpuSampleMessenger() : base(SynchronizationContext.Current)
+		public SampleMessenger() : base(SynchronizationContext.Current)
 		{
 		}
 	}

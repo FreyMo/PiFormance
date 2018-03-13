@@ -6,7 +6,7 @@
 
 	public abstract class SampleProviderService
 	{
-		protected SampleProviderService(CpuSampleMessenger messenger, SystemClient systemClient)
+		protected SampleProviderService(SampleMessenger messenger, SystemClient systemClient)
 		{
 			ArgumentMust.NotBeNull(() => messenger);
 			ArgumentMust.NotBeNull(() => systemClient);
@@ -17,6 +17,6 @@
 
 		protected SystemClient Client { get; }
 
-		protected CpuSampleMessenger Messenger { get; }
+		protected SampleMessenger Messenger { get; }
 	}
 }

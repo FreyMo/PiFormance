@@ -6,13 +6,13 @@
 
 	public class CpuSampleTimerService
 	{
-		private readonly CpuSampleMessenger _cpuSampleMessenger;
+		private readonly SampleMessenger _sampleMessenger;
 
-		public CpuSampleTimerService(CpuSampleMessenger cpuSampleMessenger)
+		public CpuSampleTimerService(SampleMessenger sampleMessenger)
 		{
-			ArgumentMust.NotBeNull(() => cpuSampleMessenger);
+			ArgumentMust.NotBeNull(() => sampleMessenger);
 
-			_cpuSampleMessenger = cpuSampleMessenger;
+			_sampleMessenger = sampleMessenger;
 
 			SetupTimer();
 		}
@@ -29,8 +29,7 @@
 
 		private void NotifyAboutUpcomingUpdate()
 		{
-			_cpuSampleMessenger.Post(new CpuSampleShouldBeAcquired());
-			_cpuSampleMessenger.Post(new RamSampleShouldBeAcquired());
+			_sampleMessenger.Post(new SamplesShouldBeAcquired());
 		}
 	}
 }
