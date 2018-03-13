@@ -89,7 +89,7 @@
 		                   Grid.Column="0"
 		                   Grid.ColumnSpan="3"
 		                   VerticalAlignment="Top"
-		                   MinHeight="35"
+		                   MinHeight="40"
 						   Minimum="0"
 		                   Value="{Binding Path=TotalLoad.Value, Mode=OneWay}"
 		                   Maximum="100"

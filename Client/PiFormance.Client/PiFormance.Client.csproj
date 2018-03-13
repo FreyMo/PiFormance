@@ -21,7 +21,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -116,6 +116,21 @@
     <Compile Include="Services\Messengers\Messages\CpuSampleShouldBeAcquired.cs" />
     <Compile Include="Services\Timing\CpuSampleTimerService.cs" />
     <Compile Include="Services\Messengers\Messages\RamSampleShouldBeAcquired.cs" />
+    <Compile Include="Views\Gpu\GpuClocksControl.xaml.cs">
+      <DependentUpon>GpuClocksControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gpu\GpuControl.xaml.cs">
+      <DependentUpon>GpuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gpu\GpuLoadsControl.xaml.cs">
+      <DependentUpon>GpuLoadsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gpu\GpuView.xaml.cs">
+      <DependentUpon>GpuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gpu\VramControl.xaml.cs">
+      <DependentUpon>VramControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewModelLocator\ViewModelLocatorExtension.cs" />
     <Compile Include="Views\Main\MainPageLocatorExtension.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
@@ -224,6 +239,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Gpu\GpuClocksControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gpu\GpuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gpu\GpuLoadsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gpu\GpuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gpu\VramControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Main\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -270,9 +305,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Gpu\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

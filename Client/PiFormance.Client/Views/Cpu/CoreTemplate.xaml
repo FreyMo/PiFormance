@@ -6,7 +6,7 @@
     xmlns:controls="using:PiFormance.Controls">
 
 	<Style x:Key="SmallTextStyle" TargetType="TextBlock">
-		<Setter Property="FontSize" Value="10" />
+		<Setter Property="FontSize" Value="11" />
 		<Setter Property="Foreground" Value="White" />
 		<Setter Property="FontFamily" Value="Lucida Console" />
 		<Setter Property="UseLayoutRounding" Value="True" />
@@ -16,13 +16,13 @@
 
 	<Style x:Key="SmallTextStyleSemiBold" TargetType="TextBlock" BasedOn="{StaticResource SmallTextStyle}">
 		<Setter Property="FontSize" Value="13" />
-		<Setter Property="FontWeight" Value="SemiBold" />
+		<Setter Property="FontWeight" Value="Bold" />
 	</Style>
 
 	<converters:StringFormatConverter x:Key="StringFormatConverter" />
 
 	<DataTemplate x:Key="LogicalCoreDataTemplate">
-		<Grid MinHeight="30"
+		<Grid MinHeight="40"
 			  MinWidth="350"
 			  UseLayoutRounding="True">
 			<Grid.ColumnDefinitions>

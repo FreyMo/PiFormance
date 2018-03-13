@@ -7,42 +7,30 @@
     xmlns:viewModels="using:PiFormance.Client.ViewModels"
     xmlns:cpu="using:PiFormance.Client.Views.Cpu"
     xmlns:main="using:PiFormance.Client.Views.Main"
+    xmlns:gpu="using:PiFormance.Client.Views.Gpu"
     mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance viewModels:MainPageViewModel, IsDesignTimeCreatable=True}"
 	UseLayoutRounding="True" 
 	DataContext="{main:MainPageLocator}">
 
-	<Grid>
-		<Viewbox HorizontalAlignment="Center"
-		         VerticalAlignment="Center"
-		         Stretch="UniformToFill">
-			<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-			      Height="480"
-			      Width="800">
-				<Pivot >
-					<PivotItem Margin="0">
-						<PivotItem.Header>
-							<TextBlock>CPU</TextBlock>
-						</PivotItem.Header>
+	<Viewbox Stretch="Uniform">
+		<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+			    Height="480"
+			    Width="800">
+			<Pivot >
+				<PivotItem Margin="0" Header="CPU">
+					<Grid Background="#FF222222">
+						<cpu:SystemView Margin="2,0,0,0" />
+					</Grid>
+				</PivotItem>
 
-						<Grid Background="#FF222222">
-							<cpu:SystemView Margin="2,0,2,0"/>
-						</Grid>
-					</PivotItem>
-
-					<PivotItem Margin="0">
-						<PivotItem.Header>
-							<TextBlock>GPU</TextBlock>
-						</PivotItem.Header>
-						<Grid>
-							<Button>STUFF</Button>
-						</Grid>
-					</PivotItem>
-				</Pivot>
-			</Grid>
-		</Viewbox>
-	</Grid>
-
-	
-	
+				<PivotItem Margin="0"
+				           Header="GPU">
+					<Grid Background="#FF222222">
+						<gpu:GpuView Margin="2,0,0,0" />
+					</Grid>
+				</PivotItem>
+			</Pivot>
+		</Grid>
+	</Viewbox>
 </Page>
