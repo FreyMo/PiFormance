@@ -22,24 +22,24 @@
 			};
 			computer.Open();
 
-			foreach (var hardware in computer.Hardware)
-			{
-				System.Console.WriteLine(hardware.HardwareType);
-				System.Console.WriteLine(hardware.Identifier);
-				System.Console.WriteLine(hardware.Name);
+			//foreach (var hardware in computer.Hardware)
+			//{
+			//	System.Console.WriteLine(hardware.HardwareType);
+			//	System.Console.WriteLine(hardware.Identifier);
+			//	System.Console.WriteLine(hardware.Name);
 
-				foreach (var sensor in hardware.Sensors)
-				{
-					hardware.Update();
+			//	foreach (var sensor in hardware.Sensors)
+			//	{
+			//		hardware.Update();
 
-					System.Console.WriteLine(sensor.SensorType);
-					System.Console.WriteLine(sensor.Name);
-					System.Console.WriteLine(sensor.Identifier);
-					System.Console.WriteLine(sensor.Value);
-				}
+			//		System.Console.WriteLine(sensor.SensorType);
+			//		System.Console.WriteLine(sensor.Name);
+			//		System.Console.WriteLine(sensor.Identifier);
+			//		System.Console.WriteLine(sensor.Value);
+			//	}
 
-				System.Console.WriteLine(hardware.SubHardware);
-			}
+			//	System.Console.WriteLine(hardware.SubHardware);
+			//}
 
 			var memoryAccess = new MemoryAccess();
 			var cpuAccess = new CpuAccess(new CpuSensorWrapper(computer.Hardware.First(x => x.HardwareType == HardwareType.CPU)));
@@ -47,6 +47,8 @@
 			                                                                           x.HardwareType == HardwareType.GpuNvidia)));
 
 			_systemHost = new SystemHost(new SystemService(cpuAccess, memoryAccess, gpuAccess));
+
+			System.Console.WriteLine("Server Online!");
 		}
 
 		protected override void DisposeManagedResources()
@@ -58,7 +60,7 @@
 		{
 			while (true)
 			{
-				Thread.Sleep(100);
+				Thread.Sleep(200);
 			}
 		}
 	}

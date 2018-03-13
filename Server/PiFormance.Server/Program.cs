@@ -8,13 +8,6 @@
 	{
 		private static void Main(string[] args)
 		{
-			//using (var updateManager = new UpdateManager(@"C:\SquirrelReleases"))
-			//{
-			//	var text = updateManager.CurrentlyInstalledVersion();
-			//	var releaseEntry = await updateManager.UpdateApp();
-			//	var newVersion = releaseEntry?.Version.ToString();
-			//}
-
 			if (true)
 			{
 				new ConsolePresenter(new ConsoleNativeMethods()).ShowConsole();

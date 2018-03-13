@@ -21,7 +21,7 @@
 			AvailableMemory = availableMemory;
 
 			ReservedMemory = (TotalMemory - AvailableMemory).In<GibiByte>();
-			Usage = new Ratio((1.0 - AvailableMemory / TotalMemory) * 100.0, new Percent());
+			 Usage = new Ratio((1.0 - AvailableMemory / TotalMemory) * 100.0, new Percent());
 		}
 
 		[DataMember]
