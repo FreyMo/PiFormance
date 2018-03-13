@@ -31,6 +31,7 @@
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="5"/>
 		</Grid.ColumnDefinitions>
 
 		<TextBlock Text="CPU"
@@ -84,7 +85,7 @@
 
 		<controls:ValueBar Grid.Row="1"
 		                   Grid.Column="0"
-		                   Grid.ColumnSpan="3"
+		                   Grid.ColumnSpan="4"
 		                   VerticalAlignment="Top"
 		                   MinHeight="40"
 						   Minimum="0"

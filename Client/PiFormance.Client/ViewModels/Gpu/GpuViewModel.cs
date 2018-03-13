@@ -26,6 +26,7 @@
 			GpuName = message.GpuSample.Name;
 			GpuLoad.Value = message.GpuSample.GpuLoads.CoreLoad.In<Percent>().Value;
 			CoreClock.Value = message.GpuSample.GpuClocks.CoreClock.In<GigaHertz>().Value;
+			CoreTemperature.Value = message.GpuSample.GpuTemperature.In<Celsius>().Value;
 		}
 
 		public string GpuName

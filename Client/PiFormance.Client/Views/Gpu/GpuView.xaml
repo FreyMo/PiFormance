@@ -18,14 +18,17 @@
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		
-		<local:GpuClocksControl Grid.ColumnSpan="2"/>
 
-	    <local:GpuControl Grid.Row="1"
-	                      Grid.Column="0" />
+	    <local:GpuClocksControl Grid.ColumnSpan="2"/>
 
 	    <local:VramControl Grid.Row="1"
-		                   Grid.Column="1" />
+	                       Grid.Column="0"
+	                       Margin="5,-5,10,5"/>
+
+	    <local:GpuControl DataContext="{Binding Path=GpuViewModel, Mode=OneWay}"
+	                      Grid.Row="1"
+	                      Grid.Column="1"
+	                      Margin="0,-5,10,5"/>
 
 	    <local:GpuLoadsControl Grid.Row="2"
 	                           Grid.Column="0"

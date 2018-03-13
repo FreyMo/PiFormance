@@ -25,8 +25,9 @@
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="5"/>
 		</Grid.ColumnDefinitions>
 
 		<TextBlock Text="RAM"
@@ -84,7 +85,7 @@
 
 		<controls:ValueBar Grid.Row="1"
 		                   Grid.Column="0"
-		                   Grid.ColumnSpan="3"
+		                   Grid.ColumnSpan="4"
 		                   VerticalAlignment="Stretch"
 		                   MinHeight="40"
 						   Minimum="0"

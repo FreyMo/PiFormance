@@ -33,4 +33,12 @@
 		</TextBlock>
 	</DataTemplate>
 
+	<DataTemplate x:Key="TemperatureTemplate">
+		<TextBlock TextAlignment="Right"
+		           Style="{StaticResource NormalTextStyle}">
+			<Run Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource QuantityStringFormatConverter}, ConverterParameter='\{0,2:0.0\}'}"/>
+			<Run Text="{Binding Path=UnitSymbol}" />
+		</TextBlock>
+	</DataTemplate>
+
 </ResourceDictionary>

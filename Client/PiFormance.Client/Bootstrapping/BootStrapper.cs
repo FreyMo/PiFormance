@@ -29,6 +29,7 @@
 		private void LoadModules()
 		{
 			_container.Load(new CpuModule(_container));
+			_container.Load(new GpuModule(_container));
 		}
 	}
 }

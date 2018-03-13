@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:PiFormance.Controls"
-    mc:Ignorable="d"
+	xmlns:converters="using:PiFormance.Controls.Converters"
+	mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
@@ -15,7 +16,10 @@
 				<ResourceDictionary Source="../TextStyles.xaml" />
 				<ResourceDictionary Source="../QuantityTemplates.xaml" />
 			</ResourceDictionary.MergedDictionaries>
+
+			<converters:StringFormatConverter x:Key="StringFormatConverter" />
 		</ResourceDictionary>
+
 	</UserControl.Resources>
 
 	<Grid>
@@ -26,8 +30,9 @@
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="5"/>
 		</Grid.ColumnDefinitions>
 
 		<TextBlock Text="GPU"
@@ -52,7 +57,7 @@
 			<TextBlock Grid.Row="0"
 			           Grid.Column="0"
 			           Grid.ColumnSpan="2"
-			           Text="GTX XXXX"
+			           Text="{Binding Path=GpuName, Mode=OneWay}"
 			           Style="{StaticResource NameTextStyle}"/>
 
 			<TextBlock Grid.Row="1"
@@ -60,22 +65,22 @@
 			           Text="Core Clock:"
 			           Style="{StaticResource NormalTextStyle}"/>
 
-			<TextBlock Grid.Row="1"
-			           Grid.Column="1"
-			           Text="{Binding Path=AvailableMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.00\} GiB'}"
-					   TextAlignment="Right"
-			           Style="{StaticResource NormalTextStyle}"/>
+			<ContentControl Grid.Row="1"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource ClockTemplate}"
+			                DataContext="{Binding Path=CoreClock, Mode=OneWay}"/>
 
 			<TextBlock Grid.Row="2"
 			           Grid.Column="0"
 			           Text="Core Temperature:"
 			           Style="{StaticResource NormalTextStyle}"/>
 
-			<TextBlock Grid.Row="2"
-			           Grid.Column="1"
-					   Text="{Binding Path=TotalMemory.Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='\{0:0.00\} GiB'}"
-					   TextAlignment="Right"
-			           Style="{StaticResource NormalTextStyle}"/>
+			<ContentControl Grid.Row="2"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource TemperatureTemplate}"
+			                DataContext="{Binding Path=CoreTemperature, Mode=OneWay}"/>
 
 			<TextBlock Grid.Row="3"
 			           Grid.Column="0"
@@ -96,7 +101,7 @@
 		                   VerticalAlignment="Stretch"
 		                   MinHeight="40"
 						   Minimum="0"
-						   Value="{Binding Path=Usage.Value, Mode=OneWay}"
+						   Value="{Binding Path=GpuLoad.Value, Mode=OneWay}"
 		                   Maximum="100"
 						   Margin="0,0,-10,0"/>
 	</Grid>
