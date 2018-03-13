@@ -109,10 +109,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connection\ConnectionChecker.cs" />
-    <Compile Include="Services\Cpu\CpuSampleProviderService.cs" />
-    <Compile Include="Services\Cpu\GpuSampleProviderService.cs" />
-    <Compile Include="Services\Cpu\SampleProviderService.cs" />
-    <Compile Include="Services\Cpu\RamSampleProviderService.cs" />
+    <Compile Include="Services\Providers\CpuSampleProviderService.cs" />
+    <Compile Include="Services\Providers\GpuSampleProviderService.cs" />
+    <Compile Include="Services\Providers\SampleProviderService.cs" />
+    <Compile Include="Services\Providers\RamSampleProviderService.cs" />
     <Compile Include="Services\Messengers\SampleMessenger.cs" />
     <Compile Include="Services\Messengers\Messages\GpuSampleAcquired.cs" />
     <Compile Include="Services\Messengers\Messages\RamSampleAcquired.cs" />
@@ -157,7 +157,6 @@
     <Compile Include="Connection\ConnectionChangedEventArgs.cs" />
     <Compile Include="Connection\SystemClient.cs" />
     <Compile Include="Connection\ClientBase.cs" />
-    <Compile Include="Connection\ISystemClient.cs" />
     <Compile Include="Connection\IClient.cs" />
     <Compile Include="Views\Main\MainPage.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -320,7 +319,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\Services\" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:PiFormance.Controls"
-    xmlns:converters="using:PiFormance.Controls.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -16,8 +15,6 @@
 				<ResourceDictionary Source="../TextStyles.xaml" />
 				<ResourceDictionary Source="../QuantityTemplates.xaml" />
 			</ResourceDictionary.MergedDictionaries>
-
-			<converters:StringFormatConverter x:Key="StringFormatConverter" />
 		</ResourceDictionary>
 	</UserControl.Resources>
 
@@ -46,10 +43,11 @@
 				<RowDefinition />
 				<RowDefinition />
 				<RowDefinition />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition MinWidth="95"/>
+				<ColumnDefinition MinWidth="110"/>
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
@@ -61,7 +59,7 @@
 
 			<TextBlock Grid.Row="1"
 			           Grid.Column="0"
-			           Text="Clockspeed:"
+			           Text="Clock Speed"
 			           Style="{StaticResource NormalTextStyle}"/>
 
 			<ContentControl Grid.Row="1"
@@ -72,11 +70,22 @@
 
 			<TextBlock Grid.Row="2"
 			           Grid.Column="0"
-			           Text="Load:"
-			           VerticalAlignment="Stretch"
+			           Text="Temperature"
 			           Style="{StaticResource NormalTextStyle}"/>
 
 			<ContentControl Grid.Row="2"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource TemperatureTemplate}"
+			                DataContext="{Binding Path=Temperature, Mode=OneWay}"/>
+
+			<TextBlock Grid.Row="3"
+			           Grid.Column="0"
+			           Text="Load"
+			           VerticalAlignment="Stretch"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="3"
 			                Grid.Column="1"
 			                HorizontalAlignment="Right"
 			                ContentTemplate="{StaticResource LoadTemplate}"

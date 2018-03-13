@@ -5,14 +5,106 @@
     xmlns:local="using:PiFormance.Client.Views.Gpu"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:PiFormance.Controls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../TextStyles.xaml" />
+				<ResourceDictionary Source="../QuantityTemplates.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
 
-	    <Grid>
-		    <TextBlock>VRAM</TextBlock>
-	    </Grid>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="5"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock Text="VRAM"
+		           VerticalAlignment="Center"
+		           Style="{StaticResource HeaderStyle}"/>
+
+		<Grid Grid.Row="0"
+		      Grid.Column="2"
+		      VerticalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition MinWidth="95"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Grid.Row="0"
+			           Grid.Column="0"
+			           Text="Available"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="0"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource MemoryTemplate}"
+			                DataContext="{Binding Path=AvailableMemory, Mode=OneWay}"/>
+
+			<TextBlock Grid.Row="1"
+			           Grid.Column="0"
+			           Text="Reserved"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="1"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource MemoryTemplate}"
+			                DataContext="{Binding Path=ReservedMemory, Mode=OneWay}"/>
+
+			<TextBlock Grid.Row="2"
+			           Grid.Column="0"
+			           Text="Total"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="2"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource MemoryTemplate}"
+			                DataContext="{Binding Path=TotalMemory, Mode=OneWay}"/>
+
+			<TextBlock Grid.Row="3"
+			           Grid.Column="0"
+			           Text="In Use"
+			           VerticalAlignment="Stretch"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="3"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource LoadTemplate}"
+			                DataContext="{Binding Path=Ratio, Mode=OneWay}"/>
+		</Grid>
+
+		<controls:ValueBar Grid.Row="1"
+		                   Grid.Column="0"
+		                   Grid.ColumnSpan="4"
+		                   VerticalAlignment="Stretch"
+		                   MinHeight="40"
+						   Minimum="0"
+						   Value="{Binding Path=Ratio.Value, Mode=OneWay}"
+		                   Maximum="100"
+						   Margin="0,0,-10,0"/>
 	</Grid>
 </UserControl>

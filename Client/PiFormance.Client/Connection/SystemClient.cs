@@ -20,7 +20,7 @@
 		{
 			return await SecureAsyncCall(() => ServiceClient.GetGpuSampleAsync());
 		}
-		
+
 		public async Task<RamSample> GetRamSampleAsync()
 		{
 			return await SecureAsyncCall(() => ServiceClient.GetRamSampleAsync());

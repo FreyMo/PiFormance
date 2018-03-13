@@ -41,16 +41,17 @@
 				<RowDefinition />
 				<RowDefinition />
 				<RowDefinition />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 			
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition MinWidth="95"/>
+				<ColumnDefinition MinWidth="110"/>
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
 			<TextBlock Grid.Row="0"
 			           Grid.Column="0"
-			           Text="Available:"
+			           Text="Available"
 			           Style="{StaticResource NormalTextStyle}"/>
 
 			<ContentControl Grid.Row="0"
@@ -61,22 +62,33 @@
 
 			<TextBlock Grid.Row="1"
 			           Grid.Column="0"
-			           Text="Total:"
+			           Text="Reserved"
 			           Style="{StaticResource NormalTextStyle}"/>
 
 			<ContentControl Grid.Row="1"
 			                Grid.Column="1"
 			                HorizontalAlignment="Right"
 			                ContentTemplate="{StaticResource MemoryTemplate}"
-			                DataContext="{Binding Path=TotalMemory, Mode=OneWay}"/>
+			                DataContext="{Binding Path=ReservedMemory, Mode=OneWay}"/>
 
 			<TextBlock Grid.Row="2"
 			           Grid.Column="0"
-			           Text="In Use:"
-			           VerticalAlignment="Stretch"
+			           Text="Total"
 			           Style="{StaticResource NormalTextStyle}"/>
 
 			<ContentControl Grid.Row="2"
+			                Grid.Column="1"
+			                HorizontalAlignment="Right"
+			                ContentTemplate="{StaticResource MemoryTemplate}"
+			                DataContext="{Binding Path=TotalMemory, Mode=OneWay}"/>
+
+			<TextBlock Grid.Row="3"
+			           Grid.Column="0"
+			           Text="In Use"
+			           VerticalAlignment="Stretch"
+			           Style="{StaticResource NormalTextStyle}"/>
+
+			<ContentControl Grid.Row="3"
 			                Grid.Column="1"
 			                HorizontalAlignment="Right"
 			                ContentTemplate="{StaticResource LoadTemplate}"

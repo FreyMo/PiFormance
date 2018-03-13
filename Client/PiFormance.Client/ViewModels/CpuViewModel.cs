@@ -5,6 +5,7 @@
 	using Core.Standard.Messenger.Messenger;
 	using Core.Standard.Quantities.FrequencyQuantity;
 	using Core.Standard.Quantities.RatioQuantity;
+	using Core.Standard.Quantities.TemperatureQuantity;
 	using Services.Messengers;
 	using Services.Messengers.Messages;
 
@@ -26,6 +27,7 @@
 			CpuName = message.CpuSample.Name;
 			TotalLoad.Value = message.CpuSample.TotalUsage.Load.In<Percent>().Value;
 			ClockSpeed.Value = message.CpuSample.ClockSpeed.In<GigaHertz>().Value;
+			Temperature.Value = message.CpuSample.PackageTemperature.In<Celsius>().Value;
 		}
 
 		public string CpuName
@@ -37,5 +39,7 @@
 		public Ratio TotalLoad { get; } = new Ratio(0, Percent.Instance);
 
 		public Frequency ClockSpeed { get; } = new Frequency(0, GigaHertz.Instance);
+
+		public Temperature Temperature { get; } = new Temperature(0, Celsius.Instance);
 	}
 }

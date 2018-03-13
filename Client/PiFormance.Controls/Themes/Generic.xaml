@@ -97,6 +97,14 @@
 
 									<core:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}"
 									                          ComparisonCondition="Equal"
+									                          Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}">
+										<core:DataTriggerBehavior.Actions>
+											<media:ControlStoryboardAction Storyboard="{StaticResource ValueBarAnimation}" />
+										</core:DataTriggerBehavior.Actions>
+									</core:DataTriggerBehavior>
+
+									<core:DataTriggerBehavior Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value}"
+									                          ComparisonCondition="Equal"
 									                          Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Maximum}">
 										<core:DataTriggerBehavior.Actions>
 											<media:ControlStoryboardAction Storyboard="{StaticResource ValueBarColorAnimation}" />
