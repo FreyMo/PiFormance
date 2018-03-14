@@ -53,7 +53,7 @@
 
 			<TextBlock Grid.Row="0"
 			           Grid.Column="0"
-			           Text="Available"
+			           Text="Free"
 			           Style="{StaticResource NormalTextStyle}"/>
 
 			<ContentControl Grid.Row="0"

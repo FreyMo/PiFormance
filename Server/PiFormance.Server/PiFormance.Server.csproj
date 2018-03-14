@@ -27,7 +27,7 @@
     <PublisherName>Moritz</PublisherName>
     <SuiteName>PiFormance</SuiteName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>33</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -54,16 +54,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7D06FC04B5EEBA84A0CBEEB45A969FFE3784713B</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>5FD56F10A20C42E8051B2DDFCD6B675B2D220D92</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PiFormance.Server_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -77,9 +78,16 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.8.0.0, Culture=neutral, PublicKeyToken=c416bc1b32d97233, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TaskScheduler.2.8.0\lib\net452\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
@@ -111,6 +119,7 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="PiFormance.Server_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
