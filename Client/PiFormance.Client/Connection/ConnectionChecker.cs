@@ -8,7 +8,7 @@
 	{
 		public IPAddress GetServerAddress()
 		{
-			return Dns.GetHostAddresses("JANA-PC").Single(x => x.AddressFamily == AddressFamily.InterNetwork);
+			return Dns.GetHostAddresses("MORITZ-PC").Single(x => x.AddressFamily == AddressFamily.InterNetwork);
 		}
 
 		private IPAddress GetLocalIpAddress()
