@@ -20,7 +20,7 @@
     <PackageCertificateKeyFile>PiFormance.Client_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
     <PackageCertificateThumbprint>F18293504693CE37D0B47CAC83671F18C9A30E97</PackageCertificateThumbprint>
   </PropertyGroup>

@@ -30,9 +30,12 @@
 		{
 			var ipAddress = new ConnectionChecker().GetServerAddress();
 
-			Client = new SystemServiceClient(
-				new NetTcpBinding(SecurityMode.None),
-				new EndpointAddress("net.tcp://" + ipAddress + ":8749/PiFormance/"));
+			var binding = new NetTcpBinding(SecurityMode.None);
+			binding.Security.Message.ClientCredentialType = MessageCredentialType.None;
+			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.None;
+
+			// Client = new SystemServiceClient(binding, new EndpointAddress("net.tcp://" + ipAddress + ":8749/PiFormance/"));
+			Client = new SystemServiceClient(binding, new EndpointAddress("net.tcp://localhost:8749/PiFormance/"));
 			Connect();
 		}
 
