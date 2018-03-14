@@ -27,8 +27,8 @@
     <PublisherName>Moritz</PublisherName>
     <SuiteName>PiFormance</SuiteName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>33</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.8.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -92,9 +92,10 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutostartProvider.cs" />
-    <Compile Include="Console\ConsoleNativeMethods.cs" />
-    <Compile Include="Console\ConsolePresenter.cs" />
+    <Compile Include="Functional\AdminElevator.cs" />
+    <Compile Include="Functional\AutostartProvider.cs" />
+    <Compile Include="Functional\ConsoleNativeMethods.cs" />
+    <Compile Include="Functional\ConsolePresenter.cs" />
     <Compile Include="HardwareAccess\Wrappers\GpuSensorWrapper.cs" />
     <Compile Include="HardwareAccess\Wrappers\CpuSensorWrapper.cs" />
     <Compile Include="HardwareAccess\GpuAccess.cs" />

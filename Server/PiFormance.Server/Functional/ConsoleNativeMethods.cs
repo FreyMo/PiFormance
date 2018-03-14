@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Server.Console
+﻿namespace PiFormance.Server.Functional
 {
 	using System;
 	using System.Runtime.InteropServices;
