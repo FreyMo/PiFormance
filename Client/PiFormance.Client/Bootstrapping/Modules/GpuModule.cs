@@ -2,7 +2,7 @@
 {
 	using Core.IoC.Definitions.Container;
 	using Core.IoC.Definitions.Module;
-	using Services.Cpu;
+	using Services.Providers;
 	using ViewModels.Gpu;
 
 	public class GpuModule : IoCModuleBase

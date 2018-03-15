@@ -19,7 +19,7 @@
 
 		public void ShowConsole()
 		{
-			if (true)
+			if (false)
 			{
 				_consoleNativeMethods.AllocateConsole();
 

@@ -3,8 +3,8 @@
 	using Connection;
 	using Core.IoC.Definitions.Container;
 	using Core.IoC.Definitions.Module;
-	using Services.Cpu;
 	using Services.Messengers;
+	using Services.Providers;
 	using Services.Timing;
 	using ViewModels;
 

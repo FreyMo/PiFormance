@@ -31,6 +31,8 @@
 			var cores = _coreLoadCounters.Select(
 				counter => new LogicalCore(int.Parse(counter.InstanceName), ((double)counter.NextValue()).Percent()));
 
+			_cpu.UpdateSensors();
+
 			return new CpuSample(
 				_cpu.GetCpuName(),
 				_cpu.GetClockSpeed(),

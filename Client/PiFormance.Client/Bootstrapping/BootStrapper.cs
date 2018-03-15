@@ -30,6 +30,7 @@
 		{
 			_container.Load(new CpuModule(_container));
 			_container.Load(new GpuModule(_container));
+			_container.Load(new SettingsModule(_container));
 		}
 	}
 }

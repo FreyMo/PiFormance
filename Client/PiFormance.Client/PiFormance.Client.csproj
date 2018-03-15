@@ -20,8 +20,8 @@
     <PackageCertificateKeyFile>PiFormance.Client_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
+    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <PackageCertificateThumbprint>F18293504693CE37D0B47CAC83671F18C9A30E97</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -103,6 +103,7 @@
     <Compile Include="Bootstrapping\BootStrapper.cs" />
     <Compile Include="Bootstrapping\Modules\CpuModule.cs" />
     <Compile Include="Bootstrapping\Modules\GpuModule.cs" />
+    <Compile Include="Bootstrapping\Modules\SettingsModule.cs" />
     <Compile Include="Connected Services\Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +124,7 @@
     <Compile Include="ViewModels\Gpu\GpuLoadsViewModel.cs" />
     <Compile Include="ViewModels\Gpu\GpuViewModel.cs" />
     <Compile Include="ViewModels\Gpu\VRamViewModel.cs" />
+    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="Views\Gpu\GpuClocksControl.xaml.cs">
       <DependentUpon>GpuClocksControl.xaml</DependentUpon>
     </Compile>
@@ -137,6 +139,9 @@
     </Compile>
     <Compile Include="Views\Gpu\VramControl.xaml.cs">
       <DependentUpon>VramControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewModelLocator\ViewModelLocatorExtension.cs" />
     <Compile Include="Views\Main\MainPageLocatorExtension.cs" />
@@ -281,6 +286,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Settings\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TextStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -311,6 +320,10 @@
     <ProjectReference Include="..\PiFormance.Controls\PiFormance.Controls.csproj">
       <Project>{58253103-2e00-49db-b12a-e5d37c3deb6d}</Project>
       <Name>PiFormance.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdParty\TouchPanels\TouchPanels.csproj">
+      <Project>{8220B292-CF54-43AF-8873-5AD16715FC8A}</Project>
+      <Name>TouchPanels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

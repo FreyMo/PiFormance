@@ -39,6 +39,11 @@
 			_busClockSensor = _cpu.Sensors.FirstOrDefault(x => x.SensorType == SensorType.Clock && x.Name.Contains("Bus"));
 		}
 
+		public void UpdateSensors()
+		{
+			_cpu.Update();
+		}
+
 		public string GetCpuName()
 		{
 			return _cpu.Name;
@@ -46,8 +51,6 @@
 
 		public IEnumerable<Temperature> GetCoreTemperatures()
 		{
-			_cpu.Update();
-
 			foreach (var sensor in _coreTemperatureSensors)
 			{
 				yield return sensor.GetSensorData<Temperature, Celsius>();
@@ -56,22 +59,16 @@
 
 		public Temperature GetPackageTemperature()
 		{
-			_cpu.Update();
-
 			return _packageSensor.GetSensorData<Temperature, Celsius>();
 		}
 
 		public Frequency GetClockSpeed()
 		{
-			_cpu.Update();
-
 			return _clockSensor.GetSensorData<Frequency, MegaHertz>();
 		}
 
 		public Frequency GetBusSpeed()
 		{
-			_cpu.Update();
-
 			return _busClockSensor.GetSensorData<Frequency, MegaHertz>();
 		}
 	}

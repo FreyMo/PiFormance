@@ -79,6 +79,11 @@
 			_memoryTotalSensor = memorySensors.FirstOrDefault(sensor => sensor.Name.Contains("Total"));
 		}
 
+		public void UpdateSensors()
+		{
+			_gpu.Update();
+		}
+
 		public string GetGpuName()
 		{
 			return _gpu.Name;
@@ -86,8 +91,6 @@
 
 		public GpuClocks GetGpuClocks()
 		{
-			_gpu.Update();
-
 			var coreClock = _coreClockSensor.GetSensorData<Frequency, MegaHertz>();
 			var memoryClock = _memoryClockSensor.GetSensorData<Frequency, MegaHertz>();
 			var shaderClock = _shaderClockSensor.GetSensorData<Frequency, MegaHertz>();
@@ -97,8 +100,6 @@
 
 		public GpuLoads GetGpuLoads()
 		{
-			_gpu.Update();
-
 			var coreLoad = _coreLoadSensor.GetSensorData<Ratio, Percent>();
 			var memoryControllerLoad = _memoryControllerLoadSensor.GetSensorData<Ratio, Percent>();
 			var videoEngineLoad = _videoEngineLoadSensor.GetSensorData<Ratio, Percent>();
@@ -108,8 +109,6 @@
 
 		public GpuMemories GetGpuMemories()
 		{
-			_gpu.Update();
-
 			var availableMemory = _memoryAvailableSensor.GetSensorData<Memory, MebiByte>();
 			var usedMemory = _memoryUsedSensor.GetSensorData<Memory, MebiByte>();
 			var totalMemory = _memoryTotalSensor.GetSensorData<Memory, MebiByte>();
@@ -119,8 +118,6 @@
 
 		public Temperature GetCoreTemperature()
 		{
-			_gpu.Update();
-
 			return _gpuTemperatureSensor.GetSensorData<Temperature, Celsius>();
 		}
 	}

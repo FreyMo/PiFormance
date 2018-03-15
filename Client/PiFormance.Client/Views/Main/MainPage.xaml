@@ -8,6 +8,7 @@
     xmlns:cpu="using:PiFormance.Client.Views.Cpu"
     xmlns:main="using:PiFormance.Client.Views.Main"
     xmlns:gpu="using:PiFormance.Client.Views.Gpu"
+    xmlns:settings="using:PiFormance.Client.Views.Settings"
     mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance viewModels:MainPageViewModel, IsDesignTimeCreatable=True}"
 	UseLayoutRounding="True" 
@@ -17,7 +18,8 @@
 		<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 			    Height="480"
 			    Width="800">
-			<Pivot >
+
+			<Pivot ManipulationMode="None">
 				<PivotItem Margin="0" Header="CPU">
 					<Grid Background="#FF222222">
 						<cpu:SystemView Margin="2,0,0,0" />
@@ -32,27 +34,10 @@
 				</PivotItem>
 
 				<PivotItem Margin="0"
-				           Header="Settings">
+						   Header="Settings">
 					<Grid Background="#FF222222">
-						
-						<Grid.RowDefinitions>
-							<RowDefinition />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<TextBox Header="Machine name"
-								 MinWidth="150"
-							VerticalAlignment="Bottom"
-						         HorizontalAlignment="Center" PlaceholderText="Enter a machine name">
-							<TextBox.HeaderTemplate>
-								<DataTemplate>
-									<TextBlock Foreground="White" Text="{Binding}" HorizontalTextAlignment="Center"/>
-								</DataTemplate>
-							</TextBox.HeaderTemplate>
-						</TextBox>
-
-						<Button Grid.Row="1"
-						        VerticalAlignment="Top"
-						        HorizontalAlignment="Center">Submit</Button>
+						<settings:SettingsView Margin="2,0,0,0"
+						                       DataContext="{Binding Path=SettingsViewModel}"/>
 					</Grid>
 				</PivotItem>
 			</Pivot>

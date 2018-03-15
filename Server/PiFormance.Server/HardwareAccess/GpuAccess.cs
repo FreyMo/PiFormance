@@ -17,6 +17,8 @@
 
 		public GpuSample GetGpuSample()
 		{
+			_gpu.UpdateSensors();
+
 			return new GpuSample(
 				_gpu.GetGpuName(),
 				_gpu.GetGpuClocks(),

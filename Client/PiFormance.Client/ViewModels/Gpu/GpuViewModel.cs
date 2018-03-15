@@ -6,9 +6,9 @@
 	using Core.Standard.Quantities.FrequencyQuantity;
 	using Core.Standard.Quantities.RatioQuantity;
 	using Core.Standard.Quantities.TemperatureQuantity;
-	using Services.Cpu;
 	using Services.Messengers;
 	using Services.Messengers.Messages;
+	using Services.Providers;
 
 	public class GpuViewModel : ViewModel, ISubscriberTo<GpuSampleAcquired>
 	{

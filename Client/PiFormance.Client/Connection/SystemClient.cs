@@ -2,6 +2,7 @@
 {
 	using System.ServiceModel;
 	using System.Threading.Tasks;
+	using Connected_Services.Services;
 	using ServiceContracts.Cpu;
 	using ServiceContracts.Gpu;
 	using ServiceContracts.Memory;

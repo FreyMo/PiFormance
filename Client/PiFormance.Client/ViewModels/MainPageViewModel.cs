@@ -3,6 +3,7 @@
 	using Base;
 	using Core.Standard.ArgumentMust;
 	using Gpu;
+	using Settings;
 
 	public class MainPageViewModel : ViewModel
 	{
@@ -13,7 +14,8 @@
 			GpuViewModel gpuViewModel,
 			GpuClocksViewModel gpuClocksViewModel,
 			VRamViewModel vRamViewModel,
-			GpuLoadsViewModel gpuLoadsViewModel)
+			GpuLoadsViewModel gpuLoadsViewModel,
+			SettingsViewModel settingsViewModel)
 		{
 			ArgumentMust.NotBeNull(() => coresViewModel);
 			ArgumentMust.NotBeNull(() => cpuViewModel);
@@ -22,6 +24,7 @@
 			ArgumentMust.NotBeNull(() => gpuClocksViewModel);
 			ArgumentMust.NotBeNull(() => vRamViewModel);
 			ArgumentMust.NotBeNull(() => gpuLoadsViewModel);
+			ArgumentMust.NotBeNull(() => settingsViewModel);
 
 			CoresViewModel = coresViewModel;
 			CpuViewModel = cpuViewModel;
@@ -30,6 +33,7 @@
 			GpuClocksViewModel = gpuClocksViewModel;
 			VRamViewModel = vRamViewModel;
 			GpuLoadsViewModel = gpuLoadsViewModel;
+			SettingsViewModel = settingsViewModel;
 		}
 
 		public CoresViewModel CoresViewModel { get; }
@@ -45,5 +49,7 @@
 		public VRamViewModel VRamViewModel { get; }
 
 		public GpuLoadsViewModel GpuLoadsViewModel { get; }
+
+		public SettingsViewModel SettingsViewModel { get; }
 	}
 }

@@ -19,7 +19,7 @@
 
 		private void SetupTimer()
 		{
-			var timer = new System.Timers.Timer(1000)
+			var timer = new System.Timers.Timer(1200)
 			{
 				AutoReset = true
 			};

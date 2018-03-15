@@ -5,9 +5,9 @@
 	using Core.Standard.Messenger.Messenger;
 	using Core.Standard.Quantities.MemoryQuantity;
 	using Core.Standard.Quantities.RatioQuantity;
-	using Services.Cpu;
 	using Services.Messengers;
 	using Services.Messengers.Messages;
+	using Services.Providers;
 
 	public class RamViewModel : ViewModel, ISubscriberTo<RamSampleAcquired>
 	{

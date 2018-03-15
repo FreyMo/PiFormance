@@ -1,4 +1,4 @@
-﻿namespace PiFormance.Client.Services.Cpu
+﻿namespace PiFormance.Client.Services.Providers
 {
 	using Connection;
 	using Core.Standard.ArgumentMust;

@@ -8,9 +8,9 @@
 	using Core.Standard.Messenger.Messenger;
 	using Core.Standard.Quantities.RatioQuantity;
 	using ServiceContracts.Cpu;
-	using Services.Cpu;
 	using Services.Messengers;
 	using Services.Messengers.Messages;
+	using Services.Providers;
 
 	public class CoresViewModel : ViewModel, ISubscriberTo<CpuSampleAcquired>
 	{
