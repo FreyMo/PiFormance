@@ -2,11 +2,10 @@
 {
 	using System;
 	using System.Collections.Generic;
-	using System.Linq;
 	using System.Threading.Tasks;
 	using Windows.Foundation;
+	using Windows.System.Profile;
 	using Windows.UI.Input.Preview.Injection;
-	using Windows.UI.Popups;
 	using Windows.UI.Xaml.Automation;
 	using Windows.UI.Xaml.Automation.Provider;
 	using Windows.UI.Xaml.Controls;
@@ -28,12 +27,13 @@
 			InitializeComponent();
 		}
 
-		protected override async void OnNavigatedTo(NavigationEventArgs e)
+		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 			base.OnNavigatedTo(e);
 
-			// await new MessageDialog("MESSAGE", "Title").ShowAsync();
-			Init();
+			{
+				Init();
+			}
 		}
 
 		protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -71,12 +71,20 @@
 		private void TouchedDown(object sender, PointerEventArgs e)
 		{
 			var inputInjector = InputInjector.TryCreate();
+			
+			ushort x = 0;
+			ushort y = 0;
 
-			var xNormalized = e.Position.X / 800.0;
-			double xNormalizedInUint = xNormalized * ushort.MaxValue;
-
-			var x = Convert.ToUInt16(xNormalizedInUint);
-			var y = Convert.ToUInt16((e.Position.Y / 480.0) * ushort.MaxValue);
+			try
+			{
+				x = Convert.ToUInt16(e.Position.X / 800.0 * ushort.MaxValue);
+				y = Convert.ToUInt16(e.Position.Y / 480.0 * ushort.MaxValue);
+			}
+			catch (OverflowException)
+			{
+				x = ushort.MaxValue;
+				y = ushort.MaxValue;
+			}
 
 			var data = (uint)(x << 16) | (uint)(y << 0);
 

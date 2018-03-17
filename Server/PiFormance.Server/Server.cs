@@ -60,7 +60,7 @@
 		{
 			while (true)
 			{
-				Thread.Sleep(200);
+				Thread.Sleep(500);
 			}
 		}
 	}

@@ -17,8 +17,14 @@
 		{
 			_bootstrapper = new Bootstrapper();
 
+			UnhandledException += App_UnhandledException;
+
 			InitializeComponent();
 			Suspending += OnSuspending;
+		}
+
+		void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+		{
 		}
 
 		protected override void OnLaunched(LaunchActivatedEventArgs e)
