@@ -14,58 +14,63 @@
 		<ResourceDictionary Source="../TextStyles.xaml" />
 	</UserControl.Resources>
 
-    <Grid UseLayoutRounding="True">
-	    <Grid.RowDefinitions>
+	<Grid>
+		<Grid.RowDefinitions>
 			<RowDefinition />
-			<RowDefinition />
-		    <RowDefinition Height="20"/>
+			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 
-	    <Grid.ColumnDefinitions>
-		    <ColumnDefinition />
-			<ColumnDefinition />
-	    </Grid.ColumnDefinitions>
+		<Viewbox Grid.Row="1"
+		         VerticalAlignment="Bottom">
+			<Grid UseLayoutRounding="True"
+			      RowSpacing="5">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
 
-		<Viewbox Stretch="Uniform"
-			Grid.Column="0"
-			Grid.Row="0"
-			Margin="5,0,10,5"
-			VerticalAlignment="Center">
-			<cpu:CpuControl DataContext="{Binding Path=CpuViewModel}"/>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+
+				<cpu:CpuControl DataContext="{Binding Path=CpuViewModel}"
+					            Grid.Column="0"
+					            Grid.Row="0"
+					            Margin="5,0,10,5"
+				                MinWidth="305"
+					            HorizontalAlignment="Stretch"/>
+
+				<cpu:RamControl DataContext="{Binding Path=RamViewModel}"
+					            Grid.Column="1"
+					            Grid.Row="0"
+					            Margin="0,0,10,5"
+				                MinWidth="305"
+					            HorizontalAlignment="Stretch"/>
+
+				<gpu:GpuControl DataContext="{Binding Path=GpuViewModel, Mode=OneWay}"
+					            Grid.Row="1"
+					            Grid.Column="0"
+					            Margin="5,0,10,5"
+				                MinWidth="305"
+					            HorizontalAlignment="Stretch"/>
+
+				<gpu:VramControl DataContext="{Binding Path=VRamViewModel, Mode=OneWay}"
+					             Grid.Row="1"
+					             Grid.Column="1"
+					             Margin="0,0,10,5"
+				                 MinWidth="305"
+					             HorizontalAlignment="Stretch" />
+			</Grid>
 		</Viewbox>
 
-		<Viewbox Stretch="Uniform"
-		         Grid.Column="1"
-		         Grid.Row="0"
-		         Margin="0,2,10,5"
-		         VerticalAlignment="Center">
-			<cpu:RamControl DataContext="{Binding Path=RamViewModel}" />
-		</Viewbox>
-
-		<Viewbox Stretch="Uniform"
-		         Grid.Row="1"
-		         Grid.Column="0"
-		         Margin="5,0,10,5"
-		         VerticalAlignment="Center">
-			<gpu:GpuControl DataContext="{Binding Path=GpuViewModel, Mode=OneWay}" />
-		</Viewbox>
-
-		<Viewbox Stretch="Uniform"
-		         Grid.Row="1"
-		         Grid.Column="1"
-		         Margin="0,7,10,5"
-		         VerticalAlignment="Center">
-			<gpu:VramControl DataContext="{Binding Path=VRamViewModel, Mode=OneWay}" />
-		</Viewbox>
-
-		<TextBlock Grid.Row="2"
+		<TextBlock Grid.Row="0"
 		           Grid.Column="0"
-		           Grid.ColumnSpan="2"
 		           HorizontalAlignment="Center"
-				   VerticalAlignment="Top"
-				   Margin="0,-12,0,0"
+		           VerticalAlignment="Center"
 		           Text="© Moritz Freyburger 2018"
 		           Style="{StaticResource CopyrightStyle}"/>
 	</Grid>
+
 </UserControl>
  
