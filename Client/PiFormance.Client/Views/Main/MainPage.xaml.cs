@@ -31,6 +31,7 @@
 		{
 			base.OnNavigatedTo(e);
 
+			if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.IoT")
 			{
 				Init();
 			}

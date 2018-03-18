@@ -24,6 +24,12 @@
 		<Setter Property="FontSize" Value="13" />
 	</Style>
 
+	<Style TargetType="TextBlock" x:Key="CopyrightStyle">
+		<Setter Property="FontSize" Value="11" />
+		<Setter Property="FontStyle" Value="Italic" />
+		<Setter Property="Foreground" Value="#88FFFFFF" />
+	</Style>
+
 	<Style TargetType="TextBlock" x:Key="NameTextStyle" BasedOn="{StaticResource NormalTextStyle}">
 		<Setter Property="FontStyle" Value="Italic" />
 		<Setter Property="FontWeight" Value="SemiBold" />

@@ -12,7 +12,7 @@
 	<converters:StringFormatConverter x:Key="StringFormatConverter" />
 
 	<DataTemplate x:Key="LogicalCoreDataTemplate">
-		<Grid MinHeight="40"
+		<Grid MinHeight="39"
 			  MinWidth="350"
 			  UseLayoutRounding="True">
 			<Grid.ColumnDefinitions>

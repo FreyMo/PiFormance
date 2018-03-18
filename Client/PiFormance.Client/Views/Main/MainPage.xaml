@@ -9,10 +9,15 @@
     xmlns:main="using:PiFormance.Client.Views.Main"
     xmlns:gpu="using:PiFormance.Client.Views.Gpu"
     xmlns:settings="using:PiFormance.Client.Views.Settings"
+    xmlns:overview="using:PiFormance.Client.Views.Overview"
     mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance viewModels:MainPageViewModel, IsDesignTimeCreatable=True}"
 	UseLayoutRounding="True" 
 	DataContext="{main:MainPageLocator}">
+	
+	<Page.Resources>
+		<ResourceDictionary Source="../TextStyles.xaml" />
+	</Page.Resources>
 
 	<Viewbox Stretch="Uniform">
 		<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -33,6 +38,12 @@
 					</Grid>
 				</PivotItem>
 
+				<PivotItem Margin="0" Header="Overview">
+					<Grid Background="#FF222222">
+						<overview:OverviewView Margin="2,0,0,0" />
+					</Grid>
+				</PivotItem>
+
 				<PivotItem Margin="0"
 						   Header="Settings">
 					<Grid Background="#FF222222">
@@ -41,6 +52,11 @@
 					</Grid>
 				</PivotItem>
 			</Pivot>
+
+			<TextBlock Text="© Moritz Freyburger 2018"
+			           HorizontalAlignment="Right"
+			           Margin="15"
+			           Style="{StaticResource CopyrightStyle}" />
 		</Grid>
 	</Viewbox>
 </Page>

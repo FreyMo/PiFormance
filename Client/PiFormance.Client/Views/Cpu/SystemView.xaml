@@ -37,11 +37,14 @@
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<cpu:RamControl DataContext="{Binding Path=RamViewModel}"
-			                Margin="5,-5,10,5"/>
 			<cpu:CpuControl DataContext="{Binding Path=CpuViewModel}"
-							Margin="0,-5,10,5"
-			                Grid.Column="1" />
+							Margin="5,0,10,5"
+			                Grid.Column="0"
+			                VerticalAlignment="Bottom"/>
+			<cpu:RamControl DataContext="{Binding Path=RamViewModel}"
+			                Margin="0,0,10,5"
+			                Grid.Column="1"
+			                VerticalAlignment="Bottom"/>
 		</Grid>
 	</Grid>
 </UserControl>

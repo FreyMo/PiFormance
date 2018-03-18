@@ -140,6 +140,9 @@
     <Compile Include="Views\Gpu\VramControl.xaml.cs">
       <DependentUpon>VramControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Overview\OverviewView.xaml.cs">
+      <DependentUpon>OverviewView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -163,7 +166,7 @@
     <Compile Include="Connection\SystemClient.cs" />
     <Compile Include="Connection\ClientBase.cs" />
     <Compile Include="Connection\IClient.cs" />
-    <Compile Include="Views\Main\MainPage.cs">
+    <Compile Include="Views\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Cpu\RamControl.xaml.cs">
@@ -279,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Cpu\SystemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Overview\OverviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

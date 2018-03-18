@@ -27,14 +27,14 @@
 	                           Grid.Column="0"
 	                           Grid.ColumnSpan="2"/>
 
-	    <local:VramControl DataContext="{Binding Path=VRamViewModel, Mode=OneWay}"
-	                       Grid.Row="2"
-	                       Grid.Column="0"
-	                       Margin="5,0,10,5"/>
-
 	    <local:GpuControl DataContext="{Binding Path=GpuViewModel, Mode=OneWay}"
 	                      Grid.Row="2"
-	                      Grid.Column="1"
-	                      Margin="0,0,10,5"/>
+	                      Grid.Column="0"
+	                      Margin="5,0,10,5"/>
+
+		<local:VramControl DataContext="{Binding Path=VRamViewModel, Mode=OneWay}"
+		                   Grid.Row="2"
+		                   Grid.Column="1"
+		                   Margin="0,0,10,5"/>
 	</Grid>
 </UserControl>
