@@ -55,7 +55,7 @@
 
 			<TextBlock Text="© Moritz Freyburger 2018"
 			           HorizontalAlignment="Right"
-			           Margin="15"
+			           Margin="18"
 			           Style="{StaticResource CopyrightStyle}" />
 		</Grid>
 	</Viewbox>
