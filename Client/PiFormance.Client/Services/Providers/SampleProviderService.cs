@@ -1,6 +1,6 @@
 ﻿namespace PiFormance.Client.Services.Providers
 {
-	using Connection;
+	using Client.Connection;
 	using Core.Standard.ArgumentMust;
 	using Messengers;
 

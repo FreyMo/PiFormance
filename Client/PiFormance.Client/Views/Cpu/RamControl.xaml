@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:PiFormance.Controls"
-    xmlns:converters="using:PiFormance.Controls.Converters"
     mc:Ignorable="d">
 
 	<UserControl.Resources>
@@ -26,9 +25,10 @@
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="*"
-			                  MinWidth="10"/>
-			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="5"/>
+			                  MinWidth="5"/>
+			<ColumnDefinition Width="Auto"
+			                  MinWidth="160"/>
+			<ColumnDefinition Width="3"/>
 		</Grid.ColumnDefinitions>
 
 		<TextBlock Text="RAM"
@@ -46,7 +46,7 @@
 			</Grid.RowDefinitions>
 			
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition MinWidth="100"/>
+				<ColumnDefinition MinWidth="90"/>
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 

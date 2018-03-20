@@ -28,9 +28,10 @@
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="*"
-			                  MinWidth="10"/>
-			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="5"/>
+			                  MinWidth="7"/>
+			<ColumnDefinition Width="Auto"
+			                  MinWidth="160"/>
+			<ColumnDefinition Width="3"/>
 		</Grid.ColumnDefinitions>
 
 		<TextBlock Text="VRAM"
@@ -48,7 +49,7 @@
 			</Grid.RowDefinitions>
 
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition MinWidth="100"/>
+				<ColumnDefinition MinWidth="90"/>
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 

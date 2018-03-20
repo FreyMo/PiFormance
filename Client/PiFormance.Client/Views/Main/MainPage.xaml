@@ -19,7 +19,8 @@
 		<ResourceDictionary Source="../TextStyles.xaml" />
 	</Page.Resources>
 
-	<Viewbox Stretch="Uniform">
+	<Viewbox Stretch="Uniform"
+	         x:Name="Viewbox">
 		<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 			    Height="480"
 			    Width="800">

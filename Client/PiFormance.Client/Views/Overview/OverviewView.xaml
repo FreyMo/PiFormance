@@ -20,8 +20,7 @@
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 
-		<Viewbox Grid.Row="1"
-		         VerticalAlignment="Bottom">
+		<Viewbox Grid.Row="1">
 			<Grid UseLayoutRounding="True"
 			      RowSpacing="5">
 				<Grid.RowDefinitions>

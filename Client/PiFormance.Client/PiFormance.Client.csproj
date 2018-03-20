@@ -110,6 +110,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connection\ConnectionChecker.cs" />
+    <Compile Include="Services\Connection\ConnectionSettingsService.cs" />
+    <Compile Include="Services\Messengers\ConnectionMessenger.cs" />
     <Compile Include="Services\Providers\CpuSampleProviderService.cs" />
     <Compile Include="Services\Providers\GpuSampleProviderService.cs" />
     <Compile Include="Services\Providers\SampleProviderService.cs" />
@@ -119,11 +121,14 @@
     <Compile Include="Services\Messengers\Messages\RamSampleAcquired.cs" />
     <Compile Include="Services\Messengers\Messages\CpuSampleAcquired.cs" />
     <Compile Include="Services\Messengers\Messages\SamplesShouldBeAcquired.cs" />
+    <Compile Include="Services\Messengers\Messages\ReconnectRequested.cs" />
+    <Compile Include="Services\Connection\ServerName.cs" />
     <Compile Include="Services\Timing\CpuSampleTimerService.cs" />
     <Compile Include="ViewModels\Gpu\GpuClocksViewModel.cs" />
     <Compile Include="ViewModels\Gpu\GpuLoadsViewModel.cs" />
     <Compile Include="ViewModels\Gpu\GpuViewModel.cs" />
     <Compile Include="ViewModels\Gpu\VRamViewModel.cs" />
+    <Compile Include="Services\Messengers\Messages\ServerNameChanged.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="Views\Gpu\GpuClocksControl.xaml.cs">
       <DependentUpon>GpuClocksControl.xaml</DependentUpon>
@@ -140,6 +145,8 @@
     <Compile Include="Views\Gpu\VramControl.xaml.cs">
       <DependentUpon>VramControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\DoubleExtensions.cs" />
+    <Compile Include="Services\TouchInputService.cs" />
     <Compile Include="Views\Overview\OverviewView.xaml.cs">
       <DependentUpon>OverviewView.xaml</DependentUpon>
     </Compile>

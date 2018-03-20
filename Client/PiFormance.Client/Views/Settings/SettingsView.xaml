@@ -10,17 +10,14 @@
 
 	<Grid  Background="#FF222222">
 		<Grid HorizontalAlignment="Center">
-			<Grid.RowDefinitions>
-				<RowDefinition />
-				<RowDefinition />
-				<RowDefinition Height="Auto"/>
-			</Grid.RowDefinitions>
-			<TextBox Header="Server name"
+			<TextBox x:Name="ServerNameTextBox"
+			         Header="Server name"
 			         MinWidth="200"
-			         VerticalAlignment="Bottom"
+			         VerticalAlignment="Center"
 			         HorizontalAlignment="Center"
 			         PlaceholderText="Enter a valid server name"
-			         Text="{Binding Path=ServerName, Mode=TwoWay}">
+			         Text="{Binding Path=ServerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+			         KeyDown="ServerNameTextBox_OnKeyDown">
 				<TextBox.HeaderTemplate>
 					<DataTemplate>
 						<TextBlock Foreground="White"
@@ -31,11 +28,8 @@
 				</TextBox.HeaderTemplate>
 			</TextBox>
 
-			<Button Grid.Row="1"
-			        VerticalAlignment="Top"
-			        HorizontalAlignment="Stretch"
-			        Margin="0,10,0,0"
-			        Content="Apply"
+			<Button x:Name="ApplyButton"
+					Visibility="Collapsed"
 			        Command="{Binding Path=ApplyAsyncCommand}"/>
 		</Grid>
 	</Grid>
