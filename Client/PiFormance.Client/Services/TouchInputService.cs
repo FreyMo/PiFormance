@@ -3,9 +3,7 @@
 	using System;
 	using System.Threading.Tasks;
 	using Windows.System.Profile;
-	using Windows.UI.Core;
 	using Windows.UI.Input.Preview.Injection;
-	using Windows.UI.Xaml;
 	using Core.Standard.Dispose;
 	using Core.Standard.Extensions;
 	using TouchPanels;
@@ -29,7 +27,6 @@
 
 				if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.IoT")
 				{
-					HideCursor();
 					_tsc2046 = await InitializeTouchControllerAsync();
 					_processor = InitializeTouchProcessor(_tsc2046);
 				}
@@ -60,12 +57,6 @@
 			processor.PointerUp += TouchedUp;
 
 			return processor;
-		}
-
-		private static void HideCursor()
-		{
-			// CoreWindow.GetForCurrentThread().PointerCursor = null;
-			// Window.Current.CoreWindow.PointerCursor = null;
 		}
 
 		private void TouchedDown(object sender, PointerEventArgs e)

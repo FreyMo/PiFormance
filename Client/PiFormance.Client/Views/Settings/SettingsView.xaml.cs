@@ -2,8 +2,6 @@
 {
 	using Windows.UI.Xaml.Controls;
 	using Windows.UI.Xaml.Input;
-	using Core.Standard.Extensions;
-	using ViewModels.Settings;
 
 	public sealed partial class SettingsView : UserControl
 	{
@@ -16,18 +14,20 @@
 		{
 			if (e.Key == Windows.System.VirtualKey.Enter)
 			{
-				ServerNameTextBox.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
+				if (FocusManager.GetFocusedElement() == ServerNameTextBox)
+				{
+					var isTabStop = ServerNameTextBox.IsTabStop;
+					ServerNameTextBox.IsTabStop = false;
+					ServerNameTextBox.IsEnabled = false;
+					ServerNameTextBox.IsEnabled = true;
+					ServerNameTextBox.IsTabStop = isTabStop;
 
-				// DIRTY HACK
-				//var viewModel = ServerNameTextBox.GetBindingExpression(TextBox.TextProperty)?.ParentBinding.Source.As<SettingsViewModel>();
-				//if (viewModel != null)
-				//{
-				//	viewModel.ServerName = ServerNameTextBox.Text;
-				//}
+					ServerNameTextBox.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
 
-				ApplyButton?.Command?.Execute(null);
+					ApplyButton.Command?.Execute(null);
 
-				e.Handled = true;
+					e.Handled = true;
+				}
 			}
 		}
 	}
