@@ -25,6 +25,14 @@
 		</TextBlock>
 	</DataTemplate>
 
+	<DataTemplate x:Key="LoadTemplateOverview">
+		<TextBlock TextAlignment="Right"
+		           Style="{StaticResource OverviewTextStyle}">
+			<Run Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource QuantityStringFormatConverter}, ConverterParameter='\{0,4:0.0\}'}"/>
+			<Run Text="{Binding Path=UnitSymbol}" />
+		</TextBlock>
+	</DataTemplate>
+
 	<DataTemplate x:Key="ClockTemplate">
 		<TextBlock TextAlignment="Right"
 		           Style="{StaticResource NormalTextStyle}">
@@ -33,9 +41,25 @@
 		</TextBlock>
 	</DataTemplate>
 
+	<DataTemplate x:Key="ClockTemplateOverview">
+		<TextBlock TextAlignment="Right"
+		           Style="{StaticResource OverviewTextStyle}">
+			<Run Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource QuantityStringFormatConverter}, ConverterParameter='\{0:0.000\}'}"/>
+			<Run Text="{Binding Path=UnitSymbol}" />
+		</TextBlock>
+	</DataTemplate>
+
 	<DataTemplate x:Key="TemperatureTemplate">
 		<TextBlock TextAlignment="Right"
 		           Style="{StaticResource NormalTextStyle}">
+			<Run Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource QuantityStringFormatConverter}, ConverterParameter='\{0,2:0.0\}'}"/>
+			<Run Text="{Binding Path=UnitSymbol}" />
+		</TextBlock>
+	</DataTemplate>
+
+	<DataTemplate x:Key="TemperatureTemplateOverview">
+		<TextBlock TextAlignment="Right"
+		           Style="{StaticResource OverviewTextStyle}">
 			<Run Text="{Binding Path=Value, Mode=OneWay, Converter={StaticResource QuantityStringFormatConverter}, ConverterParameter='\{0,2:0.0\}'}"/>
 			<Run Text="{Binding Path=UnitSymbol}" />
 		</TextBlock>

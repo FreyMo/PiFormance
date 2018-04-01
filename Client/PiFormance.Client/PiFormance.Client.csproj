@@ -130,6 +130,9 @@
     <Compile Include="ViewModels\Gpu\VRamViewModel.cs" />
     <Compile Include="Services\Messengers\Messages\ServerNameChanged.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
+    <Compile Include="Views\Cpu\CpuOverviewControl.xaml.cs">
+      <DependentUpon>CpuOverviewControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Gpu\GpuClocksControl.xaml.cs">
       <DependentUpon>GpuClocksControl.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,9 @@
     </Compile>
     <Compile Include="Views\Gpu\GpuLoadsControl.xaml.cs">
       <DependentUpon>GpuLoadsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gpu\GpuOverviewControl.xaml.cs">
+      <DependentUpon>GpuOverviewControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Gpu\GpuView.xaml.cs">
       <DependentUpon>GpuView.xaml</DependentUpon>
@@ -260,6 +266,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Cpu\CpuOverviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Gpu\GpuClocksControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,6 +279,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Gpu\GpuLoadsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gpu\GpuOverviewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
